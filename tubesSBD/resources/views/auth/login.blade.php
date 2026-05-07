@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Dribbble</title>
+    <title>Sign In - Dribbble</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -43,8 +43,7 @@
                     <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm16.176 18.97c.092 1.08.13 2.186.102 3.308-3.238-.688-6.175-.754-8.784-.258-.324-.778-.656-1.55-.994-2.316 3.104-1.372 5.528-3.344 7.264-5.926 1.388 1.524 2.266 3.318 2.412 5.192zM20 2.88c3.786 0 7.242 1.392 9.894 3.686-1.578 2.356-3.792 4.136-6.668 5.346a77.23 77.23 0 00-5.26-9.03c.666-.038 1.344-.058 2.034-.058zM13.472 4.766a73.84 73.84 0 015.336 9.216c-3.882 1.042-8.404 1.374-13.584 1.004A16.302 16.302 0 0113.472 4.766zM2.88 20c0-.356.014-.71.042-1.06 5.744.432 10.762.038 15.032-1.17.28.626.552 1.254.814 1.89-4.88 1.44-8.948 4.304-12.204 8.59A16.25 16.25 0 012.88 20zm6.416 14.764a16.282 16.282 0 01-3.072-2.72c2.92-3.986 6.614-6.602 11.104-7.844 1.248 3.426 2.256 7.006 3.01 10.666a16.266 16.266 0 01-11.042-1.66zm13.976.712c-.704-3.444-1.642-6.804-2.81-10.046 2.432-.34 5.13-.174 8.112.51a16.282 16.282 0 01-5.302 9.536z"/>
                 </svg>
 
-                <h1 class="text-3xl font-bold mb-3">Welcome to Dribbble</h1>
-                <p class="text-black mb-8 leading-relaxed">Create your account and discover world-class design talent.</p>
+                <h1 class="text-3xl font-bold mb-3">Welcome back</h1>
 
                 <!-- Google Sign In Button (Generic) -->
 <button class="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-3.5 px-5 hover:bg-gray-50 transition mb-6 group">
@@ -77,7 +76,7 @@
 
                 <!-- Sign In Link -->
                 <p class="text-sm text-gray-500">
-                    Already have an account? <a href="#" class="font-medium text-dribbble-pink hover:underline">Sign in</a>
+                    Don't have an account? <a href="/register" class="font-medium text-dribbble-pink hover:underline">Sign up</a>
                 </p>
             </div>
         </div>
