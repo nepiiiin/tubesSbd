@@ -567,7 +567,7 @@
 
                 <!-- Main Navigation -->
                 <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
-                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">For designers</a>
+                    <a href="{{ route('for.designer') }}" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">For designers</a>
                     <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Hire talent</a>
                     <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Inspiration</a>
                     <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Advertising</a>
