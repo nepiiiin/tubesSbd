@@ -123,7 +123,7 @@
                      alt="Designers collaborating" 
                      class="w-full h-full object-cover rounded-2xl shadow-2xl">
                 
-                <!-- Credit Badge (Opsional, mirip screenshot) -->
+                <!-- Credit Badge (mirip screenshot) -->
                 <div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold text-gray-800 shadow-sm flex items-center gap-2">
                     <span>@Hoodzpan</span>
                 </div>
