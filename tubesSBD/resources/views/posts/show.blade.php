@@ -147,16 +147,15 @@
 
     <!-- MODAL -->
     <div 
-        id="contactModal"
-        class="hidden fixed inset-0 z-50 bg-black/60 overflow-y-auto"
-    >
+    id="contactModal"
+    class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm overflow-y-auto"
+>
 
         <!-- WRAPPER -->
         <div class="min-h-screen flex items-center justify-center p-4">
 
             <!-- BOX -->
-            <div class="bg-white w-full max-w-2xl rounded-3xl relative shadow-2xl">
-
+            <div class="bg-white w-full max-w-lg rounded-3xl p-8 relative animate-modal my-10 mx-auto">
                 <!-- CLOSE -->
                 <button
                     onclick="document.getElementById('contactModal').classList.add('hidden')"
@@ -326,6 +325,26 @@
         </div>
 
     </div>
+
+    <style>
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.animate-modal {
+    animation: modalFade 0.25s ease;
+}
+
+</style>
 
 </body>
 </html>
