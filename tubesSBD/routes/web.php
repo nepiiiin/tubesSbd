@@ -1,14 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PostController::class, 'index']);
 
 Route::view('/register', 'auth.register');
+
 Route::view('/login', 'auth.login');
 
 Route::get('/for-designer', function () {
-    return view('for-designer'); // Merujuk ke file for-designer.blade.php
-})->name('for.designer'); // <--- PENTING: Ini memberi nama pada route
+    return view('for-designer');
+})->name('for.designer');
+
+Route::resource('posts', PostController::class);
+
+Route::get('/posts/{post}', [PostController::class, 'show']);

@@ -510,38 +510,137 @@
     <div class="bg-gray-50 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-black text-center mb-12">Featured Shots</h2>
+
+   <div class="flex items-center justify-end mb-8">
+
+    <a href="/posts/create"
+       class="bg-[#ea4c89] hover:opacity-90 text-white px-6 py-3 rounded-full font-semibold transition shadow">
+        Upload Shot
+    </a>
+
+</div>
             
-            <!-- Grid Shots -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                @for($i = 1; $i <= 8; $i++)
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 group cursor-pointer">
-                    <div class="relative overflow-hidden">
-                        <img 
-                            src="https://picsum.photos/400/300?random={{ $i }}" 
-                            alt="Shot {{ $i }}"
-                            class="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
-                        >
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition"></div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-black">Design Project {{ $i }}</h3>
-                        <p class="text-sm text-black mt-1">by Designer {{ $i }}</p>
-                        <div class="flex items-center justify-between mt-3">
-                            <div class="flex items-center space-x-4 text-sm text-black">
-                                <span class="flex items-center">
-                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/></svg>
-                                    {{ rand(10, 500) }}
-                                </span>
-                                <span class="flex items-center">
-                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
-                                    {{ rand(100, 5000) }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endfor
+<!-- Grid Shots -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    @foreach($posts as $post)
+
+    <a href="/posts/{{ $post->id }}" class="group block">
+
+        <!-- CARD -->
+        <div class="relative overflow-hidden rounded-2xl bg-[#f3f3f4] group">
+
+    <!-- IMAGE -->
+    <img
+        src="https://picsum.photos/500/400?random={{ $post->id }}"
+        alt="{{ $post->title }}"
+        class="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
+    >
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-300"></div>
+
+    <!-- TOP RIGHT ICONS -->
+    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300 flex gap-2">
+
+        <!-- SAVE -->
+        <button
+            onclick="event.preventDefault(); this.classList.toggle('text-blue-500')"
+            class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-700 hover:text-blue-500 transition shadow"
+        >
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 5v14l7-4 7 4V5a2 2 0 00-2-2H7a2 2 0 00-2 2z"
+                />
+
+            </svg>
+
+        </button>
+
+        <!-- LOVE -->
+        <button
+            onclick="event.preventDefault(); this.classList.toggle('text-pink-500')"
+            class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-700 hover:text-pink-500 transition shadow"
+        >
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+
+            </svg>
+
+        </button>
+
+    </div>
+
+    <!-- BOTTOM TITLE -->
+    <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300">
+
+        <div class="bg-white rounded-2xl px-4 py-3 shadow-lg">
+
+            <h3 class="font-semibold text-sm text-black truncate">
+                {{ $post->title }}
+            </h3>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- USER INFO -->
+        <div class="flex items-center justify-between mt-3 px-1">
+
+            <div class="flex items-center gap-2">
+
+                <img
+                    src="https://i.pravatar.cc/40?u={{ $post->id }}"
+                    class="w-6 h-6 rounded-full"
+                >
+
+                <span class="text-sm font-medium text-[#0d0c22]">
+                    {{ $post->user->name ?? 'Designer' }}
+                </span>
+
             </div>
+
+            <div class="flex items-center gap-4 text-sm text-gray-500">
+
+                <span>
+                    Love {{ rand(20,500) }}
+                </span>
+
+                <span>
+                    {{ rand(100,9000) }} Views
+                </span>
+
+            </div>
+
+        </div>
+
+    </a>
+
+    @endforeach
+
+</div>
 
             <!-- Load More Button -->
             <div class="text-center mt-12">
