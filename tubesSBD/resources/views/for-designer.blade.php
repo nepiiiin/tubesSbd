@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>For Designers - Dribbble</title>
-    
-    <!-- Menggunakan Setup Tailwind & Alpine yang SAMA dengan welcome.blade.php -->
+    <title>Dribbble - Discover the World's Top Designers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
@@ -32,56 +30,381 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-white text-black antialiased">
+<body class="bg-white text-black">
 
-    <!-- ==================== NAVIGATION (Sama seperti Welcome) ==================== -->
+    <!-- ==================== NAVIGATION ==================== -->
     <nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="/" class="mr-10 group">
-                        <!-- Logo SVG Dribbble -->
-                        <svg class="w-8 h-8 text-dribbble-pink group-hover:opacity-80 transition" viewBox="0 0 24 24" fill="currentColor">
+                    <a href="#" class="mr-10">
+                        <svg class="w-8 h-8 text-dribbble-pink" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm9.817 11.424a10.182 10.182 0 01.058 1.076c-2.027-.422-3.847-.463-5.49-.156-.203-.477-.41-.95-.62-1.418 1.94-.84 3.454-2.046 4.535-3.642a10.168 10.168 0 011.517 4.14zM12 1.824c2.366 0 4.526.87 6.183 2.304-.986 1.445-2.37 2.534-4.167 3.278a47.926 47.926 0 00-3.286-5.546c.417-.024.84-.036 1.27-.036zM8.42 2.978a46.27 46.27 0 013.334 5.648c-2.426.643-5.252.847-8.49.61A10.188 10.188 0 018.42 2.978zM1.824 12c0-.223.009-.444.026-.663 3.59.266 6.726.024 9.395-.726.175.383.344.768.508 1.153-3.05.885-5.593 2.648-7.626 5.282A10.156 10.156 0 011.824 12zm4.01 9.12a10.177 10.177 0 01-1.92-1.68c1.825-2.446 4.133-4.056 6.94-4.827.78 2.106 1.41 4.29 1.88 6.54a10.166 10.166 0 01-6.9-1.033zm8.736.444c-.44-2.12-1.026-4.18-1.756-6.174 1.52-.21 3.207-.107 5.07.314a10.177 10.177 0 01-3.314 5.86z"/>
                         </svg>
                     </a>
 
-                    <!-- Menu Items (Disederhanakan untuk halaman ini, tapi struktur sama) -->
+                    <!-- Menu Items -->
                     <div class="hidden md:flex items-center space-x-8">
-                        <a href="#" class="text-black font-medium hover:text-dribbble-pink transition flex items-center gap-1">Explore <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
-                        <a href="#" class="text-black font-medium hover:text-dribbble-pink transition flex items-center gap-1">Hire Talent <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
-                        <a href="#" class="text-black font-medium hover:text-dribbble-pink transition flex items-center gap-1">Get Hired <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
-                        <a href="#" class="text-black font-medium hover:text-dribbble-pink transition flex items-center gap-1">Community <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                        
+                        <!-- EXPLORE DROPDOWN -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <button class="flex items-center space-x-1 text-black font-medium hover:text-dribbble-pink transition">
+                                <span>Explore</span>
+                                <svg class="w-4 h-4 transition-transform duration-200" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            <div x-show="open" x-cloak
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                                 class="absolute left-0 top-full w-64 z-50">
+                                
+                                <div class="pt-4">
+                                    <div class="bg-white rounded-xl shadow-2xl border border-gray-100 py-2 overflow-hidden">
+                                        
+                                        <div class="px-2">
+                                            <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">
+                                                <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                                Popular
+                                            </a>
+                                            <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">
+                                                <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                                                New and Noteworthy
+                                            </a>
+                                        </div>
+
+                                        <div class="my-2 border-t border-gray-100 mx-2"></div>
+
+                                        <div class="px-2 space-y-1">
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Product Design</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Web Design</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Animation</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Branding</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Illustration</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Mobile</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Typography</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-black rounded-lg hover:bg-gray-50 hover:text-dribbble-pink transition">Print</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HIRE TALENT DROPDOWN -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <button class="flex items-center space-x-1 text-black font-medium hover:text-dribbble-pink transition">
+                                <span>Hire Talent</span>
+                                <svg class="w-4 h-4 transition-transform duration-200" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            <div x-show="open" x-cloak
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                                 class="absolute left-0 top-full w-[720px] z-50">
+                                
+                                <div class="pt-4">
+                                    <div class="bg-white rounded-xl shadow-2xl border border-gray-100 p-6 overflow-hidden">
+                                        <div class="grid grid-cols-2 gap-8">
+                                            
+                                            <!-- Kolom Kiri -->
+                                            <div class="space-y-6">
+                                                <a href="#" class="flex items-start space-x-4 group">
+                                                    <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Start Project Brief</h3>
+                                                        <p class="text-sm text-gray-500 mt-1">Get recommendations and proposals</p>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" class="flex items-start space-x-4 group">
+                                                    <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Browse Profiles</h3>
+                                                        <p class="text-sm text-gray-500 mt-1">Find and message talent directly</p>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" class="flex items-start space-x-4 group">
+                                                    <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Explore Services</h3>
+                                                        <p class="text-sm text-gray-500 mt-1">Hire quickly with pre-packaged services</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <!-- Kolom Kanan -->
+                                            <div class="space-y-6">
+                                                <a href="#" class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group">
+                                                    <span class="font-medium text-black group-hover:text-dribbble-pink transition">Browse Design Agencies</span>
+                                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-dribbble-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                    </svg>
+                                                </a>
+
+                                                <a href="#" class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group">
+                                                    <span class="font-medium text-black group-hover:text-dribbble-pink transition">Post a Full-Time Job</span>
+                                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-dribbble-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                    </svg>
+                                                </a>
+
+                                                <div class="pt-4 mt-4 border-t border-gray-200">
+                                                    <a href="#" class="flex items-center text-sm text-gray-600 hover:text-dribbble-pink transition group">
+                                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                        Learn more about how hiring works on Dribbble
+                                                        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GET HIRED DROPDOWN -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <button class="flex items-center space-x-1 text-black font-medium hover:text-dribbble-pink transition">
+                                <span>Get Hired</span>
+                                <svg class="w-4 h-4 transition-transform duration-200" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            <div x-show="open" x-cloak
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                                 class="absolute left-0 top-full w-[720px] z-50">
+                                
+                                <div class="pt-4">
+                                    <div class="bg-white rounded-xl shadow-2xl border border-gray-100 p-6 overflow-hidden">
+                                        <div class="grid grid-cols-2 gap-8">
+                                            
+                                            <!-- Kolom Kiri -->
+                                            <div class="space-y-6">
+                                                <a href="#" class="flex items-start space-x-4 group">
+                                                    <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Browse Project Briefs</h3>
+                                                        <p class="text-sm text-gray-500 mt-1">Pitch clients ready to hire now</p>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" class="flex items-start space-x-4 group">
+                                                    <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition relative">
+                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                                        </svg>
+                                                        <span class="absolute -top-1 -right-1 bg-dribbble-pink text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">NEW</span>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Send Outbound Proposal</h3>
+                                                        <p class="text-sm text-gray-500 mt-1">Send proposals to any client</p>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" class="flex items-start space-x-4 group">
+                                                    <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Add Service</h3>
+                                                        <p class="text-sm text-gray-500 mt-1">Let clients purchase your services</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <!-- Kolom Kanan -->
+                                            <div class="space-y-6">
+                                                <a href="#" class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group">
+                                                    <span class="font-medium text-black group-hover:text-dribbble-pink transition">Full-Time Jobs</span>
+                                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-dribbble-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                    </svg>
+                                                </a>
+
+                                                <a href="#" class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group">
+                                                    <span class="font-medium text-black group-hover:text-dribbble-pink transition">Upgrade to Pro</span>
+                                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-dribbble-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                    </svg>
+                                                </a>
+
+                                                <a href="#" class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition group">
+                                                    <span class="font-medium text-black group-hover:text-dribbble-pink transition">Advertise with Us</span>
+                                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-dribbble-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                    </svg>
+                                                </a>
+
+                                                <div class="pt-4 mt-4 border-t border-gray-200">
+                                                    <a href="#" class="flex items-center text-sm text-gray-600 hover:text-dribbble-pink transition group">
+                                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                        Learn more about getting hired on Dribbble
+                                                        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMMUNITY DROPDOWN -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <button class="flex items-center space-x-1 text-black font-medium hover:text-dribbble-pink transition">
+                                <span>Community</span>
+                                <svg class="w-4 h-4 transition-transform duration-200" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            <div x-show="open" x-cloak
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                                 class="absolute left-0 top-full w-[560px] z-50">
+                                
+                                <div class="pt-4">
+                                    <div class="bg-white rounded-xl shadow-2xl border border-gray-100 p-6 overflow-hidden">
+                                        
+                                        <div class="space-y-6 mb-6">
+                                            <a href="#" class="flex items-start space-x-4 group">
+                                                <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-9 6h6"/>
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Blog</h3>
+                                                    <p class="text-sm text-gray-500 mt-1">Design inspiration, stories, and tips</p>
+                                                </div>
+                                            </a>
+
+                                            <a href="#" class="flex items-start space-x-4 group">
+                                                <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Playoffs</h3>
+                                                    <p class="text-sm text-gray-500 mt-1">Join creative challenges and show your skills</p>
+                                                </div>
+                                            </a>
+
+                                            <a href="#" class="flex items-start space-x-4 group">
+                                                <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-dribbble-pink group-hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-semibold text-black group-hover:text-dribbble-pink transition">Help Center</h3>
+                                                    <p class="text-sm text-gray-500 mt-1">Get quick answers and learn how to use Dribbble</p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <!-- Social Media Icons -->
+                                        <div class="pt-6 mt-6 border-t border-gray-200">
+                                            <p class="text-sm text-gray-500 mb-4">Follow Us</p>
+                                            <div class="flex items-center space-x-4">
+                                                <!-- Instagram -->
+                                                <a href="https://instagram.com/dribbble" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-dribbble-pink hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                                    </svg>
+                                                </a>
+                                                
+                                                <!-- X/Twitter -->
+                                                <a href="https://twitter.com/dribbble" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-dribbble-pink hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                                    </svg>
+                                                </a>
+                                                
+                                                <!-- Pinterest -->
+                                                <a href="https://pinterest.com/dribbble" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-dribbble-pink hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                                                    </svg>
+                                                </a>
+                                                
+                                                <!-- YouTube -->
+                                                <a href="https://youtube.com/dribbble" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-dribbble-pink hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                                    </svg>
+                                                </a>
+                                                
+                                                <!-- TikTok -->
+                                                <a href="https://tiktok.com/@dribbble" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-dribbble-pink hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                                                    </svg>
+                                                </a>
+                                                
+                                                <!-- Threads -->
+                                                <a href="https://threads.net/@dribbble" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-dribbble-pink hover:text-white transition">
+                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.447 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.44 2.525-8.482 1.85-2.304 4.604-3.485 8.184-3.509h.04c2.746.02 4.996.751 6.693 2.168 1.56 1.303 2.628 3.167 3.179 5.534l.004.016v3.938l-.004.016c-.55 2.367-1.619 4.231-3.179 5.534-1.697 1.417-3.947 2.148-6.693 2.168h-.035zm-6.03-18.31C4.717 7.47 3.958 9.692 3.928 12c.03 2.308.79 4.53 2.228 6.31 1.477 1.83 3.724 2.762 6.666 2.782 2.25-.018 4.06-.59 5.383-1.698 1.165-.974 1.973-2.378 2.405-4.162v-3.464c-.432-1.784-1.24-3.188-2.405-4.162-1.323-1.108-3.133-1.68-5.383-1.698-2.942.02-5.189.952-6.666 2.782z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Right Actions -->
+                <!-- Auth Buttons -->
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="hidden sm:inline-block border border-gray-300 rounded-full px-4 py-2 text-sm font-medium hover:bg-gray-50 transition">Start Project Brief</a>
-                    
-                    <!-- Icons -->
-                    <a href="#" class="text-gray-600 hover:text-black">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="text-gray-600 hover:text-black">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                    </a>
-                    
-                    <!-- Avatar Placeholder -->
-                    <div class="h-9 w-9 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold cursor-pointer hover:ring-2 hover:ring-offset-2 hover:ring-purple-600 transition">
-                        D
-                    </div>
+                    <a href="/register" class="hidden md:block text-black font-medium hover:text-dribbble-pink transition">Sign up</a>
+                    <a href="/login" class="bg-dribbble-dark text-white px-6 py-2.5 rounded-full font-medium hover:bg-dribbble-pink transition duration-300 shadow-lg shadow-gray-200">Log in</a>
                 </div>
             </div>
         </div>
     </nav>
-
     <!-- ==================== HERO SECTION (For Designers) ==================== -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -117,8 +440,7 @@
 
             <!-- Right Content: Image -->
             <div class="relative lg:h-[600px] w-full order-1 lg:order-2">
-                <!-- Gambar Placeholder (Ganti src dengan gambar lokal kamu nanti) -->
-                <!-- Saya pakai gambar Unsplash yang mirip suasana kantor/desain -->
+                <!-- Gambar Placeholder -->
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
                      alt="Designers collaborating" 
                      class="w-full h-full object-cover rounded-2xl shadow-2xl">
@@ -132,12 +454,81 @@
         </div>
     </main>
 
-    <!-- Footer Sederhana (Bisa copy footer dari welcome jika mau lengkap) -->
-    <footer class="border-t border-gray-200 py-12 mt-12">
-        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
-            &copy; 2026 Dribbble Clone. All rights reserved.
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-white border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Top Section - Navigation & Social -->
+        <div class="py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-dribbble-pink">
+                        Dribbble
+                    </a>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+                    <a href="{{ route('for.designer') }}" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">For designers</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Hire talent</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Inspiration</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Advertising</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Blog</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">About</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Careers</a>
+                    <a href="#" class="text-sm text-gray-700 hover:text-dribbble-pink transition font-medium">Support</a>
+                </nav>
+
+                <!-- Social Icons -->
+                <div class="flex items-center gap-4">
+                    <a href="#" class="text-gray-700 hover:text-dribbble-pink transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-label="X">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-dribbble-pink transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-label="Facebook">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-dribbble-pink transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-label="Instagram">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-dribbble-pink transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-label="Pinterest">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <!-- Bottom Section - Copyright & Links -->
+        <div class="py-6 border-t border-gray-200">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <!-- Copyright & Legal -->
+                <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-500">
+                    <span>&copy; 2026 Dribbble</span>
+                    <a href="#" class="hover:text-gray-700 transition">Terms</a>
+                    <a href="#" class="hover:text-gray-700 transition">Privacy</a>
+                    <a href="#" class="hover:text-gray-700 transition">Cookies</a>
+                </div>
+
+                <!-- Additional Links -->
+                <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-500">
+                    <a href="#" class="hover:text-gray-700 transition">Jobs</a>
+                    <a href="#" class="hover:text-gray-700 transition">Designers</a>
+                    <a href="#" class="hover:text-gray-700 transition">Freelancers</a>
+                    <a href="#" class="hover:text-gray-700 transition">Tags</a>
+                    <a href="#" class="hover:text-gray-700 transition">Places</a>
+                    <a href="#" class="hover:text-gray-700 transition">Resources</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
