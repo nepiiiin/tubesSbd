@@ -1,3 +1,7 @@
+@php
+use Illuminate\Support\Facades\Auth;
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -77,6 +81,8 @@
                                             </a>
                                         </div>
 
+                                        
+
                                         <div class="my-2 border-t border-gray-100 mx-2"></div>
 
                                         <div class="px-2 space-y-1">
@@ -151,6 +157,8 @@
                                                     </div>
                                                 </a>
                                             </div>
+
+                                            
 
                                             <!-- Kolom Kanan -->
                                             <div class="space-y-6">
@@ -392,6 +400,7 @@
                                     </div>
                                 </div>
                             </div>
+                        
                         </div>
 
                     </div>
@@ -399,8 +408,113 @@
 
                 <!-- Auth Buttons -->
                 <div class="flex items-center space-x-4">
-                    <a href="/register" class="hidden md:block text-black font-medium hover:text-dribbble-pink transition">Sign up</a>
-                    <a href="/login" class="bg-dribbble-dark text-white px-6 py-2.5 rounded-full font-medium hover:bg-dribbble-pink transition duration-300 shadow-lg shadow-gray-200">Log in</a>
+                    @auth
+
+<div class="flex items-center gap-5">
+
+    <!-- Comment -->
+    <button class="text-gray-700 hover:text-black transition">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-6 h-6"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 10h.01M12 10h.01M16 10h.01
+                     M9 16H5a2 2 0 01-2-2V6
+                     a2 2 0 012-2h14a2 2 0 012 2v8
+                     a2 2 0 01-2 2h-5l-5 5v-5z" />
+
+        </svg>
+
+    </button>
+
+    <!-- Notification -->
+    <button class="text-gray-700 hover:text-black transition">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-6 h-6"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11
+                     a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341
+                     C7.67 6.165 6 8.388 6 11v3.159
+                     c0 .538-.214 1.055-.595 1.436L4 17h5m6 0
+                     v1a3 3 0 11-6 0v-1m6 0H9" />
+
+        </svg>
+
+    </button>
+
+    <!-- Start Project -->
+    <button class="border border-gray-300 px-5 py-2 rounded-full font-medium hover:bg-gray-100 transition">
+        Start project
+    </button>
+
+    <!-- Profile -->
+    @if(Auth::user()->profile_photo)
+
+    <img
+        src="{{ asset('storage/' . Auth::user()->profile_photo) }}"
+        class="w-10 h-10 rounded-full object-cover"
+        alt="Profile"
+    >
+
+@else
+
+    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-5 h-5 text-gray-500"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5.121 17.804A9 9 0 1118.879 17.804
+                     M15 11a3 3 0 11-6 0
+                     3 3 0 016 0z" />
+
+        </svg>
+
+    </div>
+
+@endif
+
+</div>
+
+</div>
+
+@endauth
+
+
+@guest
+
+<div class="flex items-center gap-4">
+
+    <a href="/register" class="font-medium">
+        Sign up
+    </a>
+
+    <a href="/login"
+       class="bg-[#0d0c22] text-white px-5 py-2 rounded-full font-medium">
+        Log in
+    </a>
+
+</div>
+
+@endguest
                 </div>
             </div>
         </div>
@@ -514,7 +628,7 @@
    <div class="flex items-center justify-end mb-8">
 
     <a href="/posts/create"
-       class="bg-[#ea4c89] hover:opacity-90 text-white px-6 py-3 rounded-full font-semibold transition shadow">
+       class="bg-[#ea4c89] hover:opacity-90 text-white px-6 py-3 rounded-full font-semibold transition shadow hover:shadow-lg">
         Upload Shot
     </a>
 
@@ -726,6 +840,72 @@
         </div>
     </div>
 </footer>
+
+<!-- HERO SECTION -->
+<section class="max-w-7xl mx-auto px-6 mt-16">
+
+    <div class="text-center">
+
+        <h1 class="text-6xl font-bold leading-tight">
+            Discover the world’s top designers
+        </h1>
+
+        <p class="text-gray-500 text-lg mt-6">
+            Explore work from the most talented designers around the world.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- POSTS GRID -->
+<section class="max-w-7xl mx-auto px-6 mt-16 mb-20">
+
+    <div class="grid grid-cols-4 gap-8">
+
+        @foreach($posts as $post)
+
+        <a
+            href="/posts/{{ $post->id }}"
+            class="group block"
+        >
+
+            <div class="overflow-hidden rounded-2xl bg-gray-100">
+
+                <img
+                    src="{{ $post->image }}"
+                    class="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
+                >
+
+            </div>
+
+            <div class="flex justify-between items-center mt-3">
+
+                <div>
+
+                    <h2 class="font-semibold text-sm">
+                        {{ $post->title }}
+                    </h2>
+
+                    <p class="text-xs text-gray-500 mt-1">
+                        {{ $post->user->username }}
+                    </p>
+
+                </div>
+
+                <div class="text-xs text-gray-400">
+                    {{ $post->likes->count() }} Likes
+                </div>
+
+            </div>
+
+        </a>
+
+        @endforeach
+
+    </div>
+
+</section>
 
 </body>
 </html>

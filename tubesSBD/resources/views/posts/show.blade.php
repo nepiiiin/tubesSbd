@@ -11,7 +11,7 @@
 <body class="bg-[#f8f7f4] min-h-screen">
 
     <!-- NAVBAR -->
-    <nav class="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200 px-8 py-4 flex justify-between items-center">
 
         <a href="/" class="text-2xl font-bold text-pink-500">
             Dribbble
