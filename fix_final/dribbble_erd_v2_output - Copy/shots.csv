@@ -1,0 +1,501 @@
+﻿id;user_id;team_id;title;description;image_url;created_at;updated_at
+1;32.0;;Character Loop #1;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_1.png;2023-05-30;2023-05-31
+2;29.0;;Creative Concept #2;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_2.png;2024-08-23;2024-08-25
+3;46.0;;E-commerce UI #3;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_3.png;2026-06-15;2026-06-16
+4;44.0;;Brand Guidelines #4;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_4.png;2024-12-28;2024-12-31
+5;45.0;;3D Animation #5;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_5.png;2023-11-01;2023-11-04
+6;6.0;;Creative Process #6;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_6.png;2023-06-27;2023-06-29
+7;28.0;;App Onboarding #7;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_7.png;2023-08-06;2023-08-06
+8;26.0;;Editorial Illustration #8;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_8.png;2025-01-07;2025-01-09
+9;12.0;;E-commerce UI #9;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_9.png;2026-09-06;2026-09-06
+10;2.0;;E-commerce UI #10;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_10.png;2025-06-09;2025-06-09
+11;4.0;;Creative Concept #11;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_11.png;2023-06-27;2023-06-27
+12;37.0;;Logo Design #12;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_12.png;2023-09-13;2023-09-16
+13;31.0;;UI Micro-interaction #13;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_13.png;2023-11-29;2023-11-30
+14;17.0;;App Dashboard #14;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_14.png;2024-02-08;2024-02-09
+15;29.0;;Motion Graphics #15;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_15.png;2026-01-14;2026-01-16
+16;4.0;;SaaS Dashboard #16;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_16.png;2024-12-30;2024-12-31
+17;32.0;;3D Animation #17;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_17.png;2024-10-14;2024-10-15
+18;1.0;;Digital Art #18;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_18.png;2025-04-27;2025-04-28
+19;3.0;;Editorial Illustration #19;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_19.png;2026-06-23;2026-06-23
+20;7.0;;Logo Reveal #20;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_20.png;2024-02-26;2024-02-29
+21;44.0;;UI Micro-interaction #21;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_21.png;2026-10-24;2026-10-25
+22;50.0;;Mobile UI Kit #22;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_22.png;2026-04-14;2026-04-15
+23;1.0;;Editorial Illustration #23;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_23.png;2023-09-13;2023-09-15
+24;28.0;;UX Case Study #24;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_24.png;2025-08-08;2025-08-09
+25;37.0;;Digital Art #25;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_25.png;2023-12-22;2023-12-23
+26;14.0;;Creative Concept #26;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_26.png;2024-01-11;2024-01-11
+27;44.0;;App Dashboard #27;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_27.png;2026-11-24;2026-11-25
+28;34.0;;UX Case Study #28;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_28.png;2024-05-25;2024-05-27
+29;33.0;;Character Design #29;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_29.png;2025-01-23;2025-01-25
+30;3.0;;Mobile UI Kit #30;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_30.png;2026-09-03;2026-09-04
+31;11.0;;Logo Reveal #31;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_31.png;2023-11-18;2023-11-21
+32;9.0;;Character Loop #32;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_32.png;2026-06-07;2026-06-08
+33;6.0;;Visual Experiment #33;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_33.png;2023-08-02;2023-08-03
+34;50.0;;UI Micro-interaction #34;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_34.png;2023-11-22;2023-11-24
+35;28.0;;Android Design #35;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_35.png;2024-07-23;2024-07-24
+36;8.0;;Landing Page #36;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_36.png;2024-09-15;2024-09-17
+37;1.0;;Landing Page #37;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_37.png;2023-12-19;2023-12-20
+38;7.0;;Creative Process #38;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_38.png;2026-10-09;2026-10-10
+39;9.0;;Interface Design #39;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_39.png;2024-05-01;2024-05-04
+40;13.0;;Character Design #40;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_40.png;2024-07-12;2024-07-13
+41;33.0;;Visual System #41;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_41.png;2026-09-28;2026-09-28
+42;17.0;;UX Case Study #42;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_42.png;2026-03-07;2026-03-08
+43;25.0;;App Onboarding #43;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_43.png;2023-06-27;2023-06-28
+44;16.0;;Packaging Design #44;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_44.png;2024-06-28;2024-06-29
+45;39.0;;Visual System #45;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_45.png;2026-04-13;2026-04-13
+46;10.0;;Vector Illustration #46;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_46.png;2023-05-06;2023-05-07
+47;22.0;;UI Micro-interaction #47;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_47.png;2025-01-27;2025-01-28
+48;5.0;;Character Loop #48;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_48.png;2024-01-10;2024-01-12
+49;1.0;;3D Animation #49;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_49.png;2025-07-16;2025-07-18
+50;32.0;;E-commerce UI #50;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_50.png;2026-12-19;2026-12-20
+51;11.0;;Visual Experiment #51;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_51.png;2026-03-22;2026-03-23
+52;45.0;;Portfolio Site #52;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_52.png;2024-01-25;2024-01-26
+53;49.0;;Android Design #53;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_53.png;2026-09-18;2026-09-20
+54;11.0;;Icon Set #54;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_54.png;2023-05-07;2023-05-09
+55;17.0;;Digital Art #55;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_55.png;2023-05-22;2023-05-22
+56;43.0;;Vector Illustration #56;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_56.png;2023-06-22;2023-06-25
+57;28.0;;Wireframe Kit #57;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_57.png;2023-04-08;2023-04-08
+58;7.0;;Landing Page #58;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_58.png;2024-12-13;2024-12-14
+59;15.0;;Mobile UI Kit #59;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_59.png;2023-07-26;2023-07-28
+60;25.0;;Brand Guidelines #60;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_60.png;2026-05-29;2026-05-30
+61;28.0;;Creative Process #61;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_61.png;2023-05-29;2023-06-01
+62;20.0;;Visual System #62;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_62.png;2024-05-01;2024-05-03
+63;33.0;;Logo Reveal #63;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_63.png;2023-10-15;2023-10-16
+64;4.0;;Mobile UI Kit #64;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_64.png;2026-12-24;2026-12-27
+65;49.0;;App Dashboard #65;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_65.png;2026-11-18;2026-11-20
+66;37.0;;Packaging Design #66;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_66.png;2024-03-08;2024-03-10
+67;48.0;;Website Redesign #67;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_67.png;2024-10-29;2024-10-30
+68;4.0;;Portfolio Site #68;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_68.png;2024-04-23;2024-04-24
+69;44.0;;Creative Concept #69;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_69.png;2025-02-24;2025-02-26
+70;7.0;;Logo Reveal #70;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_70.png;2023-01-14;2023-01-16
+71;3.0;;Design Exploration #71;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_71.png;2026-06-26;2026-06-27
+72;5.0;;UI Micro-interaction #72;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_72.png;2025-06-27;2025-06-29
+73;4.0;;Wireframe Kit #73;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_73.png;2023-12-07;2023-12-10
+74;16.0;;Editorial Illustration #74;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_74.png;2025-06-30;2025-07-03
+75;22.0;;E-commerce UI #75;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_75.png;2026-06-16;2026-06-16
+76;42.0;;Design Exploration #76;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_76.png;2026-08-05;2026-08-07
+77;28.0;;Logo Reveal #77;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_77.png;2024-03-23;2024-03-25
+78;3.0;;App Dashboard #78;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_78.png;2026-12-24;2026-12-26
+79;44.0;;User Flow #79;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_79.png;2025-10-26;2025-10-27
+80;18.0;;Design Exploration #80;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_80.png;2025-05-01;2025-05-02
+81;5.0;;Packaging Design #81;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_81.png;2023-04-22;2023-04-24
+82;26.0;;Logo Reveal #82;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_82.png;2025-09-24;2025-09-26
+83;43.0;;Packaging Design #83;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_83.png;2026-08-14;2026-08-16
+84;1.0;;UX Case Study #84;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_84.png;2026-04-17;2026-04-19
+85;16.0;;App Onboarding #85;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_85.png;2023-02-20;2023-02-22
+86;23.0;;3D Animation #86;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_86.png;2024-07-19;2024-07-22
+87;9.0;;Brand Guidelines #87;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_87.png;2023-10-14;2023-10-16
+88;25.0;;Visual System #88;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_88.png;2024-06-21;2024-06-24
+89;43.0;;iOS Interface #89;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_89.png;2023-10-01;2023-10-03
+90;8.0;;Visual System #90;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_90.png;2026-05-19;2026-05-21
+91;34.0;;Logo Reveal #91;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_91.png;2025-07-07;2025-07-09
+92;48.0;;3D Animation #92;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_92.png;2023-02-04;2023-02-07
+93;13.0;;Mobile UI Kit #93;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_93.png;2025-05-07;2025-05-08
+94;23.0;;Brand Guidelines #94;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_94.png;2025-01-06;2025-01-07
+95;44.0;;Editorial Illustration #95;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_95.png;2023-11-25;2023-11-25
+96;2.0;;Brand Identity #96;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_96.png;2024-08-09;2024-08-10
+97;6.0;;Brand Guidelines #97;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_97.png;2023-06-12;2023-06-14
+98;1.0;;Visual System #98;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_98.png;2023-03-01;2023-03-03
+99;5.0;;UX Case Study #99;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_99.png;2024-03-29;2024-03-30
+100;26.0;;UX Case Study #100;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_100.png;2024-05-25;2024-05-28
+101;18.0;;Icon Set #101;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_101.png;2026-01-09;2026-01-10
+102;12.0;;User Flow #102;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_102.png;2025-03-26;2025-03-26
+103;6.0;;Digital Art #103;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_103.png;2024-07-14;2024-07-16
+104;11.0;;Mobile UI Kit #104;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_104.png;2023-07-21;2023-07-22
+105;18.0;;Creative Concept #105;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_105.png;2023-03-02;2023-03-05
+106;10.0;;Landing Page #106;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_106.png;2025-01-10;2025-01-12
+107;20.0;;Vector Illustration #107;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_107.png;2026-12-11;2026-12-13
+108;50.0;;Creative Process #108;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_108.png;2023-03-24;2023-03-27
+109;6.0;;Editorial Illustration #109;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_109.png;2026-04-10;2026-04-11
+110;6.0;;Logo Reveal #110;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_110.png;2024-01-31;2024-02-03
+111;17.0;;Android Design #111;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_111.png;2023-12-10;2023-12-11
+112;34.0;;Motion Graphics #112;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_112.png;2023-08-17;2023-08-19
+113;10.0;;3D Animation #113;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_113.png;2026-09-28;2026-09-29
+114;1.0;;E-commerce UI #114;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_114.png;2025-03-12;2025-03-14
+115;19.0;;UX Case Study #115;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_115.png;2024-03-08;2024-03-10
+116;3.0;;Motion Graphics #116;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_116.png;2026-02-13;2026-02-16
+117;3.0;;Packaging Design #117;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_117.png;2023-09-18;2023-09-19
+118;1.0;;Packaging Design #118;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_118.png;2026-10-18;2026-10-20
+119;36.0;;Landing Page #119;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_119.png;2025-06-19;2025-06-19
+120;1.0;;Art Direction #120;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_120.png;2023-10-29;2023-10-29
+121;6.0;;SaaS Dashboard #121;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_121.png;2023-02-14;2023-02-15
+122;2.0;;E-commerce UI #122;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_122.png;2024-08-12;2024-08-15
+123;17.0;;SaaS Dashboard #123;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_123.png;2025-09-10;2025-09-11
+124;7.0;;UI Micro-interaction #124;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_124.png;2024-06-13;2024-06-14
+125;1.0;;Creative Concept #125;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_125.png;2023-09-17;2023-09-20
+126;17.0;;Creative Process #126;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_126.png;2023-11-12;2023-11-14
+127;28.0;;UI Micro-interaction #127;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_127.png;2023-09-05;2023-09-07
+128;5.0;;Art Direction #128;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_128.png;2026-05-06;2026-05-08
+129;25.0;;Icon Set #129;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_129.png;2024-04-07;2024-04-09
+130;31.0;;Visual Experiment #130;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_130.png;2023-12-05;2023-12-05
+131;2.0;;Logo Design #131;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_131.png;2024-03-31;2024-04-02
+132;33.0;;3D Animation #132;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_132.png;2025-09-26;2025-09-28
+133;44.0;;Character Design #133;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_133.png;2025-10-25;2025-10-27
+134;26.0;;Art Direction #134;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_134.png;2026-01-02;2026-01-04
+135;7.0;;3D Animation #135;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_135.png;2024-07-18;2024-07-20
+136;4.0;;Wireframe Kit #136;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_136.png;2023-03-11;2023-03-12
+137;16.0;;Android Design #137;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_137.png;2024-11-08;2024-11-09
+138;33.0;;Icon Set #138;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_138.png;2023-12-06;2023-12-07
+139;5.0;;Visual Experiment #139;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_139.png;2024-04-12;2024-04-14
+140;2.0;;SaaS Dashboard #140;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_140.png;2025-12-19;2025-12-20
+141;3.0;;Motion Graphics #141;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_141.png;2025-07-09;2025-07-12
+142;9.0;;Vector Illustration #142;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_142.png;2026-03-13;2026-03-15
+143;49.0;;Packaging Design #143;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_143.png;2026-11-26;2026-11-28
+144;44.0;;App Dashboard #144;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_144.png;2025-08-25;2025-08-26
+145;24.0;;UI Micro-interaction #145;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_145.png;2026-01-26;2026-01-28
+146;16.0;;Android Design #146;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_146.png;2025-10-31;2025-10-31
+147;2.0;;Editorial Illustration #147;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_147.png;2026-10-07;2026-10-08
+148;43.0;;Character Design #148;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_148.png;2023-11-24;2023-11-27
+149;43.0;;Creative Concept #149;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_149.png;2025-08-04;2025-08-04
+150;29.0;;Icon Set #150;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_150.png;2026-03-18;2026-03-21
+151;9.0;;Brand Identity #151;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_151.png;2024-04-16;2024-04-18
+152;41.0;;Mobile UI Kit #152;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_152.png;2023-10-30;2023-11-01
+153;8.0;;Portfolio Site #153;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_153.png;2026-03-18;2026-03-20
+154;38.0;;Website Redesign #154;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_154.png;2026-07-27;2026-07-28
+155;49.0;;Editorial Illustration #155;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_155.png;2025-08-12;2025-08-12
+156;2.0;;Art Direction #156;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_156.png;2026-01-13;2026-01-14
+157;6.0;;Brand Guidelines #157;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_157.png;2026-03-18;2026-03-20
+158;5.0;;Landing Page #158;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_158.png;2024-12-31;2024-12-31
+159;3.0;;Visual System #159;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_159.png;2023-08-06;2023-08-07
+160;6.0;;Visual Experiment #160;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_160.png;2026-11-24;2026-11-27
+161;47.0;;Logo Design #161;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_161.png;2026-12-26;2026-12-29
+162;12.0;;Landing Page #162;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_162.png;2025-07-17;2025-07-19
+163;25.0;;iOS Interface #163;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_163.png;2023-12-14;2023-12-15
+164;4.0;;Digital Art #164;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_164.png;2023-10-31;2023-11-03
+165;2.0;;3D Animation #165;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_165.png;2024-05-21;2024-05-23
+166;11.0;;Creative Process #166;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_166.png;2025-11-28;2025-12-01
+167;7.0;;iOS Interface #167;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_167.png;2026-10-18;2026-10-20
+168;49.0;;App Dashboard #168;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_168.png;2023-10-25;2023-10-25
+169;3.0;;Icon Set #169;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_169.png;2023-04-29;2023-05-01
+170;13.0;;User Flow #170;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_170.png;2026-11-20;2026-11-22
+171;14.0;;Creative Concept #171;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_171.png;2023-10-19;2023-10-21
+172;6.0;;Brand Identity #172;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_172.png;2026-10-26;2026-10-26
+173;30.0;;Logo Design #173;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_173.png;2026-06-11;2026-06-14
+174;10.0;10.0;Visual System #174;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_174.png;2026-05-24;2026-05-25
+175;44.0;;Interface Design #175;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_175.png;2025-05-30;2025-06-01
+176;8.0;8.0;Creative Concept #176;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_176.png;2026-04-16;2026-04-17
+177;13.0;;UX Case Study #177;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_177.png;2023-06-24;2023-06-25
+178;7.0;7.0;Website Redesign #178;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_178.png;2026-05-16;2026-05-19
+179;44.0;;Brand Identity #179;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_179.png;2024-08-27;2024-08-29
+180;39.0;;Packaging Design #180;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_180.png;2023-04-09;2023-04-10
+181;33.0;;Motion Graphics #181;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_181.png;2024-03-17;2024-03-20
+182;48.0;;UX Case Study #182;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_182.png;2026-01-10;2026-01-12
+183;10.0;10.0;App Onboarding #183;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_183.png;2025-02-28;2025-03-02
+184;44.0;;iOS Interface #184;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_184.png;2025-07-24;2025-07-26
+185;2.0;2.0;Interface Design #185;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_185.png;2024-06-26;2024-06-26
+186;9.0;;SaaS Dashboard #186;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_186.png;2023-09-26;2023-09-27
+187;9.0;;Wireframe Kit #187;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_187.png;2023-11-08;2023-11-10
+188;39.0;;Brand Identity #188;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_188.png;2024-09-08;2024-09-10
+189;1.0;1.0;Visual System #189;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_189.png;2024-07-09;2024-07-09
+190;12.0;;Portfolio Site #190;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_190.png;2024-04-25;2024-04-27
+191;15.0;;Character Design #191;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_191.png;2023-03-04;2023-03-07
+192;17.0;;Creative Process #192;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_192.png;2023-10-20;2023-10-22
+193;5.0;;App Dashboard #193;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_193.png;2025-09-28;2025-09-28
+194;13.0;;Art Direction #194;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_194.png;2023-01-22;2023-01-24
+195;9.0;9.0;Motion Graphics #195;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_195.png;2024-12-01;2024-12-04
+196;1.0;1.0;Brand Identity #196;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_196.png;2025-03-14;2025-03-15
+197;19.0;;E-commerce UI #197;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_197.png;2024-03-06;2024-03-07
+198;41.0;;Interface Design #198;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_198.png;2026-08-02;2026-08-05
+199;15.0;;Icon Set #199;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_199.png;2025-02-20;2025-02-21
+200;1.0;;Character Loop #200;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_200.png;2026-07-28;2026-07-30
+201;28.0;;3D Animation #201;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_201.png;2024-02-27;2024-02-27
+202;8.0;8.0;Editorial Illustration #202;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_202.png;2026-08-08;2026-08-09
+203;39.0;;Brand Guidelines #203;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_203.png;2024-02-07;2024-02-09
+204;42.0;;Brand Guidelines #204;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_204.png;2026-10-01;2026-10-02
+205;29.0;;Brand Identity #205;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_205.png;2024-03-07;2024-03-08
+206;22.0;;Digital Art #206;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_206.png;2026-02-04;2026-02-05
+207;36.0;;User Flow #207;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_207.png;2024-03-29;2024-03-30
+208;8.0;8.0;Art Direction #208;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_208.png;2023-05-05;2023-05-07
+209;37.0;;Motion Graphics #209;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_209.png;2025-03-27;2025-03-29
+210;7.0;7.0;App Dashboard #210;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_210.png;2026-09-01;2026-09-01
+211;23.0;;Brand Identity #211;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_211.png;2026-12-06;2026-12-08
+212;4.0;;Visual System #212;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_212.png;2023-03-31;2023-04-02
+213;41.0;;iOS Interface #213;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_213.png;2025-11-03;2025-11-04
+214;39.0;;Motion Graphics #214;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_214.png;2026-11-12;2026-11-13
+215;34.0;;Digital Art #215;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_215.png;2024-07-08;2024-07-09
+216;49.0;;Interface Design #216;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_216.png;2025-08-07;2025-08-08
+217;19.0;;Motion Graphics #217;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_217.png;2024-11-12;2024-11-13
+218;4.0;4.0;Creative Process #218;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_218.png;2025-05-13;2025-05-16
+219;47.0;;Motion Graphics #219;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_219.png;2026-11-29;2026-12-01
+220;8.0;8.0;E-commerce UI #220;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_220.png;2025-12-27;2025-12-29
+221;26.0;;Icon Set #221;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_221.png;2023-02-05;2023-02-08
+222;31.0;;Dashboard Design #222;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_222.png;2025-11-12;2025-11-13
+223;13.0;;Motion Graphics #223;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_223.png;2023-05-18;2023-05-19
+224;2.0;2.0;Wireframe Kit #224;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_224.png;2023-10-26;2023-10-29
+225;27.0;;User Flow #225;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_225.png;2025-02-23;2025-02-24
+226;5.0;5.0;UX Case Study #226;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_226.png;2024-11-20;2024-11-20
+227;6.0;6.0;E-commerce UI #227;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_227.png;2025-09-01;2025-09-04
+228;50.0;;Character Loop #228;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_228.png;2023-12-25;2023-12-25
+229;22.0;;Brand Guidelines #229;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_229.png;2024-01-25;2024-01-27
+230;46.0;;Editorial Illustration #230;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_230.png;2024-08-23;2024-08-24
+231;2.0;;3D Animation #231;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_231.png;2025-04-10;2025-04-10
+232;28.0;;Brand Guidelines #232;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_232.png;2023-10-16;2023-10-18
+233;45.0;;App Dashboard #233;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_233.png;2023-11-30;2023-12-02
+234;9.0;9.0;Logo Reveal #234;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_234.png;2026-03-02;2026-03-02
+235;45.0;;Website Redesign #235;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_235.png;2024-04-18;2024-04-19
+236;1.0;1.0;3D Animation #236;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_236.png;2025-11-05;2025-11-05
+237;7.0;7.0;App Onboarding #237;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_237.png;2023-07-27;2023-07-27
+238;36.0;;Mobile UI Kit #238;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_238.png;2024-09-21;2024-09-22
+239;5.0;5.0;Visual System #239;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_239.png;2026-11-06;2026-11-09
+240;38.0;;App Onboarding #240;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_240.png;2024-12-08;2024-12-10
+241;32.0;;Character Loop #241;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_241.png;2024-12-16;2024-12-19
+242;48.0;;Digital Art #242;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_242.png;2026-11-30;2026-12-01
+243;1.0;1.0;Editorial Illustration #243;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_243.png;2026-10-02;2026-10-03
+244;20.0;;Dashboard Design #244;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_244.png;2024-01-02;2024-01-03
+245;9.0;9.0;Creative Process #245;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_245.png;2026-11-05;2026-11-07
+246;6.0;6.0;Logo Design #246;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_246.png;2026-08-27;2026-08-29
+247;5.0;5.0;Art Direction #247;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_247.png;2024-03-07;2024-03-09
+248;46.0;;Android Design #248;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_248.png;2026-07-14;2026-07-16
+249;5.0;5.0;Android Design #249;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_249.png;2024-01-15;2024-01-17
+250;2.0;2.0;Character Design #250;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_250.png;2024-09-16;2024-09-19
+251;2.0;2.0;Logo Reveal #251;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_251.png;2024-12-28;2024-12-31
+252;3.0;3.0;Creative Process #252;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_252.png;2025-09-27;2025-09-28
+253;9.0;9.0;Character Loop #253;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_253.png;2023-02-20;2023-02-22
+254;2.0;2.0;Visual Experiment #254;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_254.png;2025-12-23;2025-12-25
+255;5.0;5.0;UX Case Study #255;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_255.png;2024-08-24;2024-08-25
+256;35.0;;Creative Process #256;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_256.png;2025-12-12;2025-12-12
+257;46.0;;Brand Identity #257;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_257.png;2026-04-29;2026-04-29
+258;47.0;;App Onboarding #258;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_258.png;2024-10-11;2024-10-12
+259;5.0;5.0;User Flow #259;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_259.png;2025-01-10;2025-01-12
+260;5.0;5.0;App Dashboard #260;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_260.png;2024-04-20;2024-04-23
+261;33.0;;Brand Guidelines #261;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_261.png;2024-02-08;2024-02-10
+262;9.0;9.0;Visual System #262;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_262.png;2025-04-06;2025-04-07
+263;24.0;;Visual Experiment #263;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_263.png;2026-07-09;2026-07-09
+264;41.0;;Design Exploration #264;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_264.png;2024-09-22;2024-09-24
+265;10.0;10.0;Website Redesign #265;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_265.png;2023-05-28;2023-05-29
+266;4.0;4.0;Logo Reveal #266;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_266.png;2026-06-24;2026-06-26
+267;3.0;;Icon Set #267;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_267.png;2024-01-25;2024-01-26
+268;1.0;;E-commerce UI #268;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_268.png;2026-05-11;2026-05-14
+269;13.0;;Portfolio Site #269;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_269.png;2023-07-05;2023-07-06
+270;50.0;;Packaging Design #270;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_270.png;2023-09-13;2023-09-14
+271;29.0;;Editorial Illustration #271;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_271.png;2024-01-01;2024-01-04
+272;16.0;;Brand Guidelines #272;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_272.png;2025-03-01;2025-03-03
+273;10.0;10.0;Mobile UI Kit #273;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_273.png;2023-10-20;2023-10-21
+274;33.0;;Motion Graphics #274;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_274.png;2025-04-24;2025-04-25
+275;7.0;;UX Case Study #275;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_275.png;2024-11-05;2024-11-05
+276;1.0;1.0;App Onboarding #276;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_276.png;2023-08-14;2023-08-16
+277;9.0;;UX Case Study #277;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_277.png;2024-08-04;2024-08-05
+278;41.0;;Art Direction #278;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_278.png;2025-02-16;2025-02-18
+279;47.0;;Dashboard Design #279;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_279.png;2026-03-25;2026-03-28
+280;32.0;;Logo Design #280;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_280.png;2023-08-01;2023-08-03
+281;11.0;;Vector Illustration #281;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_281.png;2023-10-06;2023-10-07
+282;10.0;10.0;App Dashboard #282;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_282.png;2023-04-26;2023-04-28
+283;43.0;;Editorial Illustration #283;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_283.png;2023-06-26;2023-06-29
+284;9.0;;Website Redesign #284;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_284.png;2023-11-08;2023-11-09
+285;10.0;10.0;Brand Identity #285;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_285.png;2025-10-31;2025-11-02
+286;35.0;;Android Design #286;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_286.png;2026-01-12;2026-01-13
+287;29.0;;Logo Design #287;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_287.png;2023-02-03;2023-02-04
+288;44.0;;E-commerce UI #288;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_288.png;2023-09-14;2023-09-15
+289;27.0;;Creative Process #289;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_289.png;2026-08-02;2026-08-03
+290;39.0;;Landing Page #290;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_290.png;2025-11-10;2025-11-13
+291;34.0;;E-commerce UI #291;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_291.png;2025-10-19;2025-10-19
+292;15.0;;Packaging Design #292;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_292.png;2024-06-04;2024-06-05
+293;44.0;;App Onboarding #293;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_293.png;2026-06-05;2026-06-08
+294;3.0;3.0;Brand Guidelines #294;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_294.png;2025-12-23;2025-12-25
+295;5.0;5.0;Portfolio Site #295;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_295.png;2023-11-08;2023-11-09
+296;12.0;;Visual Experiment #296;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_296.png;2025-05-10;2025-05-11
+297;2.0;2.0;Logo Reveal #297;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_297.png;2025-02-26;2025-02-28
+298;3.0;3.0;Portfolio Site #298;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_298.png;2023-05-05;2023-05-06
+299;33.0;;Editorial Illustration #299;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_299.png;2025-03-12;2025-03-13
+300;24.0;;SaaS Dashboard #300;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_300.png;2025-10-15;2025-10-17
+301;8.0;8.0;Digital Art #301;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_301.png;2023-08-09;2023-08-11
+302;16.0;;Interface Design #302;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_302.png;2026-03-12;2026-03-12
+303;24.0;;Dashboard Design #303;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_303.png;2026-12-31;2027-01-02
+304;3.0;;Motion Graphics #304;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_304.png;2024-09-22;2024-09-23
+305;16.0;;App Dashboard #305;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_305.png;2024-03-24;2024-03-26
+306;32.0;;Android Design #306;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_306.png;2026-02-07;2026-02-08
+307;39.0;;Interface Design #307;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_307.png;2023-09-17;2023-09-19
+308;24.0;;Mobile UI Kit #308;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_308.png;2023-09-18;2023-09-20
+309;40.0;;Logo Design #309;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_309.png;2026-11-05;2026-11-06
+310;9.0;9.0;Landing Page #310;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_310.png;2024-01-08;2024-01-09
+311;12.0;;Logo Design #311;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_311.png;2023-10-28;2023-10-30
+312;12.0;;Mobile UI Kit #312;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_312.png;2026-10-07;2026-10-07
+313;22.0;;E-commerce UI #313;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_313.png;2025-09-08;2025-09-09
+314;46.0;;Landing Page #314;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_314.png;2024-04-01;2024-04-04
+315;40.0;;App Onboarding #315;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_315.png;2023-04-16;2023-04-18
+316;16.0;;Brand Guidelines #316;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_316.png;2026-10-06;2026-10-09
+317;32.0;;Website Redesign #317;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_317.png;2024-06-25;2024-06-25
+318;10.0;10.0;Creative Process #318;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_318.png;2025-03-16;2025-03-16
+319;46.0;;Creative Concept #319;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_319.png;2023-01-15;2023-01-16
+320;29.0;;Landing Page #320;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_320.png;2024-09-28;2024-09-29
+321;10.0;;Visual System #321;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_321.png;2023-06-25;2023-06-27
+322;2.0;2.0;Creative Process #322;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_322.png;2025-07-12;2025-07-14
+323;19.0;;Interface Design #323;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_323.png;2023-12-13;2023-12-14
+324;6.0;6.0;Motion Graphics #324;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_324.png;2024-04-04;2024-04-05
+325;19.0;;Creative Concept #325;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_325.png;2026-05-07;2026-05-09
+326;7.0;7.0;UI Micro-interaction #326;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_326.png;2026-01-24;2026-01-26
+327;49.0;;UX Case Study #327;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_327.png;2024-10-04;2024-10-06
+328;46.0;;E-commerce UI #328;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_328.png;2024-11-01;2024-11-01
+329;3.0;3.0;Creative Process #329;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_329.png;2024-05-23;2024-05-26
+330;9.0;;Dashboard Design #330;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_330.png;2026-01-11;2026-01-14
+331;34.0;;Wireframe Kit #331;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_331.png;2023-04-09;2023-04-10
+332;18.0;;Digital Art #332;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_332.png;2023-08-20;2023-08-21
+333;4.0;;Visual Experiment #333;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_333.png;2026-10-19;2026-10-19
+334;5.0;5.0;Character Design #334;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_334.png;2026-05-05;2026-05-08
+335;36.0;;UI Micro-interaction #335;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_335.png;2026-09-21;2026-09-21
+336;39.0;;Character Design #336;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_336.png;2025-05-23;2025-05-25
+337;6.0;;Interface Design #337;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_337.png;2026-07-12;2026-07-14
+338;41.0;;Icon Set #338;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_338.png;2026-05-06;2026-05-08
+339;17.0;;Landing Page #339;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_339.png;2023-08-18;2023-08-20
+340;6.0;6.0;E-commerce UI #340;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_340.png;2026-10-20;2026-10-21
+341;5.0;;Dashboard Design #341;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_341.png;2023-08-06;2023-08-08
+342;17.0;;Design Exploration #342;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_342.png;2026-08-26;2026-08-26
+343;38.0;;User Flow #343;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_343.png;2026-10-15;2026-10-15
+344;24.0;;Digital Art #344;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_344.png;2026-11-16;2026-11-17
+345;17.0;;Interface Design #345;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_345.png;2026-04-12;2026-04-14
+346;1.0;1.0;Dashboard Design #346;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_346.png;2023-10-24;2023-10-26
+347;12.0;;Portfolio Site #347;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_347.png;2023-08-17;2023-08-19
+348;32.0;;Design Exploration #348;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_348.png;2024-08-13;2024-08-16
+349;8.0;;Mobile UI Kit #349;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_349.png;2026-11-24;2026-11-26
+350;2.0;2.0;UX Case Study #350;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_350.png;2024-06-18;2024-06-20
+351;28.0;;User Flow #351;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_351.png;2024-11-27;2024-11-30
+352;1.0;;App Onboarding #352;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_352.png;2023-04-24;2023-04-26
+353;37.0;;Vector Illustration #353;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_353.png;2025-09-17;2025-09-18
+354;8.0;;iOS Interface #354;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_354.png;2025-04-08;2025-04-10
+355;15.0;;Creative Process #355;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_355.png;2025-08-13;2025-08-14
+356;10.0;10.0;User Flow #356;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_356.png;2023-12-25;2023-12-26
+357;26.0;;Motion Graphics #357;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_357.png;2023-02-12;2023-02-13
+358;35.0;;Character Design #358;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_358.png;2025-12-07;2025-12-09
+359;9.0;9.0;Website Redesign #359;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_359.png;2026-03-08;2026-03-10
+360;10.0;;Logo Design #360;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_360.png;2026-04-19;2026-04-20
+361;43.0;;Packaging Design #361;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_361.png;2024-10-21;2024-10-23
+362;10.0;10.0;Icon Set #362;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_362.png;2026-06-26;2026-06-26
+363;14.0;;UX Case Study #363;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_363.png;2025-04-25;2025-04-25
+364;24.0;;Character Loop #364;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_364.png;2023-06-07;2023-06-09
+365;5.0;5.0;Dashboard Design #365;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_365.png;2026-02-12;2026-02-15
+366;48.0;;Vector Illustration #366;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_366.png;2025-04-19;2025-04-20
+367;11.0;;App Dashboard #367;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_367.png;2024-03-05;2024-03-06
+368;43.0;;Android Design #368;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_368.png;2024-11-23;2024-11-24
+369;16.0;;Logo Reveal #369;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_369.png;2026-09-11;2026-09-13
+370;8.0;;iOS Interface #370;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_370.png;2024-09-12;2024-09-12
+371;7.0;7.0;Interface Design #371;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_371.png;2023-08-12;2023-08-13
+372;1.0;1.0;SaaS Dashboard #372;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_372.png;2025-02-20;2025-02-23
+373;3.0;;Editorial Illustration #373;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_373.png;2023-09-04;2023-09-06
+374;34.0;;Android Design #374;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_374.png;2026-09-28;2026-10-01
+375;6.0;6.0;Motion Graphics #375;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_375.png;2023-07-14;2023-07-16
+376;5.0;5.0;Editorial Illustration #376;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_376.png;2026-06-26;2026-06-29
+377;5.0;5.0;Brand Identity #377;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_377.png;2023-09-15;2023-09-16
+378;15.0;;Creative Process #378;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_378.png;2024-02-15;2024-02-17
+379;1.0;;Brand Guidelines #379;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_379.png;2026-09-10;2026-09-10
+380;40.0;;SaaS Dashboard #380;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_380.png;2024-09-30;2024-10-02
+381;10.0;10.0;UX Case Study #381;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_381.png;2026-06-29;2026-07-02
+382;10.0;10.0;iOS Interface #382;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_382.png;2023-01-14;2023-01-16
+383;45.0;;Portfolio Site #383;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_383.png;2023-08-05;2023-08-06
+384;9.0;9.0;Creative Process #384;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_384.png;2024-05-02;2024-05-04
+385;3.0;;Logo Design #385;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_385.png;2023-05-05;2023-05-05
+386;11.0;;Website Redesign #386;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_386.png;2026-02-16;2026-02-18
+387;7.0;7.0;Dashboard Design #387;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_387.png;2025-07-07;2025-07-09
+388;41.0;;Brand Guidelines #388;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_388.png;2025-07-28;2025-07-31
+389;5.0;5.0;App Dashboard #389;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_389.png;2026-11-25;2026-11-26
+390;36.0;;Landing Page #390;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_390.png;2024-01-27;2024-01-28
+391;16.0;;3D Animation #391;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_391.png;2025-04-18;2025-04-19
+392;4.0;4.0;Interface Design #392;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_392.png;2024-04-13;2024-04-14
+393;10.0;10.0;Creative Concept #393;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_393.png;2023-01-15;2023-01-16
+394;45.0;;Character Loop #394;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_394.png;2025-03-03;2025-03-05
+395;5.0;5.0;Brand Identity #395;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_395.png;2026-04-06;2026-04-09
+396;7.0;;Character Design #396;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_396.png;2023-08-03;2023-08-06
+397;2.0;2.0;Character Loop #397;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_397.png;2024-11-13;2024-11-13
+398;7.0;;Character Design #398;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_398.png;2023-09-06;2023-09-08
+399;3.0;3.0;Interface Design #399;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_399.png;2026-04-27;2026-04-28
+400;45.0;;Creative Process #400;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_400.png;2023-05-06;2023-05-07
+401;29.0;;Visual Experiment #401;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_401.png;2023-05-28;2023-05-29
+402;10.0;10.0;UI Micro-interaction #402;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_402.png;2026-07-10;2026-07-10
+403;10.0;10.0;UX Case Study #403;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_403.png;2024-02-05;2024-02-05
+404;29.0;;Vector Illustration #404;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_404.png;2025-07-01;2025-07-02
+405;19.0;;Character Design #405;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_405.png;2025-06-12;2025-06-14
+406;26.0;;App Dashboard #406;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_406.png;2026-10-04;2026-10-07
+407;5.0;;App Onboarding #407;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_407.png;2024-01-10;2024-01-12
+408;5.0;;SaaS Dashboard #408;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_408.png;2023-04-11;2023-04-14
+409;29.0;;Art Direction #409;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_409.png;2025-02-15;2025-02-17
+410;29.0;;Digital Art #410;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_410.png;2025-05-11;2025-05-13
+411;34.0;;UX Case Study #411;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_411.png;2023-11-28;2023-11-29
+412;8.0;8.0;Creative Process #412;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_412.png;2024-11-24;2024-11-26
+413;18.0;;Design Exploration #413;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_413.png;2025-12-15;2025-12-17
+414;34.0;;SaaS Dashboard #414;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_414.png;2025-08-13;2025-08-13
+415;9.0;9.0;Brand Guidelines #415;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_415.png;2025-06-09;2025-06-11
+416;6.0;;UI Micro-interaction #416;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_416.png;2024-04-11;2024-04-13
+417;45.0;;Interface Design #417;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_417.png;2024-06-10;2024-06-11
+418;7.0;;E-commerce UI #418;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_418.png;2026-12-30;2026-12-31
+419;4.0;;App Onboarding #419;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_419.png;2026-01-21;2026-01-24
+420;44.0;;Character Design #420;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_420.png;2024-03-06;2024-03-07
+421;2.0;;Packaging Design #421;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_421.png;2024-05-28;2024-05-30
+422;30.0;;Creative Concept #422;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_422.png;2024-10-12;2024-10-14
+423;17.0;;Icon Set #423;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_423.png;2025-08-15;2025-08-18
+424;47.0;;Visual Experiment #424;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_424.png;2025-03-11;2025-03-11
+425;1.0;1.0;UX Case Study #425;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_425.png;2026-03-22;2026-03-23
+426;13.0;;Website Redesign #426;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_426.png;2025-03-15;2025-03-16
+427;50.0;;Visual Experiment #427;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_427.png;2026-10-10;2026-10-13
+428;10.0;10.0;Logo Reveal #428;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_428.png;2024-05-18;2024-05-19
+429;48.0;;Art Direction #429;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_429.png;2024-12-18;2024-12-19
+430;37.0;;Logo Reveal #430;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_430.png;2026-12-10;2026-12-13
+431;24.0;;Creative Process #431;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_431.png;2025-07-01;2025-07-01
+432;37.0;;Mobile UI Kit #432;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_432.png;2025-08-10;2025-08-12
+433;34.0;;Editorial Illustration #433;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_433.png;2025-06-19;2025-06-21
+434;8.0;8.0;Design Exploration #434;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_434.png;2023-01-12;2023-01-13
+435;5.0;5.0;SaaS Dashboard #435;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_435.png;2025-10-20;2025-10-21
+436;12.0;;Visual Experiment #436;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_436.png;2024-10-19;2024-10-21
+437;2.0;;SaaS Dashboard #437;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_437.png;2025-06-12;2025-06-14
+438;6.0;;Landing Page #438;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_438.png;2023-11-05;2023-11-06
+439;7.0;;Visual Experiment #439;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_439.png;2023-01-30;2023-01-31
+440;2.0;;E-commerce UI #440;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_440.png;2024-12-19;2024-12-21
+441;36.0;;Interface Design #441;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_441.png;2023-06-08;2023-06-11
+442;36.0;;UI Micro-interaction #442;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_442.png;2023-09-01;2023-09-02
+443;7.0;;Logo Reveal #443;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_443.png;2024-02-17;2024-02-17
+444;42.0;;Vector Illustration #444;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_444.png;2026-02-04;2026-02-04
+445;18.0;;Vector Illustration #445;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_445.png;2025-03-04;2025-03-04
+446;37.0;;Motion Graphics #446;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_446.png;2025-10-14;2025-10-15
+447;2.0;;Logo Design #447;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_447.png;2026-12-21;2026-12-21
+448;50.0;;Wireframe Kit #448;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_448.png;2025-12-15;2025-12-18
+449;25.0;;App Onboarding #449;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_449.png;2023-07-12;2023-07-14
+450;8.0;;UI Micro-interaction #450;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_450.png;2026-12-31;2027-01-01
+451;27.0;;Creative Concept #451;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_451.png;2023-09-17;2023-09-19
+452;21.0;;Character Design #452;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_452.png;2026-05-12;2026-05-12
+453;38.0;;Portfolio Site #453;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_453.png;2024-03-02;2024-03-04
+454;4.0;;Icon Set #454;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_454.png;2025-06-29;2025-07-01
+455;38.0;;Wireframe Kit #455;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_455.png;2024-11-11;2024-11-12
+456;31.0;;Creative Concept #456;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_456.png;2023-07-06;2023-07-07
+457;31.0;;Packaging Design #457;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_457.png;2025-01-08;2025-01-11
+458;7.0;;Landing Page #458;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_458.png;2026-10-16;2026-10-16
+459;43.0;;E-commerce UI #459;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_459.png;2025-02-11;2025-02-13
+460;42.0;;Brand Guidelines #460;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_460.png;2025-04-20;2025-04-22
+461;23.0;;iOS Interface #461;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_461.png;2024-07-03;2024-07-05
+462;2.0;;Landing Page #462;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_462.png;2023-07-11;2023-07-13
+463;20.0;;SaaS Dashboard #463;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_463.png;2026-06-17;2026-06-19
+464;46.0;;Logo Design #464;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_464.png;2026-01-21;2026-01-21
+465;6.0;;Creative Concept #465;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_465.png;2024-03-08;2024-03-11
+466;24.0;;UX Case Study #466;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_466.png;2024-02-25;2024-02-26
+467;5.0;;SaaS Dashboard #467;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_467.png;2026-08-29;2026-08-29
+468;44.0;;Visual System #468;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_468.png;2025-04-10;2025-04-10
+469;15.0;;App Onboarding #469;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_469.png;2025-04-08;2025-04-09
+470;16.0;;User Flow #470;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_470.png;2025-09-14;2025-09-17
+471;49.0;;Art Direction #471;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_471.png;2025-01-29;2025-01-31
+472;8.0;;Interface Design #472;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_472.png;2026-10-22;2026-10-22
+473;43.0;;3D Animation #473;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_473.png;2023-11-26;2023-11-27
+474;45.0;;Mobile UI Kit #474;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_474.png;2023-08-17;2023-08-18
+475;1.0;;Design Exploration #475;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_475.png;2024-12-02;2024-12-02
+476;43.0;;Visual Experiment #476;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_476.png;2026-12-13;2026-12-15
+477;39.0;;Visual System #477;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_477.png;2026-08-06;2026-08-06
+478;42.0;;Logo Reveal #478;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_478.png;2024-03-25;2024-03-27
+479;16.0;;SaaS Dashboard #479;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_479.png;2024-02-24;2024-02-26
+480;20.0;;SaaS Dashboard #480;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_480.png;2025-10-29;2025-10-30
+481;23.0;;Creative Process #481;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_481.png;2026-09-08;2026-09-09
+482;6.0;;Android Design #482;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_482.png;2023-02-09;2023-02-10
+483;2.0;;Vector Illustration #483;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_483.png;2025-09-24;2025-09-25
+484;39.0;;E-commerce UI #484;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_484.png;2024-05-18;2024-05-18
+485;1.0;;Character Design #485;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_485.png;2025-05-07;2025-05-09
+486;4.0;;Icon Set #486;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_486.png;2025-04-08;2025-04-10
+487;45.0;;Character Design #487;Sample Illustration design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/illustration_487.png;2025-03-16;2025-03-18
+488;27.0;;Dashboard Design #488;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_488.png;2024-12-03;2024-12-05
+489;21.0;;Mobile UI Kit #489;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_489.png;2026-10-11;2026-10-12
+490;1.0;;Brand Guidelines #490;Sample Branding design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/branding_490.png;2026-08-15;2026-08-16
+491;13.0;;Creative Concept #491;Sample Other design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/other_491.png;2025-11-21;2025-11-23
+492;1.0;;Motion Graphics #492;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_492.png;2025-08-07;2025-08-07
+493;5.0;;App Dashboard #493;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_493.png;2023-03-26;2023-03-28
+494;7.0;;Dashboard Design #494;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_494.png;2023-06-02;2023-06-04
+495;2.0;;App Onboarding #495;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_495.png;2023-08-20;2023-08-23
+496;20.0;;E-commerce UI #496;Sample Web Design design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/web_design_496.png;2026-01-27;2026-01-29
+497;10.0;;Dashboard Design #497;Sample UIUX design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/uiux_497.png;2024-10-22;2024-10-23
+498;8.0;;iOS Interface #498;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_498.png;2026-05-29;2026-05-29
+499;44.0;;UI Micro-interaction #499;Sample Animation design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/animation_499.png;2026-08-13;2026-08-14
+500;13.0;;App Dashboard #500;Sample Mobile App design showcase. Created with passion and precision.;https://cdn.dribbble.com/shots/mobile_app_500.png;2023-11-09;2023-11-09

@@ -23,7 +23,7 @@
                 <a href="#" class="block px-5 py-2 text-sm text-gray-600 hover:bg-gray-50">Popular</a>
                 <hr class="my-1 border-gray-100">
                 <a href="#" class="block px-5 py-2 text-sm font-bold text-gray-900 bg-gray-50 flex justify-between items-center">
-                    New & Noteworthy <span class="text-pink-500">✓</span>
+                    New & Noteworthy 
                 </a>
             </div>
         </div>
@@ -31,19 +31,23 @@
         <div class="flex-1 overflow-hidden relative">
             <div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
             
-            <div class="flex items-center space-x-6 overflow-x-auto no-scrollbar scroll-smooth">
-                <div class="flex items-center space-x-6 text-sm font-semibold text-gray-500 whitespace-nowrap pr-10">
-                    <a href="#" class="hover:text-black transition-colors">Animation</a>
-                    <a href="#" class="hover:text-black transition-colors">Branding</a>
-                    <a href="#" class="hover:text-black transition-colors">Illustration</a>
-                    <a href="#" class="hover:text-black transition-colors">Mobile</a>
-                    <a href="#" class="hover:text-black transition-colors">Print</a>
-                    <a href="#" class="hover:text-black transition-colors">Product Design</a>
-                    <a href="#" class="hover:text-black transition-colors">Typography</a>
-                    <a href="#" class="hover:text-black transition-colors">Web Design</a>
-                    <a href="#" class="hover:text-black transition-colors">UI/UX</a>
-                </div>
-            </div>
+           <div class="flex items-center space-x-6 overflow-x-auto no-scrollbar scroll-smooth">
+    <div class="flex items-center space-x-2 text-sm font-semibold whitespace-nowrap pr-10">
+
+        @foreach($categories as $category)
+
+            <a href="/{{ $category->name }}"
+               class="px-4 py-2 rounded-full transition-all
+               {{ request()->is($category->name) ? 'bg-pink-400 text-white' : 'text-black hover:text-gray-500' }}">
+
+                {{ ucfirst(str_replace('-', ' ', $category->name)) }}
+
+            </a>
+
+        @endforeach
+
+    </div>
+</div>
         </div>
     </div>
 
@@ -81,7 +85,7 @@
                     <p class="text-sm font-bold text-gray-900 truncate">{{ Auth::user()->full_name }}</p>
                     <p class="text-xs text-gray-500 truncate">{{ Auth::user()->email }}</p>
                 </div>
-                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Settings</a>
+               <a href="{{ route('user.profile', Auth::user()->username) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"> Settings</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Log Out</button>
