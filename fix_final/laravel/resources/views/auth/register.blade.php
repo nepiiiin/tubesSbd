@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login - Dribbble</title>
 
     <style>
-
+        /* === CSS SAMA PERSIS DENGAN REGISTER PAGE === */
         *{
             margin:0;
             padding:0;
@@ -28,7 +28,6 @@
         }
 
         /* LEFT */
-
         .left{
             width:65%;
             background:#ffffff;
@@ -55,7 +54,6 @@
         }
 
         /* DRIBBBLE BALL */
-
         .dribbble-logo-ball{
             width:52px;
             height:52px;
@@ -112,12 +110,8 @@
         }
 
         @keyframes spin{
-            from{
-                transform:rotate(0deg);
-            }
-            to{
-                transform:rotate(360deg);
-            }
+            from{ transform:rotate(0deg); }
+            to{ transform:rotate(360deg); }
         }
 
         h1{
@@ -158,7 +152,7 @@
             box-shadow:0 0 0 4px rgba(216,154,228,0.15);
         }
 
-        .register-btn{
+        .login-btn{
             width:100%;
             padding:16px;
             border:none;
@@ -172,7 +166,7 @@
             transition:0.3s;
         }
 
-        .register-btn:hover{
+        .login-btn:hover{
             background:#000;
             transform:translateY(-2px);
         }
@@ -192,7 +186,6 @@
         }
 
         /* RIGHT */
-
         .right{
             width:35%;
             position:relative;
@@ -209,12 +202,8 @@
         }
 
         @keyframes zoom{
-            from{
-                transform:scale(1);
-            }
-            to{
-                transform:scale(1.08);
-            }
+            from{ transform:scale(1); }
+            to{ transform:scale(1.08); }
         }
 
         .overlay{
@@ -259,76 +248,28 @@
         }
 
         @keyframes float{
-
-            0%{
-                transform:translateY(0px);
-            }
-
-            50%{
-                transform:translateY(-25px);
-            }
-
-            100%{
-                transform:translateY(0px);
-            }
-
+            0%{ transform:translateY(0px); }
+            50%{ transform:translateY(-25px); }
+            100%{ transform:translateY(0px); }
         }
 
         /* RESPONSIVE */
-
         @media(max-width:1000px){
-
-            .container{
-                flex-direction:column;
-            }
-
-            .left{
-                width:100%;
-                padding:100px 25px 50px;
-            }
-
-            .right{
-                width:100%;
-                height:300px;
-            }
-
-            h1{
-                font-size:34px;
-            }
-
-            .subtitle{
-                font-size:15px;
-            }
-
-            .logo{
-                left:25px;
-                top:25px;
-            }
-
+            .container{ flex-direction:column; }
+            .left{ width:100%; padding:100px 25px 50px; }
+            .right{ width:100%; height:300px; }
+            h1{ font-size:34px; }
+            .subtitle{ font-size:15px; }
+            .logo{ left:25px; top:25px; }
         }
 
         @media(max-width:600px){
-
-            h1{
-                font-size:28px;
-            }
-
-            .subtitle{
-                font-size:14px;
-            }
-
-            .input-group input{
-                padding:15px;
-            }
-
-            .register-btn{
-                padding:15px;
-            }
-
+            h1{ font-size:28px; }
+            .subtitle{ font-size:14px; }
+            .input-group input{ padding:15px; }
+            .login-btn{ padding:15px; }
         }
-
     </style>
-
 </head>
 
 <body>
@@ -336,55 +277,30 @@
 <div class="container">
 
     <!-- LEFT -->
-
     <div class="left">
 
-        <div class="logo">
-            Dribbble
-        </div>
+        <div class="logo">Dribbble</div>
 
         <div class="form-wrapper">
 
+            <!-- Dribbble Ball (sama persis) -->
             <div class="dribbble-logo-ball">
-
                 <div class="line line1"></div>
                 <div class="line line2"></div>
                 <div class="line line3"></div>
                 <div class="line line4"></div>
-
             </div>
 
-            <h1>
-                Welcome to Dribbble
-            </h1>
+            <!-- TEXT BERBEDA -->
+            <h1>Sign in to Dribbble</h1>
 
             <p class="subtitle">
-                Create your account and discover world-class
-                design talent around the world.
+                Welcome back! Enter your credentials to access your account.
             </p>
 
-            <form method="POST" action="{{ route('register') }}">
+            <!-- FORM LOGIN (lebih singkat) -->
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
-
-                <div class="input-group">
-                    <input
-                        type="text"
-                        name="full_name"
-                        placeholder="Full Name"
-                        value="{{ old('full_name') }}"
-                        required
-                    >
-                </div>
-
-                <div class="input-group">
-                    <input
-                        type="text"
-                        name="username"
-                        placeholder="Username"
-                        value="{{ old('username') }}"
-                        required
-                    >
-                </div>
 
                 <div class="input-group">
                     <input
@@ -393,6 +309,7 @@
                         placeholder="Email Address"
                         value="{{ old('email') }}"
                         required
+                        autofocus
                     >
                 </div>
 
@@ -405,57 +322,33 @@
                     >
                 </div>
 
-                <div class="input-group">
-                    <input
-                        type="password"
-                        name="password_confirmation"
-                        placeholder="Confirm Password"
-                        required
-                    >
-                </div>
-
-                <button type="submit" class="register-btn">
-                    Create Account
+                <button type="submit" class="login-btn">
+                    Sign In
                 </button>
-
             </form>
 
+            <!-- BOTTOM TEXT (link ke register) -->
             <div class="bottom-text">
-
-                By continuing, you agree to our
-                <a href="#">Terms</a>
-                and
-                <a href="#">Privacy Policy</a>
-
-                <br><br>
-
-                Already have an account?
-                <a href="{{ route('login') }}">
-                    Sign in
+                Don't have an account?
+                <a href="{{ route('register') }}">
+                    Sign up
                 </a>
-
             </div>
 
         </div>
-
     </div>
 
-    <!-- RIGHT -->
-
+    <!-- RIGHT (sama persis) -->
     <div class="right">
-
         <img
             src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?q=80&w=1200&auto=format&fit=crop"
             class="bg-image"
             alt="Background"
         >
-
         <div class="overlay"></div>
-
         <div class="circle circle1"></div>
         <div class="circle circle2"></div>
         <div class="circle circle3"></div>
-
     </div>
 
 </div>
