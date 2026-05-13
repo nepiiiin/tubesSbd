@@ -46,11 +46,11 @@
             font-weight:700;
             color:#111827;
             text-decoration:none;
+            transition:color 0.3s;
         }
 
         .logo:hover{
             color:#d89ae4;
-            transition:0.3s;
         }
 
         .form-wrapper{
@@ -58,7 +58,7 @@
             max-width:420px;
         }
 
-        /* DRIBBBLE BALL ANIMATION */
+        /* DRIBBBLE BALL */
         .dribbble-logo-ball{
             width:52px;
             height:52px;
@@ -138,15 +138,6 @@
 
         .input-group{
             margin-bottom:16px;
-            position:relative;
-        }
-
-        .input-group label{
-            display:block;
-            font-size:13px;
-            font-weight:500;
-            color:#374151;
-            margin-bottom:6px;
         }
 
         .input-group input{
@@ -166,53 +157,6 @@
             box-shadow:0 0 0 4px rgba(216,154,228,0.15);
         }
 
-        /* ERROR MESSAGE */
-        .error-message{
-            color:#ef4444;
-            font-size:12px;
-            margin-top:4px;
-            display:none;
-        }
-        .input-group input:invalid + .error-message{
-            display:block;
-        }
-
-        /* REMEMBER & FORGOT */
-        .form-options{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin:8px 0 20px;
-            font-size:14px;
-        }
-
-        .remember-me{
-            display:flex;
-            align-items:center;
-            gap:8px;
-            color:#374151;
-            cursor:pointer;
-        }
-
-        .remember-me input{
-            width:16px;
-            height:16px;
-            accent-color:#d89ae4;
-            cursor:pointer;
-        }
-
-        .forgot-link{
-            color:#d89ae4;
-            text-decoration:none;
-            font-weight:500;
-            transition:0.2s;
-        }
-
-        .forgot-link:hover{
-            color:#c07dd9;
-            text-decoration:underline;
-        }
-
         .login-btn{
             width:100%;
             padding:16px;
@@ -230,64 +174,6 @@
         .login-btn:hover{
             background:#000;
             transform:translateY(-2px);
-            box-shadow:0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .login-btn:active{
-            transform:translateY(0);
-        }
-
-        /* SOCIAL LOGIN */
-        .divider{
-            display:flex;
-            align-items:center;
-            margin:24px 0;
-            color:#9ca3af;
-            font-size:13px;
-        }
-
-        .divider::before,
-        .divider::after{
-            content:"";
-            flex:1;
-            height:1px;
-            background:#e5e7eb;
-        }
-
-        .divider span{
-            padding:0 12px;
-        }
-
-        .social-login{
-            display:flex;
-            gap:12px;
-        }
-
-        .social-btn{
-            flex:1;
-            padding:12px;
-            border:1px solid #e5e7eb;
-            border-radius:16px;
-            background:#fff;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:8px;
-            font-size:14px;
-            font-weight:500;
-            color:#374151;
-            cursor:pointer;
-            transition:0.3s;
-        }
-
-        .social-btn:hover{
-            background:#fafafa;
-            border-color:#d89ae4;
-        }
-
-        .social-btn svg{
-            width:20px;
-            height:20px;
         }
 
         .bottom-text{
@@ -304,11 +190,7 @@
             font-weight:600;
         }
 
-        .bottom-text a:hover{
-            color:#d89ae4;
-        }
-
-        /* RIGHT SIDE */
+        /* RIGHT */
         .right{
             width:35%;
             position:relative;
@@ -371,74 +253,41 @@
         }
 
         @keyframes float{
-            0%,100%{ transform:translateY(0px); }
+            0%{ transform:translateY(0px); }
             50%{ transform:translateY(-25px); }
-        }
-
-        /* QUOTE TEXT */
-        .quote-box{
-            position:absolute;
-            bottom:40px;
-            left:50%;
-            transform:translateX(-50%);
-            text-align:center;
-            color:#fff;
-            padding:0 20px;
-            max-width:85%;
-            z-index:2;
-        }
-
-        .quote-box p{
-            font-size:18px;
-            font-weight:500;
-            line-height:1.5;
-            margin-bottom:8px;
-            text-shadow:0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .quote-box span{
-            font-size:13px;
-            opacity:0.8;
+            100%{ transform:translateY(0px); }
         }
 
         /* RESPONSIVE */
         @media(max-width:1000px){
             .container{ flex-direction:column; }
-            .left{
-                width:100%;
-                padding:100px 25px 50px;
-            }
-            .right{
-                width:100%;
-                height:300px;
-            }
+            .left{ width:100%; padding:100px 25px 50px; }
+            .right{ width:100%; height:300px; }
             h1{ font-size:34px; }
             .subtitle{ font-size:15px; }
             .logo{ left:25px; top:25px; }
-            .form-options{ flex-direction:column; align-items:flex-start; gap:10px; }
-            .quote-box{ bottom:20px; }
-            .quote-box p{ font-size:16px; }
         }
 
         @media(max-width:600px){
             h1{ font-size:28px; }
             .subtitle{ font-size:14px; }
             .input-group input{ padding:15px; }
-            .login-btn, .social-btn{ padding:15px; }
-            .social-login{ flex-direction:column; }
+            .login-btn{ padding:15px; }
         }
     </style>
 </head>
 
 <body>
+
 <div class="container">
 
-    <!-- LEFT: FORM -->
+    <!-- LEFT -->
     <div class="left">
         <a href="{{ route('home') }}" class="logo">Dribbble</a>
 
         <div class="form-wrapper">
-            <!-- Animated Dribbble Ball -->
+
+            <!-- Dribbble Ball (sama persis) -->
             <div class="dribbble-logo-ball">
                 <div class="line line1"></div>
                 <div class="line line2"></div>
@@ -446,54 +295,35 @@
                 <div class="line line4"></div>
             </div>
 
+            <!-- TEXT BERBEDA -->
             <h1>Sign in to Dribbble</h1>
+
             <p class="subtitle">
-                Welcome back! Please enter your credentials to continue.
+                Welcome back! Enter your credentials to access your account.
             </p>
 
+            <!-- FORM LOGIN -->
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
                 <div class="input-group">
-                    <label for="email">Email Address</label>
-                    <input 
-                        type="email" 
-                        id="email"
-                        name="email" 
-                        placeholder="you@example.com"
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
                         value="{{ old('email') }}"
-                        required 
+                        required
                         autofocus
                     >
-                    @error('email')
-                        <span class="error-message" style="display:block;">{{ $message }}</span>
-                    @enderror
                 </div>
 
                 <div class="input-group">
-                    <label for="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password"
-                        name="password" 
-                        placeholder="••••••••"
-                        required 
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        required
                     >
-                    @error('password')
-                        <span class="error-message" style="display:block;">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox" name="remember">
-                        <span>Remember me</span>
-                    </label>
-                    @if (Route::has('password.request'))
-                        <a class="forgot-link" href="{{ route('password.request') }}">
-                            Forgot password?
-                        </a>
-                    @endif
                 </div>
 
                 <button type="submit" class="login-btn">
@@ -501,46 +331,31 @@
                 </button>
             </form>
 
-            <!-- Social Login -->
-            <div class="divider"><span>or continue with</span></div>
-            <div class="social-login">
-                <button class="social-btn">
-                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                    Google
-                </button>
-                <button class="social-btn">
-                    <svg viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    Facebook
-                </button>
+            <!-- BOTTOM TEXT -->
+            <div class="bottom-text">
+                Don't have an account?
+                <a href="{{ route('register') }}">
+                    Sign up
+                </a>
             </div>
 
-            <div class="bottom-text">
-                Don't have an account? 
-                <a href="{{ route('register') }}">Sign up</a>
-            </div>
         </div>
     </div>
 
-    <!-- RIGHT: DECORATIVE -->
+    <!-- RIGHT (SAMA PERSIS DENGAN REGISTER) -->
     <div class="right">
         <img
-            src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?q=80&w=1200&auto=format&fit=crop"
             class="bg-image"
             alt="Design Inspiration"
         >
         <div class="overlay"></div>
-
         <div class="circle circle1"></div>
         <div class="circle circle2"></div>
         <div class="circle circle3"></div>
-
-        <!-- Optional Quote -->
-        <div class="quote-box">
-            <p>"Design is not just what it looks like. Design is how it works."</p>
-            <span>— Steve Jobs</span>
-        </div>
     </div>
 
 </div>
+
 </body>
 </html>

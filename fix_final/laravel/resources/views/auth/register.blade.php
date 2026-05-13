@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Dribbble</title>
+    <title>Register</title>
 
     <style>
-        /* === CSS SAMA PERSIS DENGAN REGISTER PAGE === */
         *{
             margin:0;
             padding:0;
@@ -46,6 +45,13 @@
             font-style:italic;
             font-weight:700;
             color:#111827;
+            text-decoration:none; /* ADDED */
+            transition:color 0.3s; /* ADDED */
+        }
+
+        /* ADDED HOVER EFFECT */
+        .logo:hover{
+            color:#d89ae4;
         }
 
         .form-wrapper{
@@ -152,7 +158,7 @@
             box-shadow:0 0 0 4px rgba(216,154,228,0.15);
         }
 
-        .login-btn{
+        .register-btn{
             width:100%;
             padding:16px;
             border:none;
@@ -166,7 +172,7 @@
             transition:0.3s;
         }
 
-        .login-btn:hover{
+        .register-btn:hover{
             background:#000;
             transform:translateY(-2px);
         }
@@ -267,7 +273,7 @@
             h1{ font-size:28px; }
             .subtitle{ font-size:14px; }
             .input-group input{ padding:15px; }
-            .login-btn{ padding:15px; }
+            .register-btn{ padding:15px; }
         }
     </style>
 </head>
@@ -282,7 +288,6 @@
 
         <div class="form-wrapper">
 
-            <!-- Dribbble Ball (sama persis) -->
             <div class="dribbble-logo-ball">
                 <div class="line line1"></div>
                 <div class="line line2"></div>
@@ -290,16 +295,35 @@
                 <div class="line line4"></div>
             </div>
 
-            <!-- TEXT BERBEDA -->
-            <h1>Sign in to Dribbble</h1>
+            <h1>Welcome to Dribbble</h1>
 
             <p class="subtitle">
-                Welcome back! Enter your credentials to access your account.
+                Create your account and discover world-class
+                design talent around the world.
             </p>
 
-            <!-- FORM LOGIN (lebih singkat) -->
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
+
+                <div class="input-group">
+                    <input
+                        type="text"
+                        name="full_name"
+                        placeholder="Full Name"
+                        value="{{ old('full_name') }}"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value="{{ old('username') }}"
+                        required
+                    >
+                </div>
 
                 <div class="input-group">
                     <input
@@ -308,7 +332,6 @@
                         placeholder="Email Address"
                         value="{{ old('email') }}"
                         required
-                        autofocus
                     >
                 </div>
 
@@ -321,28 +344,44 @@
                     >
                 </div>
 
-                <button type="submit" class="login-btn">
-                    Sign In
+                <div class="input-group">
+                    <input
+                        type="password"
+                        name="password_confirmation"
+                        placeholder="Confirm Password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="register-btn">
+                    Create Account
                 </button>
             </form>
 
-            <!-- BOTTOM TEXT (link ke register) -->
             <div class="bottom-text">
-                Don't have an account?
-                <a href="{{ route('register') }}">
-                    Sign up
+                By continuing, you agree to our
+                <a href="#">Terms</a>
+                and
+                <a href="#">Privacy Policy</a>
+
+                <br><br>
+
+                Already have an account?
+                <a href="{{ route('login') }}">
+                    Sign in
                 </a>
             </div>
 
         </div>
     </div>
 
-    <!-- RIGHT (sama persis) -->
+    <!-- RIGHT -->
     <div class="right">
+        <!-- CHANGED IMAGE TO MATCH LOGIN PAGE -->
         <img
             src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?q=80&w=1200&auto=format&fit=crop"
             class="bg-image"
-            alt="Background"
+            alt="Design Inspiration"
         >
         <div class="overlay"></div>
         <div class="circle circle1"></div>
