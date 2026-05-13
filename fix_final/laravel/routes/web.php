@@ -14,6 +14,8 @@ use App\Imports\LikesImport;
 use App\Imports\FollowsImport;
 use App\Imports\CommentsImport;
 use App\Imports\CollectionItemsImport;
+use App\Imports\JobsImport;
+use App\Imports\ApplicationsImport;
 
 Route::get('/', function () {
     return view('welcome');
@@ -134,5 +136,19 @@ Route::get('/import-collection-items', function () {
     Excel::import(new CollectionItemsImport, public_path('collection_items.csv'));
 
     return 'Collection Items Imported Successfully';
+});
+
+Route::get('/import-jobs', function () {
+
+    Excel::import(new JobsImport, public_path('jobs.csv'));
+
+    return 'Jobs Imported Successfully';
+});
+
+Route::get('/import-applications', function () {
+
+    Excel::import(new ApplicationsImport, public_path('applications.csv'));
+
+    return 'Applications Imported Successfully';
 });
 require __DIR__.'/auth.php';
