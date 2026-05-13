@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', [PostController::class, 'index']);
 
@@ -21,3 +22,5 @@ Route::get('/for-designer', function () {
 })->name('for.designer');
 
 Route::resource('posts', PostController::class);
+
+Route::get('/profile/{user}', [ProfileController::class, 'show']);
