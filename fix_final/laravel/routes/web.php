@@ -7,6 +7,13 @@ use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ShotsImport;
 use App\Imports\CollectionsImport;
+use App\Imports\ShotTagsImport;
+use App\Imports\TagsImport;
+use App\Imports\ShotCategoriesImport;
+use App\Imports\LikesImport;
+use App\Imports\FollowsImport;
+use App\Imports\CommentsImport;
+use App\Imports\CollectionItemsImport;
 
 Route::get('/', function () {
     return view('welcome');
@@ -79,5 +86,53 @@ Route::get('/import-collections', function () {
     Excel::import(new CollectionsImport, public_path('collections.csv'));
 
     return 'Collections Imported Successfully';
+});
+
+Route::get('/import-shot-tags', function () {
+
+    Excel::import(new ShotTagsImport, public_path('shot_tags.csv'));
+
+    return 'Shot Tags Imported Successfully';
+});
+
+Route::get('/import-tags', function () {
+
+    Excel::import(new TagsImport, public_path('tags.csv'));
+
+    return 'Tags Imported Successfully';
+});
+
+Route::get('/import-shot-categories', function () {
+
+    Excel::import(new ShotCategoriesImport, public_path('shot_categories.csv'));
+
+    return 'Shot Categories Imported Successfully';
+});
+Route::get('/import-likes', function () {
+
+    Excel::import(new LikesImport, public_path('likes.csv'));
+
+    return 'Likes Imported Successfully';
+});
+
+Route::get('/import-follows', function () {
+
+    Excel::import(new FollowsImport, public_path('follows.csv'));
+
+    return 'Follows Imported Successfully';
+});
+
+Route::get('/import-comments', function () {
+
+    Excel::import(new CommentsImport, public_path('comments.csv'));
+
+    return 'Comments Imported Successfully';
+});
+
+Route::get('/import-collection-items', function () {
+
+    Excel::import(new CollectionItemsImport, public_path('collection_items.csv'));
+
+    return 'Collection Items Imported Successfully';
 });
 require __DIR__.'/auth.php';
