@@ -279,7 +279,9 @@
     <!-- LEFT -->
     <div class="left">
 
-        <div class="logo">Dribbble</div>
+        <a href="{{ url('/') }}" class="logo">
+        Dribbble
+        </a>
 
         <div class="form-wrapper">
 
