@@ -1,8 +1,8 @@
 <nav class="bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between relative">
     <div class="flex-none w-32">
-        <a href="/" class="text-2xl font-bold tracking-tighter text-black hover:text-gray-700">
-            dribbble
-        </a>
+        <a href="{{ auth()->check() ? route('dashboard') : route('home') }}" class="text-2xl font-bold tracking-tighter text-black hover:text-gray-700">
+    dribbble
+</a>
     </div>
 
     <div class="flex items-center flex-1 justify-center min-w-0 px-4">
@@ -33,13 +33,19 @@
             
             <div class="flex items-center space-x-6 overflow-x-auto no-scrollbar scroll-smooth">
                 <div class="flex items-center space-x-2 text-sm font-semibold whitespace-nowrap pr-10">
-                    @foreach($categories as $category)
-                        <a href="/{{ $category->name }}"
-                           class="px-4 py-2 rounded-full transition-all
-                           {{ request()->is($category->name) ? 'bg-pink-400 text-white' : 'text-black hover:text-gray-500' }}">
-                            {{ ucfirst(str_replace('-', ' ', $category->name)) }}
-                        </a>
-                    @endforeach
+                  @foreach($categories as $category)
+
+    <a
+        href="/category/{{ $category->name }}"
+        class="px-4 py-2 rounded-full transition-all
+        {{ request()->is('category/'.$category->name) ? 'bg-pink-400 text-white' : 'text-black'}}"
+    >
+
+        {{ ucfirst(str_replace('-', ' ', $category->name)) }}
+
+    </a>
+
+@endforeach
                 </div>
             </div>
         </div>

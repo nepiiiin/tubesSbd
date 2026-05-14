@@ -17,9 +17,20 @@ use App\Imports\CollectionItemsImport;
 use App\Imports\JobsImport;
 use App\Imports\ApplicationsImport;
 use App\Models\Shot;
+use App\Models\Like;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $shots = Shot::with(['user', 'likes', 'categories'])
+        ->latest()
+        ->take(60)
+        ->get();
+
+    $categories = Category::orderBy('id')->get();
+
+    return view('welcome', compact('shots', 'categories'));
+
 })->name('home');
 
 Route::get('/login', function () {
@@ -30,9 +41,6 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -162,11 +170,42 @@ Route::get('/import-applications', function () {
 
 Route::get('/dashboard', function () {
 
-    $shots = Shot::with(['user', 'likes'])
+    $shots = Shot::with(['user', 'likes', 'categories'])
+        ->latest()
+        ->take(60)
+        ->get();
+
+    $categories = Category::orderBy('id')->get();
+
+    return view('dashboard', compact('shots', 'categories'));
+
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/category/{name}', function ($name) {
+
+    $category = Category::where('name', $name)->firstOrFail();
+
+    $shots = Shot::with(['user', 'likes', 'categories'])
+        ->whereHas('categories', function ($query) use ($name) {
+
+            $query->where('name', $name);
+
+        })
         ->latest()
         ->paginate(20);
 
-    return view('dashboard', compact('shots'));
+    return view('dashboard', compact('shots', 'category'));
 
-})->middleware(['auth'])->name('dashboard');
+});
+
+Route::get('/shots/{id}', function ($id) {
+
+    $shot = Shot::with(['user', 'likes', 'categories'])
+        ->findOrFail($id);
+
+    return view('shot_details', compact('shot'));
+
+})->name('shots.detail');
+
+
 require __DIR__.'/auth.php';
