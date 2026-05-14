@@ -47,6 +47,13 @@
                 Manajemen Data
             </div>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/admin/users') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Pengguna (Users)</span>
+                </a>
+            </li>
+            
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="text-center d-none d-md-inline">
