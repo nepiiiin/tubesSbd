@@ -13,4 +13,39 @@ class AdminUserController extends Controller
         
         return view('admin.users.index', compact('users'));
     }
+
+        // Menampilkan halaman form tambah pengguna
+    public function create()
+    {
+        return view('admin.users.create');
+    }
+
+    // Menyimpan data pengguna baru ke database
+    public function store(Request $request)
+    {
+        // 1. Validasi inputan form
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'username'  => 'required|string|max:255|unique:users',
+            'email'     => 'required|email|unique:users',
+            'password'  => 'required|min:6',
+            'role'      => 'required|in:admin,user',
+        ], [
+            'username.unique' => 'Username sudah dipakai, cari yang lain ya!',
+            'email.unique' => 'Email ini sudah terdaftar.',
+            'password.min' => 'Password minimal 6 karakter.'
+        ]);
+
+        // 2. Simpan data ke database
+        User::create([
+            'full_name' => $request->full_name,
+            'username'  => $request->username,
+            'email'     => $request->email,
+            'password'  => bcrypt($request->password), // Password wajib di-hash (enkripsi)
+            'role'      => $request->role,
+        ]);
+
+        // 3. Kembalikan ke halaman daftar dengan pesan sukses
+        return redirect()->route('admin.users.index')->with('success', 'Hore! Pengguna baru berhasil ditambahkan.');
+    }
 }
