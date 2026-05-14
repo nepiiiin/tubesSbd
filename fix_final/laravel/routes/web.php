@@ -19,6 +19,8 @@ use App\Imports\ApplicationsImport;
 use App\Models\Shot;
 use App\Models\Like;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUserController;
 
 Route::get('/', function () {
 
@@ -206,6 +208,8 @@ Route::get('/shots/{id}', function ($id) {
     return view('shot_details', compact('shot'));
 
 })->name('shots.detail');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::resource('admin/users', AdminUserController::class);
 
 
 require __DIR__.'/auth.php';
