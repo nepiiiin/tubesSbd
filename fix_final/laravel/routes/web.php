@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Imports\UsersImport;
@@ -171,4 +172,5 @@ Route::get('/dashboard', function () {
 
 })->middleware(['auth'])->name('dashboard');
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::resource('admin/users', AdminUserController::class);
 require __DIR__.'/auth.php';
