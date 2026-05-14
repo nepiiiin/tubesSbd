@@ -64,10 +64,9 @@ Route::get('/profile/{username}', function ($username) {
    
     $user = \App\Models\User::where('username', $username)->firstOrFail();
     
-    // $shots = \App\Models\Shot::where('user_id', $user->id)->get();
+    $shots = \App\Models\Shot::where('user_id', $user->id)->get();
 
-    // return view('profile', compact('user', 'shots'));
-     return view('profile', compact('user'));
+    return view('profile', compact('user', 'shots'));
 })->name('user.profile');
 
 Route::get('/import-users', function () {

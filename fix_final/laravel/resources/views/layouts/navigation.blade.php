@@ -73,15 +73,24 @@
             <div x-data="{ open: false }" class="relative flex-none">
                 <button @click="open = !open" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition-all">
                     <img class="h-9 w-9 rounded-full object-cover" 
-                         src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->full_name) }}&color=7F9CF5&background=EBF4FF">
+                         src="{{ Auth::user()->avatar_url ?? 'https://ui-avatars.com/api/?name='.urlencode(Auth::user()->full_name).'&color=7F9CF5&background=EBF4FF' }}">
                 </button>
 
                 <div x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-2xl shadow-xl py-2 z-[9999]">
                     <div class="px-4 py-2 border-b border-gray-100">
-                        <p class="text-sm font-bold text-gray-900 truncate">{{ Auth::user()->full_name }}</p>
-                        <p class="text-xs text-gray-500 truncate">{{ Auth::user()->email }}</p>
+                        <!-- Sekarang Nama bisa diklik dan langsung ke profil -->
+                        <a href="{{ route('user.profile', Auth::user()->username) }}" class="block group">
+                            <p class="text-sm font-bold text-gray-900 truncate group-hover:text-pink-500 transition-colors">{{ Auth::user()->full_name }}</p>
+                            <p class="text-xs text-gray-500 truncate">{{ Auth::user()->email }}</p>
+                        </a>
                     </div>
-                    <a href="{{ route('user.profile', Auth::user()->username) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                    
+                    <!-- Menu Settings sudah dihapus sesuai request -->
+                    
+                    <a href="{{ route('user.profile', Auth::user()->username) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        My Profile
+                    </a>
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Log Out</button>
@@ -92,7 +101,7 @@
 
         @guest
             <a href="{{ route('login') }}" class="bg-pink-500 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition-all">Log in</a>
-            <a href="{{ route('register') }}" class="text-sm font-bold text-gray-700 hover:text-black"class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition-all">
+            <a href="{{ route('register') }}" class="text-sm font-bold text-gray-700 hover:text-black">
                 Sign up
             </a>
         @endguest
