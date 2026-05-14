@@ -16,6 +16,7 @@ use App\Imports\CommentsImport;
 use App\Imports\CollectionItemsImport;
 use App\Imports\JobsImport;
 use App\Imports\ApplicationsImport;
+use App\Models\Shot;
 
 Route::get('/', function () {
     return view('welcome');
@@ -151,4 +152,14 @@ Route::get('/import-applications', function () {
 
     return 'Applications Imported Successfully';
 });
+
+Route::get('/dashboard', function () {
+
+    $shots = Shot::with(['user', 'likes'])
+        ->latest()
+        ->paginate(20);
+
+    return view('dashboard', compact('shots'));
+
+})->middleware(['auth'])->name('dashboard');
 require __DIR__.'/auth.php';
