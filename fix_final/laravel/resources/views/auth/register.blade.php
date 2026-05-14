@@ -6,7 +6,6 @@
     <title>Register</title>
 
     <style>
-
         *{
             margin:0;
             padding:0;
@@ -28,7 +27,6 @@
         }
 
         /* LEFT */
-
         .left{
             width:65%;
             background:#ffffff;
@@ -47,6 +45,13 @@
             font-style:italic;
             font-weight:700;
             color:#111827;
+            text-decoration:none; /* ADDED */
+            transition:color 0.3s; /* ADDED */
+        }
+
+        /* ADDED HOVER EFFECT */
+        .logo:hover{
+            color:#d89ae4;
         }
 
         .form-wrapper{
@@ -55,7 +60,6 @@
         }
 
         /* DRIBBBLE BALL */
-
         .dribbble-logo-ball{
             width:52px;
             height:52px;
@@ -112,12 +116,8 @@
         }
 
         @keyframes spin{
-            from{
-                transform:rotate(0deg);
-            }
-            to{
-                transform:rotate(360deg);
-            }
+            from{ transform:rotate(0deg); }
+            to{ transform:rotate(360deg); }
         }
 
         h1{
@@ -192,7 +192,6 @@
         }
 
         /* RIGHT */
-
         .right{
             width:35%;
             position:relative;
@@ -209,12 +208,8 @@
         }
 
         @keyframes zoom{
-            from{
-                transform:scale(1);
-            }
-            to{
-                transform:scale(1.08);
-            }
+            from{ transform:scale(1); }
+            to{ transform:scale(1.08); }
         }
 
         .overlay{
@@ -259,76 +254,28 @@
         }
 
         @keyframes float{
-
-            0%{
-                transform:translateY(0px);
-            }
-
-            50%{
-                transform:translateY(-25px);
-            }
-
-            100%{
-                transform:translateY(0px);
-            }
-
+            0%{ transform:translateY(0px); }
+            50%{ transform:translateY(-25px); }
+            100%{ transform:translateY(0px); }
         }
 
         /* RESPONSIVE */
-
         @media(max-width:1000px){
-
-            .container{
-                flex-direction:column;
-            }
-
-            .left{
-                width:100%;
-                padding:100px 25px 50px;
-            }
-
-            .right{
-                width:100%;
-                height:300px;
-            }
-
-            h1{
-                font-size:34px;
-            }
-
-            .subtitle{
-                font-size:15px;
-            }
-
-            .logo{
-                left:25px;
-                top:25px;
-            }
-
+            .container{ flex-direction:column; }
+            .left{ width:100%; padding:100px 25px 50px; }
+            .right{ width:100%; height:300px; }
+            h1{ font-size:34px; }
+            .subtitle{ font-size:15px; }
+            .logo{ left:25px; top:25px; }
         }
 
         @media(max-width:600px){
-
-            h1{
-                font-size:28px;
-            }
-
-            .subtitle{
-                font-size:14px;
-            }
-
-            .input-group input{
-                padding:15px;
-            }
-
-            .register-btn{
-                padding:15px;
-            }
-
+            h1{ font-size:28px; }
+            .subtitle{ font-size:14px; }
+            .input-group input{ padding:15px; }
+            .register-btn{ padding:15px; }
         }
-
     </style>
-
 </head>
 
 <body>
@@ -336,27 +283,19 @@
 <div class="container">
 
     <!-- LEFT -->
-
     <div class="left">
-
-        <div class="logo">
-            Dribbble
-        </div>
+        <a href="{{ route('home') }}" class="logo">Dribbble</a>
 
         <div class="form-wrapper">
 
             <div class="dribbble-logo-ball">
-
                 <div class="line line1"></div>
                 <div class="line line2"></div>
                 <div class="line line3"></div>
                 <div class="line line4"></div>
-
             </div>
 
-            <h1>
-                Welcome to Dribbble
-            </h1>
+            <h1>Welcome to Dribbble</h1>
 
             <p class="subtitle">
                 Create your account and discover world-class
@@ -417,11 +356,9 @@
                 <button type="submit" class="register-btn">
                     Create Account
                 </button>
-
             </form>
 
             <div class="bottom-text">
-
                 By continuing, you agree to our
                 <a href="#">Terms</a>
                 and
@@ -433,29 +370,23 @@
                 <a href="{{ route('login') }}">
                     Sign in
                 </a>
-
             </div>
 
         </div>
-
     </div>
 
     <!-- RIGHT -->
-
     <div class="right">
-
+        <!-- CHANGED IMAGE TO MATCH LOGIN PAGE -->
         <img
             src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?q=80&w=1200&auto=format&fit=crop"
             class="bg-image"
-            alt="Background"
+            alt="Design Inspiration"
         >
-
         <div class="overlay"></div>
-
         <div class="circle circle1"></div>
         <div class="circle circle2"></div>
         <div class="circle circle3"></div>
-
     </div>
 
 </div>
