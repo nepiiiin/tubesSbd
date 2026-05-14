@@ -209,7 +209,7 @@ Route::get('/shots/{id}', function ($id) {
 
 })->name('shots.detail');
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-Route::resource('admin/users', AdminUserController::class);
+Route::resource('admin/users', AdminUserController::class)->names('admin.users');
 
 
 require __DIR__.'/auth.php';
