@@ -5,114 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 
+    @vite(['resources/css/app.css'])
+
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:"Segoe UI", sans-serif;
-        }
-
-        body{
-            width:100%;
-            min-height:100vh;
-            background:#fff;
-            overflow-y:auto;
-        }
-
-        .container{
-            width:100%;
-            min-height:100vh;
-            display:flex;
-        }
-
-        /* LEFT */
-        .left{
-            width:65%;
-            background:#ffffff;
-            position:relative;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding:50px 30px;
-        }
-
-        .logo{
-            position:absolute;
-            top:30px;
-            left:40px;
-            font-size:28px;
-            font-style:italic;
-            font-weight:700;
-            color:#111827;
-            text-decoration:none; /* ADDED */
-            transition:color 0.3s; /* ADDED */
-        }
-
-        /* ADDED HOVER EFFECT */
-        .logo:hover{
-            color:#d89ae4;
-        }
-
-        .form-wrapper{
-            width:100%;
-            max-width:420px;
-        }
-
-        /* DRIBBBLE BALL */
         .dribbble-logo-ball{
-            width:52px;
-            height:52px;
-            border:3px solid #d89ae4;
-            border-radius:50%;
-            margin:0 auto 18px;
-            position:relative;
             animation:spin 8s linear infinite;
-        }
-
-        .dribbble-logo-ball .line{
-            position:absolute;
-            border:2px solid #d89ae4;
-            border-radius:50%;
-        }
-
-        .line1{
-            width:58px;
-            height:22px;
-            top:12px;
-            left:-6px;
-            border-left:none;
-            border-right:none;
-        }
-
-        .line2{
-            width:18px;
-            height:52px;
-            left:15px;
-            top:-3px;
-            border-top:none;
-            border-bottom:none;
-            transform:rotate(25deg);
-        }
-
-        .line3{
-            width:18px;
-            height:52px;
-            right:15px;
-            top:-3px;
-            border-top:none;
-            border-bottom:none;
-            transform:rotate(-25deg);
-        }
-
-        .line4{
-            width:50px;
-            height:50px;
-            top:-2px;
-            left:-2px;
-            border-top:none;
-            border-left:none;
-            transform:rotate(45deg);
         }
 
         @keyframes spin{
@@ -120,90 +17,7 @@
             to{ transform:rotate(360deg); }
         }
 
-        h1{
-            text-align:center;
-            font-size:42px;
-            font-weight:700;
-            color:#111827;
-            margin-bottom:12px;
-            line-height:1.2;
-        }
-
-        .subtitle{
-            text-align:center;
-            color:#6b7280;
-            font-size:16px;
-            line-height:1.7;
-            margin-bottom:30px;
-        }
-
-        .input-group{
-            margin-bottom:16px;
-        }
-
-        .input-group input{
-            width:100%;
-            padding:16px 18px;
-            border-radius:16px;
-            border:1px solid #e5e7eb;
-            background:#fafafa;
-            font-size:14px;
-            transition:0.3s;
-        }
-
-        .input-group input:focus{
-            outline:none;
-            border-color:#d89ae4;
-            background:#fff;
-            box-shadow:0 0 0 4px rgba(216,154,228,0.15);
-        }
-
-        .register-btn{
-            width:100%;
-            padding:16px;
-            border:none;
-            border-radius:999px;
-            background:#111827;
-            color:#fff;
-            font-size:15px;
-            font-weight:600;
-            cursor:pointer;
-            margin-top:8px;
-            transition:0.3s;
-        }
-
-        .register-btn:hover{
-            background:#000;
-            transform:translateY(-2px);
-        }
-
-        .bottom-text{
-            text-align:center;
-            margin-top:24px;
-            color:#6b7280;
-            font-size:13px;
-            line-height:1.7;
-        }
-
-        .bottom-text a{
-            color:#111827;
-            text-decoration:none;
-            font-weight:600;
-        }
-
-        /* RIGHT */
-        .right{
-            width:35%;
-            position:relative;
-            overflow:hidden;
-            background:#0f172a;
-        }
-
         .bg-image{
-            position:absolute;
-            width:100%;
-            height:100%;
-            object-fit:cover;
             animation:zoom 15s ease-in-out infinite alternate;
         }
 
@@ -212,44 +26,15 @@
             to{ transform:scale(1.08); }
         }
 
-        .overlay{
-            position:absolute;
-            inset:0;
-            background:linear-gradient(
-                to bottom,
-                rgba(15,23,42,0.2),
-                rgba(15,23,42,0.45)
-            );
-        }
-
         .circle{
-            position:absolute;
-            border-radius:50%;
-            background:rgba(255,255,255,0.12);
-            backdrop-filter:blur(6px);
             animation:float 7s ease-in-out infinite;
         }
 
-        .circle1{
-            width:90px;
-            height:90px;
-            top:15%;
-            left:10%;
-        }
-
         .circle2{
-            width:130px;
-            height:130px;
-            bottom:15%;
-            right:10%;
             animation-delay:2s;
         }
 
         .circle3{
-            width:70px;
-            height:70px;
-            top:55%;
-            left:30%;
             animation-delay:4s;
         }
 
@@ -258,135 +43,185 @@
             50%{ transform:translateY(-25px); }
             100%{ transform:translateY(0px); }
         }
-
-        /* RESPONSIVE */
-        @media(max-width:1000px){
-            .container{ flex-direction:column; }
-            .left{ width:100%; padding:100px 25px 50px; }
-            .right{ width:100%; height:300px; }
-            h1{ font-size:34px; }
-            .subtitle{ font-size:15px; }
-            .logo{ left:25px; top:25px; }
-        }
-
-        @media(max-width:600px){
-            h1{ font-size:28px; }
-            .subtitle{ font-size:14px; }
-            .input-group input{ padding:15px; }
-            .register-btn{ padding:15px; }
-        }
     </style>
 </head>
 
-<body>
+<body class="w-full min-h-screen bg-white overflow-y-auto">
 
-<div class="container">
+<div class="w-full min-h-screen flex flex-col lg:flex-row">
 
     <!-- LEFT -->
-    <div class="left">
-        <a href="{{ route('home') }}" class="logo">Dribbble</a>
+    <div class="w-full lg:w-[65%] bg-white relative flex justify-center items-center px-[30px] py-[50px]">
 
-        <div class="form-wrapper">
+        <!-- LOGO -->
+        <a
+            href="{{ route('home') }}"
+            class="absolute top-[30px] left-[40px] text-[28px] italic font-bold text-gray-900 no-underline transition duration-300 hover:text-[#d89ae4]"
+        >
+            Dribbble
+        </a>
 
-            <div class="dribbble-logo-ball">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
-                <div class="line line4"></div>
+        <!-- FORM WRAPPER -->
+        <div class="w-full max-w-[420px]">
+
+            <!-- DRIBBBLE BALL -->
+            <div class="dribbble-logo-ball relative w-[52px] h-[52px] border-[3px] border-[#d89ae4] rounded-full mx-auto mb-[18px]">
+
+                <!-- Horizontal Curve -->
+                <div
+                    class="absolute w-[58px] h-[22px] top-[12px] left-[-6px] border-[2px] border-[#d89ae4] rounded-full border-l-0 border-r-0">
+                </div>
+
+                <!-- Left Curve -->
+                <div
+                    class="absolute w-[18px] h-[52px] left-[15px] top-[-3px] border-[2px] border-[#d89ae4] rounded-full border-t-0 border-b-0 rotate-[25deg]">
+                </div>
+
+                <!-- Right Curve -->
+                <div
+                    class="absolute w-[18px] h-[52px] right-[15px] top-[-3px] border-[2px] border-[#d89ae4] rounded-full border-t-0 border-b-0 -rotate-[25deg]">
+                </div>
+
+                <!-- Diagonal Curve -->
+                <div
+                    class="absolute w-[50px] h-[50px] top-[-2px] left-[-2px] border-[2px] border-[#d89ae4] rounded-full border-t-0 border-l-0 rotate-45">
+                </div>
+
             </div>
 
-            <h1>Welcome to Dribbble</h1>
+            <!-- TITLE -->
+            <h1 class="text-center text-[42px] font-bold text-gray-900 mb-3 leading-tight sm:text-[34px]">
+                Welcome to Dribbble
+            </h1>
 
-            <p class="subtitle">
+            <!-- SUBTITLE -->
+            <p class="text-center text-gray-500 text-[16px] leading-7 mb-[30px] sm:text-[15px]">
                 Create your account and discover world-class
                 design talent around the world.
             </p>
 
+            <!-- FORM -->
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <div class="input-group">
+                <!-- FULL NAME -->
+                <div class="mb-4">
                     <input
                         type="text"
                         name="full_name"
                         placeholder="Full Name"
                         value="{{ old('full_name') }}"
                         required
+                        class="w-full px-[18px] py-4 rounded-2xl border border-gray-200 bg-gray-50 text-sm transition duration-300 focus:outline-none focus:border-[#d89ae4] focus:bg-white focus:ring-4 focus:ring-[#d89ae4]/15"
                     >
                 </div>
 
-                <div class="input-group">
+                <!-- USERNAME -->
+                <div class="mb-4">
                     <input
                         type="text"
                         name="username"
                         placeholder="Username"
                         value="{{ old('username') }}"
                         required
+                        class="w-full px-[18px] py-4 rounded-2xl border border-gray-200 bg-gray-50 text-sm transition duration-300 focus:outline-none focus:border-[#d89ae4] focus:bg-white focus:ring-4 focus:ring-[#d89ae4]/15"
                     >
                 </div>
 
-                <div class="input-group">
+                <!-- EMAIL -->
+                <div class="mb-4">
                     <input
                         type="email"
                         name="email"
                         placeholder="Email Address"
                         value="{{ old('email') }}"
                         required
+                        class="w-full px-[18px] py-4 rounded-2xl border border-gray-200 bg-gray-50 text-sm transition duration-300 focus:outline-none focus:border-[#d89ae4] focus:bg-white focus:ring-4 focus:ring-[#d89ae4]/15"
                     >
                 </div>
 
-                <div class="input-group">
+                <!-- PASSWORD -->
+                <div class="mb-4">
                     <input
                         type="password"
                         name="password"
                         placeholder="Password"
                         required
+                        class="w-full px-[18px] py-4 rounded-2xl border border-gray-200 bg-gray-50 text-sm transition duration-300 focus:outline-none focus:border-[#d89ae4] focus:bg-white focus:ring-4 focus:ring-[#d89ae4]/15"
                     >
                 </div>
 
-                <div class="input-group">
+                <!-- CONFIRM PASSWORD -->
+                <div class="mb-4">
                     <input
                         type="password"
                         name="password_confirmation"
                         placeholder="Confirm Password"
                         required
+                        class="w-full px-[18px] py-4 rounded-2xl border border-gray-200 bg-gray-50 text-sm transition duration-300 focus:outline-none focus:border-[#d89ae4] focus:bg-white focus:ring-4 focus:ring-[#d89ae4]/15"
                     >
                 </div>
 
-                <button type="submit" class="register-btn">
+                <!-- BUTTON -->
+                <button
+                    type="submit"
+                    class="w-full py-4 rounded-full bg-gray-900 text-white text-[15px] font-semibold mt-2 transition duration-300 hover:bg-black hover:-translate-y-[2px]"
+                >
                     Create Account
                 </button>
             </form>
 
-            <div class="bottom-text">
+            <!-- BOTTOM TEXT -->
+            <div class="text-center mt-6 text-gray-500 text-[13px] leading-7">
+
                 By continuing, you agree to our
-                <a href="#">Terms</a>
+
+                <a href="#" class="text-gray-900 no-underline font-semibold">
+                    Terms
+                </a>
+
                 and
-                <a href="#">Privacy Policy</a>
+
+                <a href="#" class="text-gray-900 no-underline font-semibold">
+                    Privacy Policy
+                </a>
 
                 <br><br>
 
                 Already have an account?
-                <a href="{{ route('login') }}">
+
+                <a
+                    href="{{ route('login') }}"
+                    class="text-gray-900 no-underline font-semibold"
+                >
                     Sign in
                 </a>
+
             </div>
 
         </div>
     </div>
 
     <!-- RIGHT -->
-    <div class="right">
-        <!-- CHANGED IMAGE TO MATCH LOGIN PAGE -->
+    <div class="w-full lg:w-[35%] h-[300px] lg:h-auto relative overflow-hidden bg-slate-900">
+
+        <!-- IMAGE -->
         <img
             src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?q=80&w=1200&auto=format&fit=crop"
-            class="bg-image"
+            class="bg-image absolute w-full h-full object-cover"
             alt="Design Inspiration"
         >
-        <div class="overlay"></div>
-        <div class="circle circle1"></div>
-        <div class="circle circle2"></div>
-        <div class="circle circle3"></div>
+
+        <!-- OVERLAY -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/20 to-slate-900/45"></div>
+
+        <!-- FLOATING CIRCLES -->
+        <div class="circle absolute w-[90px] h-[90px] top-[15%] left-[10%] rounded-full bg-white/10 backdrop-blur-md"></div>
+
+        <div class="circle circle2 absolute w-[130px] h-[130px] bottom-[15%] right-[10%] rounded-full bg-white/10 backdrop-blur-md"></div>
+
+        <div class="circle circle3 absolute w-[70px] h-[70px] top-[55%] left-[30%] rounded-full bg-white/10 backdrop-blur-md"></div>
+
     </div>
 
 </div>
