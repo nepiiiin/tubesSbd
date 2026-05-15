@@ -83,4 +83,14 @@ class AdminUserController extends Controller
         // 5. Kembalikan ke halaman daftar dengan pesan sukses
         return redirect()->route('admin.users.index')->with('success', 'Sip! Data pengguna berhasil diperbarui.');
     }
+
+    // Menghapus data pengguna dari database
+    public function destroy(User $user)
+    {
+        // Eksekusi hapus data
+        $user->delete();
+
+        // Kembalikan ke halaman daftar dengan pesan sukses
+        return redirect()->route('admin.users.index')->with('success', 'Wushhh! Data pengguna berhasil dihapus selamanya.');
+    }
 }
