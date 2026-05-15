@@ -14,13 +14,11 @@ class AdminUserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-        // Menampilkan halaman form tambah pengguna
     public function create()
     {
         return view('admin.users.create');
     }
 
-    // Menyimpan data pengguna baru ke database
     public function store(Request $request)
     {
         // 1. Validasi inputan form
@@ -45,12 +43,11 @@ class AdminUserController extends Controller
             'role'      => $request->role,
         ]);
 
-        // 3. Kembalikan ke halaman daftar dengan pesan sukses
         return redirect()->route('admin.users.index')->with('success', 'Hore! Pengguna baru berhasil ditambahkan.');
     }
 
     // Menampilkan halaman form edit
-    public function edit(User $user) // Pakai Route Model Binding bawaan Laravel biar praktis
+    public function edit(User $user) 
     {
         return view('admin.users.edit', compact('user'));
     }
@@ -67,5 +64,23 @@ class AdminUserController extends Controller
             'role'      => 'required|in:admin,user',
             'password'  => 'nullable|min:6', // Password boleh kosong kalau nggak mau diganti
         ]);
+        // 2. Siapkan data yang mau diupdate
+        $data = [
+            'full_name' => $request->full_name,
+            'username'  => $request->username,
+            'email'     => $request->email,
+            'role'      => $request->role,
+        ];
+
+        // 3. Cek kalau kolom password diisi, berarti dia mau ganti password
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        // 4. Update data ke database
+        $user->update($data);
+
+        // 5. Kembalikan ke halaman daftar dengan pesan sukses
+        return redirect()->route('admin.users.index')->with('success', 'Sip! Data pengguna berhasil diperbarui.');
     }
 }
