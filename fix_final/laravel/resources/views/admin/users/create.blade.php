@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Minimal 6 karakter" required>
+                        <input type="password" name="password" class="form-control" placeholder="Minimal 8 karakter" required>
                     </div>
                 </div>
 
