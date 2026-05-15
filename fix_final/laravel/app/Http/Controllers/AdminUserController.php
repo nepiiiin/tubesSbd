@@ -26,12 +26,12 @@ class AdminUserController extends Controller
             'full_name' => 'required|string|max:255',
             'username'  => 'required|string|max:255|unique:users',
             'email'     => 'required|email|unique:users',
-            'password'  => 'required|min:6',
+            'password'  => 'required|min:8',
             'role'      => 'required|in:admin,user',
         ], [
             'username.unique' => 'Username sudah dipakai, cari yang lain ya!',
             'email.unique' => 'Email ini sudah terdaftar.',
-            'password.min' => 'Password minimal 6 karakter.'
+            'password.min' => 'Password minimal 8 karakter.'
         ]);
 
         // 2. Simpan data ke database
@@ -43,7 +43,7 @@ class AdminUserController extends Controller
             'role'      => $request->role,
         ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'Hore! Pengguna baru berhasil ditambahkan.');
+        return redirect()->route('admin.users.index')->with('success', 'Pengguna baru berhasil ditambahkan.');
     }
 
     // Menampilkan halaman form edit
@@ -62,7 +62,7 @@ class AdminUserController extends Controller
             'username'  => 'required|string|max:255|unique:users,username,' . $user->id,
             'email'     => 'required|email|unique:users,email,' . $user->id,
             'role'      => 'required|in:admin,user',
-            'password'  => 'nullable|min:6', // Password boleh kosong kalau nggak mau diganti
+            'password'  => 'nullable|min:8', // Password boleh kosong kalau nggak mau diganti
         ]);
         // 2. Siapkan data yang mau diupdate
         $data = [
@@ -81,7 +81,7 @@ class AdminUserController extends Controller
         $user->update($data);
 
         // 5. Kembalikan ke halaman daftar dengan pesan sukses
-        return redirect()->route('admin.users.index')->with('success', 'Sip! Data pengguna berhasil diperbarui.');
+        return redirect()->route('admin.users.index')->with('success', 'Data pengguna berhasil diperbarui.');
     }
 
     // Menghapus data pengguna dari database
@@ -91,6 +91,6 @@ class AdminUserController extends Controller
         $user->delete();
 
         // Kembalikan ke halaman daftar dengan pesan sukses
-        return redirect()->route('admin.users.index')->with('success', 'Wushhh! Data pengguna berhasil dihapus selamanya.');
+        return redirect()->route('admin.users.index')->with('success', 'Data pengguna berhasil dihapus selamanya.');
     }
 }

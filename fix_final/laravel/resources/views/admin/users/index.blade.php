@@ -51,7 +51,7 @@
                             <td class="text-center">
                                 <a href="#" class="btn btn-sm btn-info shadow-sm" title="Lihat Detail"><i class="fas fa-eye"></i></a>
                                 <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning shadow-sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin nih mau hapus user ini? Data yang dihapus nggak bisa balik lagi lho!');">
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin hapus user ini? Data yang dihapus tidak bisa dikembalikan.');">
                                 @csrf
                                 @method('DELETE') <button type="submit" class="btn btn-sm btn-danger shadow-sm" title="Hapus Data"><i class="fas fa-trash"></i></button>
                             </form>
