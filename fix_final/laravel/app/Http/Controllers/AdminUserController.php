@@ -48,4 +48,24 @@ class AdminUserController extends Controller
         // 3. Kembalikan ke halaman daftar dengan pesan sukses
         return redirect()->route('admin.users.index')->with('success', 'Hore! Pengguna baru berhasil ditambahkan.');
     }
+
+    // Menampilkan halaman form edit
+    public function edit(User $user) // Pakai Route Model Binding bawaan Laravel biar praktis
+    {
+        return view('admin.users.edit', compact('user'));
+    }
+
+    // Memproses perubahan data ke database
+    public function update(Request $request, User $user)
+    {
+        // 1. Validasi inputan
+        // Perhatikan ada tambahan pengecualian unique untuk ID user yang sedang diedit
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'username'  => 'required|string|max:255|unique:users,username,' . $user->id,
+            'email'     => 'required|email|unique:users,email,' . $user->id,
+            'role'      => 'required|in:admin,user',
+            'password'  => 'nullable|min:6', // Password boleh kosong kalau nggak mau diganti
+        ]);
+    }
 }
