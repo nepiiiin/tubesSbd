@@ -26,7 +26,11 @@
                 
                 <div class="mt-6 flex space-x-3">
                     @if(Auth::id() === $user->id)
-                        <a href="{{ route('profile.edit') }}" class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-full font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition">Edit Profile</a>
+                       <a href="{{ route('profile.edit') }}" 
+                        class="px-6 py-2 bg-pink-500 text-white rounded-full font-semibold transition hover:bg-gray-200 hover:text-black">
+                        Edit Profile
+                        </a>
+
                     @else
                         <button class="px-6 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition">Follow</button>
                         <button class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-full font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition">Hire Me</button>
