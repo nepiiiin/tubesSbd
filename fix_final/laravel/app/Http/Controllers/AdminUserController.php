@@ -7,10 +7,25 @@ use App\Models\User;
 
 class AdminUserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::orderBy('id', 'asc')->paginate(10);
+        // Siapkan query dasar
+        $query = User::query();
+
+        // Cek apakah ada request pencarian dari form
+        if ($request->has('search') && $request->search != '') {
+            $search = $request->search;
+            // Cari berdasarkan nama lengkap atau username
+            $query->where('full_name', 'LIKE', '%' . $search . '%')
+                  ->orWhere('username', 'LIKE', '%' . $search . '%');
+        }
+
+        // Eksekusi query dengan pagination (tetap urut berdasarkan ID)
+        $users = $query->orderBy('id', 'asc')->paginate(10);
         
+        // Agar pagination tetap berfungsi saat mencari data
+        $users->appends(['search' => $request->search]);
+
         return view('admin.users.index', compact('users'));
     }
 

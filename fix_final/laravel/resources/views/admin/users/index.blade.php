@@ -22,6 +22,26 @@
             <h6 class="m-0 font-weight-bold text-primary">Daftar Akun (Users)</h6>
         </div>
         <div class="card-body">
+
+        <div class="row mb-3">
+                <div class="col-md-6">
+                    <form action="{{ route('admin.users.index') }}" method="GET">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="Cari nama atau username..." value="{{ request('search') }}">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search fa-sm"></i> Cari
+                                </button>
+                                @if(request('search'))
+                                    <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
+                                        <i class="fas fa-sync-alt fa-sm"></i> Reset
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" width="100%" cellspacing="0">
                     <thead class="thead-light">

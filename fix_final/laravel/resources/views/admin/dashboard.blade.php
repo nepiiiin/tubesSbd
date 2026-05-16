@@ -1,98 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+@extends('admin.layouts.app')
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('content')
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard Statistik</h1>
+    </div>
 
-    <title>Dribbble Clone</title>
-
-    @vite('resources/css/app.css')
-
-</head>
-
-<body>
-
-<div class="dribbble-home">
-
-    <!-- NAVBAR -->
-    <nav class="dribbble-navbar">
-
-        <div class="logo">
-            dribbble
-        </div>
-
-        <div class="nav-links">
-            <a href="#">Animation</a>
-            <a href="#">Branding</a>
-            <a href="#">Discover</a>
-            <a href="#">Illustration</a>
-            <a href="#">Mobile</a>
-        </div>
-
-    </nav>
-
-
-    <!-- HERO -->
-    <section class="dribbble-hero">
-
-        <div class="hero-left">
-
-            <h1>
-                Discover the World's Top Designers
-            </h1>
-
-            <p>
-                Explore work from the most talented and accomplished
-                designers ready to take on your next project.
-            </p>
-
-            <div class="hero-search">
-
-                <input type="text"
-                       placeholder="What type of design are you interested in?">
-
-                <button>🔍</button>
-
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Total Pengguna</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalUsers }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
 
-        <div class="hero-right">
-
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
-
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Total Karya (Shots)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalShots }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-image fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-    </section>
-
-
-    <!-- SHOTS -->
-    <section class="shots-grid">
-
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Lowongan Kerja (Jobs)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalJobs }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-briefcase fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
+        <h1 class="h4 mb-0 text-gray-800">Preview Karya Terbaru</h1>
+    </div>
+    
+    <div class="row">
         @foreach($shots as $shot)
-
-        <div class="shot-card">
-
-            <img src="{{ $shot->image ?? 'https://picsum.photos/500/400' }}">
-
-            <div class="shot-info">
-
-                <h3>{{ $shot->title }}</h3>
-
-                <p>
-                    {{ $shot->user->username ?? 'Unknown' }}
-                </p>
-
+            <div class="col-xl-3 col-md-4 col-sm-6 mb-4">
+                <div class="card shadow h-100">
+                    <img src="{{ $shot->image_url ?? 'https://picsum.photos/500/400?random=' . $shot->id }}" class="card-img-top" alt="Shot Image" style="object-fit: cover; height: 180px; width: 100%;">
+                    <div class="card-body p-3">
+                        <h6 class="card-title font-weight-bold mb-0 text-truncate" title="{{ $shot->title }}">
+                            {{ $shot->title }}
+                        </h6>
+                    </div>
+                </div>
             </div>
-
-        </div>
-
         @endforeach
+    </div>
 
-    </section>
-
-</div>
-
-</body>
-</html>
+@endsection

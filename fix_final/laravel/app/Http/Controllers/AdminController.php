@@ -14,7 +14,8 @@ class AdminController extends Controller
         $totalUsers = User::count();
         $totalShots = Shot::count();
         $totalJobs = 0;
+        $shots = Shot::latest()->take(8)->get();
 
-        return view('admin.dashboard', compact('totalUsers', 'totalShots', 'totalJobs'));
+        return view('admin.dashboard', compact('totalUsers', 'totalShots', 'totalJobs', 'shots'));
     }
 }
