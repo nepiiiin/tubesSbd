@@ -21,6 +21,7 @@ use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
 
@@ -210,6 +211,18 @@ Route::get('/shots/{id}', function ($id) {
 })->name('shots.detail');
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::resource('admin/users', AdminUserController::class)->names('admin.users');
+
+Route::middleware([IsAdmin::class])->group(function () {
+    
+    // Route Dashboard Admin
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    
+    // Route CRUD Users
+    Route::resource('admin/users', AdminUserController::class)->names('admin.users');
+
+    // Nanti route Admin Shots buatan temenmu taruh di dalam sini juga ya!
+    
+});
 
 
 require __DIR__.'/auth.php';
