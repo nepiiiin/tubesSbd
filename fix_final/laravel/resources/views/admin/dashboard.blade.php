@@ -1,62 +1,98 @@
-@extends('admin.layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-@section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard Statistik</h1>
-    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="row">
+    <title>Dribbble Clone</title>
 
-        <div class="col-xl-4 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Total Pengguna</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalUsers }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    @vite('resources/css/app.css')
+
+</head>
+
+<body>
+
+<div class="dribbble-home">
+
+    <!-- NAVBAR -->
+    <nav class="dribbble-navbar">
+
+        <div class="logo">
+            dribbble
         </div>
 
-        <div class="col-xl-4 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Total Karya (Shots)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalShots }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-image fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="nav-links">
+            <a href="#">Animation</a>
+            <a href="#">Branding</a>
+            <a href="#">Discover</a>
+            <a href="#">Illustration</a>
+            <a href="#">Mobile</a>
         </div>
 
-        <div class="col-xl-4 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Lowongan Kerja (Jobs)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalJobs }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-briefcase fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="dribbble-hero">
+
+        <div class="hero-left">
+
+            <h1>
+                Discover the World's Top Designers
+            </h1>
+
+            <p>
+                Explore work from the most talented and accomplished
+                designers ready to take on your next project.
+            </p>
+
+            <div class="hero-search">
+
+                <input type="text"
+                       placeholder="What type of design are you interested in?">
+
+                <button>🔍</button>
+
             </div>
+
         </div>
 
-    </div>
-@endsection
+        <div class="hero-right">
+
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+    </section>
+
+
+    <!-- SHOTS -->
+    <section class="shots-grid">
+
+        @foreach($shots as $shot)
+
+        <div class="shot-card">
+
+            <img src="{{ $shot->image ?? 'https://picsum.photos/500/400' }}">
+
+            <div class="shot-info">
+
+                <h3>{{ $shot->title }}</h3>
+
+                <p>
+                    {{ $shot->user->username ?? 'Unknown' }}
+                </p>
+
+            </div>
+
+        </div>
+
+        @endforeach
+
+    </section>
+
+</div>
+
+</body>
+</html>

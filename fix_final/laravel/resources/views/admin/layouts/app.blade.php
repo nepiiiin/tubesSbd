@@ -18,6 +18,8 @@
 
     <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    @vite('resources/css/app.css')
+
 </head>
 
 <body id="page-top">
