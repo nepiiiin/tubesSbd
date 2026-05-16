@@ -99,8 +99,14 @@
                 Welcome back! Enter your credentials to access your account.
             </p>
 
+            @if(session('error'))
+                <div class="mb-4 p-4 text-sm text-red-700 bg-red-100 rounded-2xl border border-red-200 text-center">
+                    {{ session('error') }}
+                </div>
+            @endif
+            
             <!-- FORM -->
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login.proses') }}">
                 @csrf
 
                 <!-- EMAIL -->

@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Middleware\IsAdmin;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
 
@@ -224,5 +225,10 @@ Route::middleware([IsAdmin::class])->group(function () {
     
 });
 
+// Route untuk nampilin form login
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+// Route untuk ngecek email & password
+Route::post('/login-proses', [AuthController::class, 'loginProses'])->name('login.proses');
 
 require __DIR__.'/auth.php';
