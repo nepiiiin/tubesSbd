@@ -231,4 +231,6 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route untuk ngecek email & password
 Route::post('/login-proses', [AuthController::class, 'loginProses'])->name('login.proses');
 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 require __DIR__.'/auth.php';

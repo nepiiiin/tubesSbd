@@ -36,6 +36,20 @@ class AuthController extends Controller
         }
 
         // 4. Kalau email/password salah, tendang balik ke halaman login bawa pesan error
-        return back()->with('error', 'Email atau Password salah, coba ingat-ingat lagi!');
+        return back()->with('error', 'Kombinasi Email atau Password salah.');
+    }
+
+        // Memproses logout
+    public function logout(Request $request)
+    {
+        // Menghapus session auth
+        Auth::logout();
+        
+        // Menghapus dan memperbarui token keamanan session
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        // Arahkan kembali ke halaman login bawa pesan sukses
+        return redirect('/login')->with('success', 'Kamu berhasil logout. Sampai jumpa lagi!');
     }
 }
