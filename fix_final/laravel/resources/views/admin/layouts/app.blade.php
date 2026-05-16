@@ -20,6 +20,74 @@
 
     @vite('resources/css/app.css')
 
+    <style>
+        /* 1. Sidebar jadi Dark Mode ala Dribbble */
+        .bg-gradient-primary {
+            background: #0d0c22 !important;
+            background-image: none !important;
+        }
+
+        /* 2. Warna teks primary (biru kaku) diganti jadi Pink Dribbble */
+        .text-primary {
+            color: #ea4c89 !important;
+        }
+
+        /* 3. Bikin Card (Kotak) lebih estetik: ujung melengkung & shadow halus */
+        .card {
+            border: none !important;
+            border-radius: 16px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+        }
+        .card-header {
+            background-color: transparent !important;
+            border-bottom: none !important;
+            padding-top: 1.5rem !important;
+        }
+
+        /* 4. Tombol dibikin lebih membulat dan interaktif */
+        .btn-primary {
+            background-color: #ea4c89 !important;
+            border-color: #ea4c89 !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #f082ac !important;
+            border-color: #f082ac !important;
+            transform: translateY(-2px);
+        }
+
+        /* 5. Merapikan Tabel biar nggak terlalu banyak garis kaku */
+        .table-bordered {
+            border: none !important;
+        }
+        .table-bordered th, .table-bordered td {
+            border-left: none !important;
+            border-right: none !important;
+            border-top: 1px solid #f3f4f6 !important;
+            vertical-align: middle !important;
+        }
+        .thead-light th {
+            background-color: #fff !important;
+            color: #6b7280 !important;
+            font-size: 0.85rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            border-bottom: 2px solid #ea4c89 !important;
+        }
+
+        /* 6. Menyesuaikan aksen garis pinggir di Dashboard */
+        .border-left-primary { border-left: 4px solid #ea4c89 !important; }
+        .border-left-success { border-left: 4px solid #82d8d8 !important; }
+        .border-left-warning { border-left: 4px solid #f2c94c !important; }
+
+        /* 7. Bikin Background halaman sedikit lebih cerah biar card-nya pop-up */
+        body {
+            background-color: #fafafb !important;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
