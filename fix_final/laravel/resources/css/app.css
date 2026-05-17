@@ -2,10 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
     background:#f8f7f4;
+    color:#111827;
     font-family:Arial, Helvetica, sans-serif;
+    transition:background .3s,color .3s;
+}
+
+
+/* DARK MODE */
+
+.dark body{
+    background:#071025;
+    color:white;
 }
 
 
@@ -53,6 +67,7 @@ body{
     border-radius:30px;
     padding:60px;
     margin-bottom:60px;
+    transition:.3s;
 }
 
 .hero-left{
@@ -204,6 +219,37 @@ body{
     padding:6px 12px;
     border-radius:30px;
     font-size:12px;
+}
+
+
+/* DARK MODE */
+
+.dark .shot-card{
+    background:#0f172a;
+}
+
+.dark .dribbble-hero{
+    background:#111827;
+}
+
+.dark .hero-left h1{
+    color:white;
+}
+
+.dark .hero-left p{
+    color:#cbd5e1;
+}
+
+.dark .nav-links a{
+    color:white;
+}
+
+.dark .likes{
+    color:#cbd5e1;
+}
+
+.dark .user-info p{
+    color:#94a3b8;
 }
 
 
