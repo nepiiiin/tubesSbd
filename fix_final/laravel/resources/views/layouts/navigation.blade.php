@@ -124,32 +124,41 @@
     <div class="flex-none flex items-center justify-end space-x-5 min-w-[300px]">
 
         <!-- SEARCH -->
-        <div class="relative group hidden xl:block">
+        <!-- SEARCH -->
+<form
+    action="{{ route('search') }}"
+    method="GET"
+    class="relative group hidden xl:block"
+>
 
-            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
 
-                <svg
-                    class="w-4 h-4 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
+        <svg
+            class="w-4 h-4 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24">
 
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+            </path>
 
-                </svg>
+        </svg>
 
-            </span>
+    </span>
 
-            <input
-                type="text"
-                placeholder="Search..."
-                class="pl-10 pr-4 py-2 bg-gray-100 border-none rounded-full text-sm w-40 focus:ring-2 focus:ring-pink-100 focus:bg-white transition-all text-black">
+    <input
+        type="text"
+        name="q"
+        value="{{ request('q') }}"
+        placeholder="Search..."
+        class="pl-10 pr-4 py-2 bg-gray-100 border-none rounded-full text-sm w-40 focus:ring-2 focus:ring-pink-100 focus:bg-white transition-all text-black"
+    >
 
-        </div>
+</form>d
 
         @auth
 

@@ -5,7 +5,7 @@
     class="min-h-screen bg-[#f8f7f4]"
 >
 
-    <div class="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 py-10">
+    <div class="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 pt-28 pb-10">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -99,7 +99,7 @@
                 </a>
 
                 <!-- LIKE BUTTON -->
-                @auth
+                <!-- @auth
                 <button
                     type="button"
                     @click.stop="likeShot({{ $shot->id }})"
@@ -109,7 +109,7 @@
                     ❤️
 
                 </button>
-                @endauth
+                @endauth -->
 
             </div>
 

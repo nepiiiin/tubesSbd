@@ -218,12 +218,13 @@ Route::get('/category/{name}', function ($name) {
     $category = Category::where('name', $name)->firstOrFail();
 
     $shots = Shot::with(['user', 'categories'])
+        ->withCount('likes')
         ->whereHas('categories', function ($q) use ($name) {
 
             $q->where('name', $name);
 
         })
-        ->latest()
+        ->inRandomOrder()
         ->get();
 
     $categories = Category::orderBy('id')->get();
@@ -309,4 +310,45 @@ Route::post('/shots/{shot}/like', function (\App\Models\Shot $shot) {
 
 })->middleware('auth')->name('shots.like');
 
+Route::get('/search', function () {
+
+    $query = request('q');
+
+    $shots = Shot::with([
+            'user',
+            'categories'
+        ])
+        ->withCount('likes')
+        ->where(function ($q2) use ($query) {
+
+            $q2->where(
+                'title',
+                'LIKE',
+                "%{$query}%"
+            )
+
+            ->orWhereHas('user', function ($q3) use ($query) {
+
+                $q3->where(
+                    'username',
+                    'LIKE',
+                    "%{$query}%"
+                );
+
+            });
+
+        })
+        ->inRandomOrder()
+        ->get();
+
+    $categories = Category::orderBy('id')->get();
+
+    return view(
+        auth()->check()
+            ? 'dashboard'
+            : 'welcome',
+        compact('shots', 'categories')
+    );
+
+})->name('search');
 require __DIR__.'/auth.php';
