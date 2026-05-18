@@ -27,19 +27,21 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
 
-    $bestShotIds = Shot::orderByDesc('likes_count')
+   $bestShotIds = Shot::withCount('likes')
+        ->orderByDesc('likes_count')
         ->get()
         ->groupBy('user_id')
         ->map(function ($shots) {
             return $shots->first()->id;
         });
 
-    $shots = Shot::with(['user', 'categories'])
-        ->whereIn('id', $bestShotIds)
-        ->orderByDesc('likes_count')
-        ->take(99)
-        ->get()
-        ->unique('image_url');
+   $shots = Shot::with(['user', 'categories'])
+    ->withCount('likes')
+    ->whereIn('id', $bestShotIds)
+    ->inRandomOrder()
+    ->take(99)
+    ->get()
+    ->unique('image_url');
 
     $categories = Category::orderBy('id')->get();
 
@@ -184,7 +186,8 @@ Route::get('/import-applications', function () {
 
 Route::get('/dashboard', function () {
 
-    $bestShotIds = Shot::orderByDesc('likes_count')
+    $bestShotIds = Shot::withCount('likes')
+        ->orderByDesc('likes_count')
         ->get()
         ->groupBy('user_id')
         ->map(function ($shots) {
@@ -192,11 +195,12 @@ Route::get('/dashboard', function () {
         });
 
     $shots = Shot::with(['user', 'categories'])
-        ->whereIn('id', $bestShotIds)
-        ->orderByDesc('likes_count')
-        ->take(99)
-        ->get()
-        ->unique('image_url');
+    ->withCount('likes')
+    ->whereIn('id', $bestShotIds)
+    ->inRandomOrder()
+    ->take(99)
+    ->get()
+    ->unique('image_url');
 
     $categories = Category::orderBy('id')->get();
 
@@ -285,11 +289,9 @@ Route::post('/shots/{shot}/like', function (\App\Models\Shot $shot) {
 
         $existingLike->delete();
 
-        $shot->decrement('likes_count');
-
         return response()->json([
             'liked' => false,
-            'likes' => $shot->fresh()->likes_count
+            'likes' => $shot->likes()->count()
         ]);
 
     }
@@ -300,11 +302,9 @@ Route::post('/shots/{shot}/like', function (\App\Models\Shot $shot) {
         'shot_id' => $shot->id
     ]);
 
-    $shot->increment('likes_count');
-
     return response()->json([
         'liked' => true,
-        'likes' => $shot->fresh()->likes_count
+        'likes' => $shot->likes()->count()
     ]);
 
 })->middleware('auth')->name('shots.like');
