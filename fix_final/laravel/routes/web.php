@@ -264,4 +264,49 @@ Route::post('/login-proses', [AuthController::class, 'loginProses'])->name('logi
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::post('/shots/{shot}/like', function (\App\Models\Shot $shot) {
+
+    $user = auth()->user();
+
+    if (!$user) {
+
+        return response()->json([
+            'success' => false
+        ], 401);
+
+    }
+
+    $existingLike = \App\Models\Like::where('user_id', $user->id)
+        ->where('shot_id', $shot->id)
+        ->first();
+
+    // UNLIKE
+    if ($existingLike) {
+
+        $existingLike->delete();
+
+        $shot->decrement('likes_count');
+
+        return response()->json([
+            'liked' => false,
+            'likes' => $shot->fresh()->likes_count
+        ]);
+
+    }
+
+    // LIKE
+    \App\Models\Like::create([
+        'user_id' => $user->id,
+        'shot_id' => $shot->id
+    ]);
+
+    $shot->increment('likes_count');
+
+    return response()->json([
+        'liked' => true,
+        'likes' => $shot->fresh()->likes_count
+    ]);
+
+})->middleware('auth')->name('shots.like');
+
 require __DIR__.'/auth.php';

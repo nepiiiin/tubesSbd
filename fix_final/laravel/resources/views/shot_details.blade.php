@@ -7,40 +7,49 @@
 
     @vite(['resources/css/app.css'])
 </head>
-<body class="bg-[#f8f7f4]">
 
-<div class="max-w-7xl mx-auto px-8 py-10">
+<body class="bg-[#f8f7f4] text-[#0d0c22]">
 
-    <!-- TITLE -->
-    <h1 class="text-5xl font-bold text-[#0d0c22] mb-10">
-        {{ $shot->title }}
-    </h1>
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
 
-    <!-- TOP -->
+    <!-- HEADER -->
     <div class="flex items-center justify-between mb-10">
 
         <div class="flex items-center gap-4">
 
-            <div class="w-14 h-14 rounded-full bg-pink-200"></div>
+            <!-- AVATAR -->
+            <img
+                src="{{ $shot->user->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode($shot->user->username ?? 'U') }}"
+                class="w-14 h-14 rounded-full object-cover"
+            >
 
             <div>
-                <h2 class="font-bold text-2xl">
-                    {{ $shot->user->username }}
-                </h2>
 
-                <p class="text-gray-500">
-                    Available for work
+                <h1 class="text-3xl font-bold">
+                    {{ $shot->title }}
+                </h1>
+
+                <p class="text-gray-500 mt-1">
+                    {{ $shot->user->username ?? 'Unknown User' }}
                 </p>
+
             </div>
 
         </div>
 
-        <!-- BUTTON -->
-        <div>
+        <!-- BUTTONS -->
+        <div class="flex items-center gap-3">
+
+            <a
+                href="{{ url()->previous() }}"
+                class="px-6 py-3 rounded-full border border-gray-300 hover:bg-white transition"
+            >
+                Back
+            </a>
 
             @if(auth()->check())
 
-                <button class="bg-[#0d0c22] text-white px-8 py-4 rounded-full font-semibold">
+                <button class="bg-[#0d0c22] text-white px-8 py-3 rounded-full font-semibold hover:opacity-90">
                     Get in touch
                 </button>
 
@@ -48,7 +57,7 @@
 
                 <a
                     href="{{ route('login') }}"
-                    class="bg-[#0d0c22] text-white px-8 py-4 rounded-full font-semibold"
+                    class="bg-[#0d0c22] text-white px-8 py-3 rounded-full font-semibold hover:opacity-90"
                 >
                     Get in touch
                 </a>
@@ -59,22 +68,97 @@
 
     </div>
 
-    <!-- IMAGE -->
-    <div class="mb-12">
+    <!-- MAIN -->
+    <div class="grid lg:grid-cols-3 gap-10">
 
-        <img
-            src="{{ $shot->image_url }}"
-            class="w-full rounded-3xl"
-        >
+        <!-- LEFT -->
+        <div class="lg:col-span-2">
 
-    </div>
+            <!-- IMAGE -->
+            <div class="bg-white rounded-[32px] p-4 shadow-sm">
 
-    <!-- DESCRIPTION -->
-    <div class="max-w-4xl mx-auto">
+                <img
+                    src="{{ $shot->image_url }}"
+                    alt="{{ $shot->title }}"
+                    class="w-full rounded-[28px]"
+                >
 
-        <p class="text-3xl leading-relaxed text-[#0d0c22]">
-            {{ $shot->description }}
-        </p>
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="mt-10 bg-white rounded-[32px] p-8 shadow-sm">
+
+                <h2 class="text-2xl font-bold mb-5">
+                    Description
+                </h2>
+
+                <p class="text-gray-600 leading-8 text-lg whitespace-pre-line">
+                    {{ $shot->description }}
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDEBAR -->
+        <div>
+
+            <!-- STATS -->
+            <div class="bg-white rounded-[32px] p-7 shadow-sm">
+
+                <h3 class="text-xl font-bold mb-6">
+                    Project Stats
+                </h3>
+
+                <div class="space-y-5">
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-500">Likes</span>
+                        <span class="font-semibold">
+                            ❤️ {{ $shot->likes_count }}
+                        </span>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-500">Posted</span>
+                        <span class="font-semibold">
+                            {{ $shot->created_at->format('d M Y') }}
+                        </span>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-500">Categories</span>
+                        <span class="font-semibold">
+                            {{ $shot->categories->count() }}
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CATEGORIES -->
+            <div class="bg-white rounded-[32px] p-7 shadow-sm mt-6">
+
+                <h3 class="text-xl font-bold mb-5">
+                    Categories
+                </h3>
+
+                <div class="flex flex-wrap gap-2">
+
+                    @foreach($shot->categories as $category)
+
+                        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600">
+                            {{ $category->name }}
+                        </span>
+
+                    @endforeach
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
