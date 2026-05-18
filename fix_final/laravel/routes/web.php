@@ -23,13 +23,23 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
 
-    $shots = Shot::with(['user', 'likes', 'categories'])
-        ->latest()
-        ->take(60)
-        ->get();
+    $bestShotIds = Shot::orderByDesc('likes_count')
+        ->get()
+        ->groupBy('user_id')
+        ->map(function ($shots) {
+            return $shots->first()->id;
+        });
+
+    $shots = Shot::with(['user', 'categories'])
+        ->whereIn('id', $bestShotIds)
+        ->orderByDesc('likes_count')
+        ->take(99)
+        ->get()
+        ->unique('image_url');
 
     $categories = Category::orderBy('id')->get();
 
@@ -174,10 +184,19 @@ Route::get('/import-applications', function () {
 
 Route::get('/dashboard', function () {
 
-    $shots = Shot::with(['user', 'likes', 'categories'])
-        ->latest()
-        ->take(60)
-        ->get();
+    $bestShotIds = Shot::orderByDesc('likes_count')
+        ->get()
+        ->groupBy('user_id')
+        ->map(function ($shots) {
+            return $shots->first()->id;
+        });
+
+    $shots = Shot::with(['user', 'categories'])
+        ->whereIn('id', $bestShotIds)
+        ->orderByDesc('likes_count')
+        ->take(99)
+        ->get()
+        ->unique('image_url');
 
     $categories = Category::orderBy('id')->get();
 
@@ -187,18 +206,30 @@ Route::get('/dashboard', function () {
 
 Route::get('/category/{name}', function ($name) {
 
+    // discover bebas diakses
+    if ($name !== 'discover' && !Auth::check()) {
+        return redirect()->route('login');
+    }
+
     $category = Category::where('name', $name)->firstOrFail();
 
-    $shots = Shot::with(['user', 'likes', 'categories'])
-        ->whereHas('categories', function ($query) use ($name) {
+    $shots = Shot::with(['user', 'categories'])
+        ->whereHas('categories', function ($q) use ($name) {
 
-            $query->where('name', $name);
+            $q->where('name', $name);
 
         })
         ->latest()
-        ->paginate(20);
+        ->get();
 
-    return view('dashboard', compact('shots', 'category'));
+    $categories = Category::orderBy('id')->get();
+
+    // kalau belum login pakai welcome
+    if (!Auth::check()) {
+        return view('welcome', compact('shots', 'categories', 'category'));
+    }
+
+    return view('dashboard', compact('shots', 'categories', 'category'));
 
 });
 
