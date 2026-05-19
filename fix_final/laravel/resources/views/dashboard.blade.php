@@ -104,57 +104,60 @@
                 <div class="flex-1 min-w-0 px-4">
                     <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
                         
-                        <!-- Discover -->
-                        <a href="{{ route('category', ['name' => 'discover']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ !request()->has('category') || request('category') == 'discover' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
-                            Discover
-                        </a>
-
+                       <!-- Discover -->
+<!-- Discover -->
+<a href="{{ route('category', ['name' => 'discover']) }}" 
+class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap 
+{{ request()->route('name') == 'discover'
+    ? 'bg-[#ea4c89] text-white'
+    : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+    Discover
+</a>
                         <!-- Animation -->
                         <a href="{{ route('category', ['name' => 'animation']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'animation' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'animation' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Animation
                         </a>
 
                         <!-- Branding -->
                         <a href="{{ route('category', ['name' => 'branding']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'branding' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'branding' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Branding
                         </a>
 
                         <!-- Illustration -->
                         <a href="{{ route('category', ['name' => 'illustration']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'illustration' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'illustration' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Illustration
                         </a>
 
                         <!-- Mobile -->
                         <a href="{{ route('category', ['name' => 'mobile']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'mobile' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'mobile' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Mobile
                         </a>
 
                         <!-- Print -->
                         <a href="{{ route('category', ['name' => 'print']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'print' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'print' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Print
                         </a>
 
                         <!-- Product Design -->
                         <a href="{{ route('category', ['name' => 'product-design']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'product-design' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'product-design' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Product Design
                         </a>
 
                         <!-- Typography -->
                         <a href="{{ route('category', ['name' => 'typography']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'typography' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'typography' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Typography
                         </a>
 
                         <!-- Web Design -->
                         <a href="{{ route('category', ['name' => 'web-design']) }}" 
-                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'web-design' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                           class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request()->route('name') == 'web-design' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
                             Web Design
                         </a>
 
