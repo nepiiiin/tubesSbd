@@ -101,13 +101,6 @@
                     {{ $shot->title }}
                 </h1>
 
-                <!-- Description (if exists) -->
-                @if($shot->description)
-                <p class="text-gray-600 text-lg mb-8 max-w-3xl whitespace-pre-line">
-                    {{ $shot->description }}
-                </p>
-                @endif
-
                 <!-- Main Image Container -->
                 <div class="relative bg-[#c8d8b8] rounded-[24px] overflow-hidden mb-8">
                     <img
@@ -115,7 +108,12 @@
                         alt="{{ $shot->title }}"
                         class="w-full h-auto object-cover">
                 </div>
-
+                 <!-- Description (if exists) -->
+                @if($shot->description)
+                <p class="text-gray-600 text-lg mb-8 max-w-3xl whitespace-pre-line">
+                    {{ $shot->description }}
+                </p>
+                @endif
                 <!-- Additional Info Row -->
                 <div class="flex items-center justify-between pt-6 border-t border-gray-100">
 
