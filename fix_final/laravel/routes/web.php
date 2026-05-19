@@ -21,6 +21,7 @@ use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ReportController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
@@ -267,7 +268,7 @@ Route::middleware([IsAdmin::class])->group(function () {
     // Route CRUD Users
     Route::resource('admin/users', AdminUserController::class)->names('admin.users');
 
-    // Nanti route Admin Shots buatan temenmu taruh di dalam sini juga ya!
+    Route::get('/admin/reports', [ReportController::class, 'index'])->name('admin.reports.index');
     
 });
 
