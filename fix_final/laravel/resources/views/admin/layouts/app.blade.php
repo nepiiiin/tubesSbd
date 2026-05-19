@@ -123,6 +123,12 @@
                     <span>Pengguna (Users)</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.reports.index') }}">
+                    <i class="fas fa-fw fa-chart-bar"></i>
+                    <span>Laporan (Reports)</span>
+                </a>
+            </li>
             
             <hr class="sidebar-divider d-none d-md-block">
 
