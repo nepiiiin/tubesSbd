@@ -11,6 +11,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
@@ -20,21 +21,40 @@
             --dribbble-dark: #0d0c22;
             --dribbble-bg: #f8f7f4;
         }
-        
-        html { color-scheme: light !important; }
-        
-        body {
-            background-color: var(--dribbble-bg) !important;
-            color: var(--dribbble-dark) !important;
+
+        html {
+            color-scheme: light !important;
         }
 
-        .bg-dribbble-pink { background-color: #ea4c89 !important; }
-        .hover\:bg-dribbble-pink:hover { background-color: #ea4c89 !important; }
-        .text-dribbble-pink { color: #ea4c89 !important; }
-        .border-dribbble-pink { border-color: #ea4c89 !important; }
+        body {
+            background-color: var(--dribbble-bg);
+            color: var(--dribbble-dark);
+        }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .bg-dribbble-pink {
+            background-color: #ea4c89 !important;
+        }
+
+        .hover\:bg-dribbble-pink:hover {
+            background-color: #c73e72 !important;
+        }
+
+        .text-dribbble-pink {
+            color: #ea4c89 !important;
+        }
+
+        .border-dribbble-pink {
+            border-color: #ea4c89 !important;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 
@@ -49,6 +69,7 @@
                 {{ session('success') }}
             </div>
         @endif
+
         @if(session('error'))
             <div class="bg-red-50 border-l-4 border-red-500 text-red-800 p-4 mb-4 max-w-7xl mx-auto mt-4">
                 {{ session('error') }}
@@ -64,7 +85,11 @@
         @endisset
 
         <main>
-            @yield('content')
+            @isset($slot)
+                {{ $slot }}
+            @else
+                @yield('content')
+            @endisset
         </main>
 
     </div>

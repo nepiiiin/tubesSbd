@@ -92,7 +92,7 @@ Route::middleware('auth')->group(function () {
             $collections = \App\Models\Collection::where('user_id', $user->id)->get();
         }
         
-        return view('profile', compact('user', 'shots', 'collections', $tab));
+        return view('profile', compact('user', 'shots', 'collections', 'tab'));
     })->name('user.profile');
 
     Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
