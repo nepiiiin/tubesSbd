@@ -42,22 +42,36 @@ window.likeShotModal = async function (shotId, button) {
 
         const data = await response.json();
 
-        const svg = button.querySelector('svg');
+        // SEMUA ICON LIKE
+        const allLikeIcons = document.querySelectorAll(`
+            [data-shot-id="${shotId}"] svg
+        `);
 
-        if (data.liked) {
+        allLikeIcons.forEach(svg => {
 
-            svg.setAttribute('fill', 'currentColor');
+            if (data.liked) {
 
-            svg.classList.remove('text-gray-600');
-            svg.classList.add('text-pink-500');
+                svg.setAttribute('fill', 'currentColor');
 
-        } else {
+                svg.classList.remove('text-gray-600');
+                svg.classList.add('text-pink-500');
 
-            svg.setAttribute('fill', 'none');
+            } else {
 
-            svg.classList.remove('text-pink-500');
-            svg.classList.add('text-gray-600');
-        }
+                svg.setAttribute('fill', 'none');
+
+                svg.classList.remove('text-pink-500');
+                svg.classList.add('text-gray-600');
+            }
+        });
+
+        // UPDATE SEMUA JUMLAH LIKE
+        document.querySelectorAll(
+            `#like-count-${shotId}`
+        ).forEach(el => {
+
+            el.textContent = data.likes;
+        });
 
     } catch (e) {
 

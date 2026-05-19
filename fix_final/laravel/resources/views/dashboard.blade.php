@@ -349,10 +349,14 @@ function dashboardData() {
                 }
             });
 
-            document.querySelectorAll('[id^="likes-count-"]').forEach(el => {
-                const shotId = el.id.replace('likes-count-', '');
-                // this.likedShots[shotId] = userAlreadyLiked;
-            });
+            @auth
+this.likedShots = {
+@foreach($shots as $shot)
+    {{ $shot->id }}:
+        {{ $shot->isLikedBy(auth()->user()) ? 'true' : 'false' }},
+@endforeach
+};
+@endauth
         },
 
         async openShotModal(shotId) {
@@ -393,44 +397,70 @@ function dashboardData() {
             document.body.style.overflow = '';
         },
 
-        async likeShot(shotId) {
-            const likesEl = document.querySelector(`#likes-count-${shotId}`);
-            const currentLikes = parseInt(likesEl?.innerText) || 0;
-            const isAlreadyLiked = this.likedShots[shotId];
-            
-            if (!isAlreadyLiked) {
-                if (likesEl) likesEl.innerText = currentLikes + 1;
-                this.likedShots[shotId] = true;
+                async likeShot(shotId) {
+
+            const likesEl = document.querySelector(
+                `#likes-count-${shotId}`
+            );
+
+            const currentLikes =
+                parseInt(likesEl?.innerText) || 0;
+
+            const isLiked =
+                this.likedShots[shotId] || false;
+
+            // toggle visual langsung
+            this.likedShots[shotId] = !isLiked;
+
+            if (likesEl) {
+
+                likesEl.innerText = isLiked
+                    ? currentLikes - 1
+                    : currentLikes + 1;
             }
-            
+
             try {
-                const response = await fetch(`/shots/${shotId}/like`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '{{ csrf_token() }}',
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ shot_id: shotId })
-                });
+
+                const response = await fetch(
+                    `/shots/${shotId}/like`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN':
+                                document.querySelector(
+                                    'meta[name="csrf-token"]'
+                                )?.content,
+
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    }
+                );
 
                 const data = await response.json();
-                
-                if (response.ok && likesEl) {
-                    likesEl.innerText = data.likes_count ?? data.likes ?? currentLikes;
-                } else {
-                    if (!isAlreadyLiked && likesEl) {
-                        likesEl.innerText = currentLikes;
-                    }
-                    this.likedShots[shotId] = isAlreadyLiked;
-                    console.error('Like failed:', data);
+
+                // sinkron server
+                this.likedShots[shotId] = data.liked;
+
+                if (likesEl) {
+
+                    likesEl.innerText =
+                        data.likes_count ??
+                        data.likes ??
+                        currentLikes;
                 }
+
             } catch (e) {
-                if (!isAlreadyLiked && likesEl) {
+
+                console.error('Like error:', e);
+
+                // rollback
+                this.likedShots[shotId] = isLiked;
+
+                if (likesEl) {
+
                     likesEl.innerText = currentLikes;
                 }
-                this.likedShots[shotId] = isAlreadyLiked;
-                console.error('Like error:', e);
             }
         }
     }
