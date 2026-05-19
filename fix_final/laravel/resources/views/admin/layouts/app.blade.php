@@ -23,7 +23,7 @@
     <style>
         /* 1. Sidebar jadi Dark Mode ala Dribbble */
         .bg-gradient-primary {
-            background: #0d0c22 !important;
+            background: #ea4c89 !important;
             background-image: none !important;
         }
 

@@ -186,6 +186,25 @@
                 </div>
             @endauth
         </div>
+
+        @endauth
+
+        @guest
+
+        <a
+            href="{{ route('login') }}"
+            class="bg-pink-500 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition-all">
+            Log in
+        </a>
+
+        <a
+            href="{{ route('register') }}"
+            class="text-sm font-bold text-gray-700 hover:text-black">
+            Sign up
+        </a>
+
+        @endguest
+
     </div>
 
 </nav>
