@@ -114,15 +114,33 @@
                             </a>
                         </div>
 
-                        <div class="px-3 pt-3">
-                            <a href="{{ route('category', ['name' => 'product-design']) }}" class="block px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors text-sm text-gray-700">Product Design</a>
-                            <a href="{{ route('category', ['name' => 'web-design']) }}" class="block px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors text-sm text-gray-700">Web Design</a>
-                            <a href="{{ route('category', ['name' => 'animation']) }}" class="block px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors text-sm text-gray-700">Animation</a>
-                            <a href="{{ route('category', ['name' => 'branding']) }}" class="block px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors text-sm text-gray-700">Branding</a>
-                            <a href="{{ route('category', ['name' => 'illustration']) }}" class="block px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors text-sm text-gray-700">Illustration</a>
-                            <a href="{{ route('category', ['name' => 'mobile']) }}" class="block px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors text-sm text-gray-700">Mobile</a>
-                            <a href="{{ route('category', ['name' => 'typography']) }}" class="block px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors text-sm text-gray-700">Typography</a>
-                        </div>
+                       <div class="flex-1 min-w-0 px-4">
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+        
+        <button 
+            type="button"
+            @click="filterCategory('discover')"
+            class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize"
+            :class="activeCategory === 'discover' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white'"
+        >
+            Discover
+        </button>
+
+        @foreach($categories as $category)
+            @if(strtolower($category->name) !== 'discover') {{-- Agar data discover tidak double kalau ada di DB --}}
+            <button 
+                type="button"
+                @click="filterCategory('{{ $category->name }}')"
+                class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize"
+                :class="activeCategory === '{{ $category->name }}' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white'"
+            >
+                {{ str_replace('-', ' ', $category->name) }}
+            </button>
+            @endif
+        @endforeach
+
+    </div>
+</div>
                     </div>
                 </div>
 
