@@ -74,27 +74,24 @@ class ShotController extends Controller
      * Search shots by title or author username
      */
     public function search(Request $request)
-    {
-        $query = $request->input('q');
+{
+    $query = $request->input('q');
 
-        $shots = Shot::with(['user', 'categories'])
-            ->withCount('likes')
-            ->where(function ($q) use ($query) {
-                $q->where('title', 'LIKE', "%{$query}%")
-                    ->orWhereHas('user', function ($q3) use ($query) {
-                        $q3->where('username', 'LIKE', "%{$query}%");
-                    });
-            })
-            ->inRandomOrder()
-            ->paginate(12);
+    $shots = Shot::with(['user', 'categories'])
+        ->withCount('likes')
+        ->where(function ($q) use ($query) {
+            $q->where('title', 'LIKE', "%{$query}%")
+                ->orWhereHas('user', function ($q3) use ($query) {
+                    $q3->where('username', 'LIKE', "%{$query}%");
+                });
+        })
+        ->inRandomOrder()
+        ->paginate(12);
 
-        $categories = Category::orderBy('id')->get();
+    $categories = Category::orderBy('id')->get();
 
-        // Tentukan view berdasarkan status login
-        $view = Auth::check() ? 'dashboard' : 'welcome';
-
-        return view($view, compact('shots', 'categories'));
-    }
+    return view('search', compact('shots', 'categories', 'query'));
+}
 
     /**
      * Tampilkan detail shot
