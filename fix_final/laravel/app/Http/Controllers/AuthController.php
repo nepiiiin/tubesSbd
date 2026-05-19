@@ -30,12 +30,10 @@ class AuthController extends Controller
             if (Auth::user()->role === 'admin') {
                 return redirect()->intended('/admin/dashboard');
             } 
-            
-            // Kalau user biasa, lempar ke halaman utama (home)
+
             return redirect()->intended('/'); 
         }
 
-        // 4. Kalau email/password salah, tendang balik ke halaman login bawa pesan error
         return back()->with('error', 'Kombinasi Email atau Password salah.');
     }
 

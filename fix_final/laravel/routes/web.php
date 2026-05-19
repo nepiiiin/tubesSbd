@@ -182,12 +182,10 @@ Route::get('/dashboard', function () {
         });
 
     $shots = \App\Models\Shot::with(['user', 'categories'])
-        ->withCount('likes')
-        ->whereIn('id', $bestShotIds)
-        ->inRandomOrder()
-        ->take(99)
-        ->get()
-        ->unique('image_url');
+    ->withCount('likes')
+    ->whereIn('id', $bestShotIds)
+    ->inRandomOrder()
+    ->paginate(12);
 
     $categories = \App\Models\Category::orderBy('id')->get();
 
