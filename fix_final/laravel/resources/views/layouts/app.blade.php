@@ -16,22 +16,32 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        /* Force light mode - pastikan tidak ada dark mode */
-        html {
-            color-scheme: light !important;
+        /* Dribbble Pink Theme */
+        :root {
+            --dribbble-pink: #ea4c89;
+            --dribbble-pink-hover: #c73e72;
+            --dribbble-dark: #0d0c22;
+            --dribbble-bg: #f8f7f4;
         }
+        
+        /* Force light mode */
+        html { color-scheme: light !important; }
+        
         body {
-            background-color: #f8f7f4 !important;
-            color: #0d0c22 !important;
+            background-color: var(--dribbble-bg) !important;
+            color: var(--dribbble-dark) !important;
         }
-        /* Hide scrollbar for horizontal scroll areas (optional) */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+
+        /* Utility classes untuk pink */
+        .bg-dribbble-pink { background-color: #ea4c89 !important; }
+        .hover\:bg-dribbble-pink:hover { background-color: #ea4c89 !important; }
+        .text-dribbble-pink { color: #ea4c89 !important; }
+        .border-dribbble-pink { border-color: #ea4c89 !important; }
+        .focus-within\:ring-dribbble-pink:focus-within { --tw-ring-color: #ea4c89 !important; }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 

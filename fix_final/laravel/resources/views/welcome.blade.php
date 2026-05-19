@@ -32,7 +32,7 @@
                     class="flex-1 bg-transparent appearance-none outline-none border-0 focus:ring-0 px-6 py-4 text-lg"
                     value="{{ request('q') }}"
                 >
-                <button type="submit" class="w-16 h-16 rounded-full bg-pink-500 text-white text-2xl hover:scale-105 transition">
+                <button type="submit" class="w-16 h-16 rounded-full bg-[#ea4c89] text-white text-2xl hover:scale-105 hover:bg-[#c73e72] transition">
                     🔍
                 </button>
             </form>
@@ -48,8 +48,107 @@
         </div>
 
     </section>
+    <!-- ✅ END HERO -->
 
-    <!-- SHOTS -->
+
+    <!-- ✅ CATEGORY FILTER BAR - FIXED: Pink Active + Dropdown + No Filters -->
+    <div class="mb-10" x-data="{ sortOpen: false }">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+            
+            <!-- Left: Dropdown Following/Popular/New -->
+            <div class="relative">
+                <button 
+                    @click="sortOpen = !sortOpen"
+                    @click.away="sortOpen = false"
+                    class="px-4 py-2 rounded-full border border-gray-300 text-sm font-semibold text-gray-700 hover:border-[#ea4c89] hover:text-[#ea4c89] transition whitespace-nowrap flex items-center gap-2"
+                >
+                    <span x-text="sortOpen ? 'Sort by' : 'Following'"></span>
+                    <svg class="w-4 h-4 transition-transform" :class="sortOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div 
+                    x-show="sortOpen"
+                    x-transition
+                    class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50"
+                >
+                    <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]">Following</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]">Popular</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]">New & Noteworthy</button>
+                </div>
+            </div>
+
+            <!-- Center: Category Pills (Scrollable) -->
+            <div class="flex-1 min-w-0 px-4">
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+                    
+                    <!-- Discover -->
+                    <a href="{{ route('category', ['name' => 'discover']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ !request()->has('category') || request('category') == 'discover' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Discover
+                    </a>
+
+                    <!-- Animation -->
+                    <a href="{{ route('category', ['name' => 'animation']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'animation' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Animation
+                    </a>
+
+                    <!-- Branding -->
+                    <a href="{{ route('category', ['name' => 'branding']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'branding' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Branding
+                    </a>
+
+                    <!-- Illustration -->
+                    <a href="{{ route('category', ['name' => 'illustration']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'illustration' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Illustration
+                    </a>
+
+                    <!-- Mobile -->
+                    <a href="{{ route('category', ['name' => 'mobile']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'mobile' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Mobile
+                    </a>
+
+                    <!-- Print -->
+                    <a href="{{ route('category', ['name' => 'print']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'print' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Print
+                    </a>
+
+                    <!-- Product Design -->
+                    <a href="{{ route('category', ['name' => 'product-design']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'product-design' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Product Design
+                    </a>
+
+                    <!-- Typography -->
+                    <a href="{{ route('category', ['name' => 'typography']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'typography' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Typography
+                    </a>
+
+                    <!-- Web Design -->
+                    <a href="{{ route('category', ['name' => 'web-design']) }}" 
+                       class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap {{ request('category') == 'web-design' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}">
+                        Web Design
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ✅ Right: Filters Button DIHAPUS -->
+
+        </div>
+    </div>
+    <!-- ✅ END CATEGORY FILTER BAR -->
+
+
+    <!-- SHOTS GRID -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
         @foreach($shots as $shot)
@@ -113,7 +212,7 @@
 
 </div>
 
-<!-- MODAL POPUP (SAMA PERSIS SEPERTI DASHBOARD) -->
+<!-- MODAL POPUP -->
 <div 
     x-show="showModal" 
     x-transition.opacity
@@ -133,7 +232,7 @@
     >
         <!-- Loading -->
         <div x-show="modalLoading" class="bg-white rounded-[32px] p-12 text-center">
-            <div class="animate-spin w-8 h-8 border-4 border-gray-200 border-t-[#0d0c22] rounded-full mx-auto mb-4"></div>
+            <div class="animate-spin w-8 h-8 border-4 border-gray-200 border-t-[#ea4c89] rounded-full mx-auto mb-4"></div>
             <p class="text-gray-500">Loading shot...</p>
         </div>
         
@@ -196,5 +295,12 @@ function welcomeData() {
     }
 }
 </script>
+
+<!-- CSS untuk hide scrollbar -->
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    [x-cloak] { display: none !important; }
+</style>
 
 </x-app-layout>
