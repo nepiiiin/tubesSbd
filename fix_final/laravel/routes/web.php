@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\IsAdmin;
 use App\Imports\UsersImport;
 use App\Imports\ShotsImport;
@@ -76,6 +77,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::post('/shots/{shot}/like', [ShotController::class, 'like'])->name('shots.like');
+    Route::post('/shots/{shot}/save', [ShotController::class, 'save'])->name('shots.save');
+    Route::post('/users/{user}/follow', [UserController::class, 'follow'])->name('users.follow');
     
     Route::get('/profile/{username}/{tab?}', function ($username, $tab = 'work') {
         $user = \App\Models\User::where('username', $username)->firstOrFail();
