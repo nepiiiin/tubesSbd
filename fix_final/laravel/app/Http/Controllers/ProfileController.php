@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,17 +23,43 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = auth()->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // 1. Validasi Input sesuai kriteria form kamu
+        $request->validate([
+            'name'     => ['required', 'string', 'max:255'],
+            'location' => ['nullable', 'string', 'max:255'],
+            'bio'      => ['nullable', 'string', 'max:1024'],
+            'avatar'   => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:800'], // Maksimal 800KB
+        ]);
+
+        // 2. Petakan input form ke kolom database kamu (HeidiSQL)
+        $user->full_name = $request->name; // 'name' dari form masuk ke 'full_name' di DB
+        $user->location  = $request->location;
+        $user->bio       = $request->bio;
+
+        // 3. Proses Upload Foto jika ada file baru yang diunggah
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            
+            // Buat nama file unik agar tidak bentrok
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            
+            // Simpan langsung ke folder public/avatars
+            $file->move(public_path('avatars'), $filename);
+            
+            // Simpan alamat URL-nya ke kolom avatar_url di database
+            $user->avatar_url = asset('avatars/' . $filename);
         }
 
-        $request->user()->save();
+        // 4. Simpan perubahan data user
+        $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        // 5. Redirect kembali ke halaman profil pameran karya kamu
+        return redirect()->route('user.profile', ['username' => $user->username])
+                         ->with('status', 'profile-updated');
     }
 
     /**

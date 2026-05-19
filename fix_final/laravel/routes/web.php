@@ -94,22 +94,27 @@ Route::get('/web-design', function () {
     return view('categories.web-design');
 });
 
-Route::get('/profile/{username}', function ($username) {
+// Route::get('/profile/{username}', function ($username) {
    
-    $user = \App\Models\User::where('username', $username)->firstOrFail();
+//     $user = \App\Models\User::where('username', $username)->firstOrFail();
     
-    $shots = \App\Models\Shot::where('user_id', $user->id)->get();
+//     $shots = \App\Models\Shot::where('user_id', $user->id)->get();
 
-    return view('profile', compact('user', 'shots'));
-})->name('user.profile');
+//     return view('profile', compact('user', 'shots'));
+// })->name('user.profile');
 
-Route::get('/import-users', function () {
+// Route::get('/import-users', function () {
 
-    Excel::import(new UsersImport, public_path('users.csv'));
+    // Excel::import(new UsersImport, public_path('users.csv'));
 
-    return 'Users Imported Successfully';
+    // return 'Users Imported Successfully';
+// });
 
+Route::get('/import-shots', function () {
+    Excel::import(new ShotsImport, public_path('shots.csv'));
+    return 'Shots Imported Successfully';
 });
+
 Route::get('/import-shots', function () {
 
     Excel::import(new ShotsImport, public_path('shots.csv'));
@@ -363,3 +368,20 @@ Route::get('/search', function () {
 
 })->name('search');
 require __DIR__.'/auth.php';
+
+
+Route::get('/profile/{username}/{tab?}', function ($username, $tab = 'work') {
+    $user = \App\Models\User::where('username', $username)->firstOrFail();
+    
+    // Ambil data shots untuk tab Work
+    $shots = \App\Models\Shot::where('user_id', $user->id)->get();
+
+    // Ambil data collections (jika tab yang dibuka adalah collections)
+    $collections = [];
+    if ($tab === 'collections') {
+        $collections = \App\Models\Collection::where('user_id', $user->id)->get();
+    }
+
+    // Kirim semua data ke SATU file view yang sama yaitu 'profile'
+    return view('profile', compact('user', 'shots', 'collections', 'tab'));
+})->name('user.profile');
