@@ -158,7 +158,7 @@
         class="pl-10 pr-4 py-2 bg-gray-100 border-none rounded-full text-sm w-40 focus:ring-2 focus:ring-pink-100 focus:bg-white transition-all text-black"
     >
 
-</form>d
+</form>
 
         @auth
 
