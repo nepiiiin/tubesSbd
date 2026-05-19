@@ -173,6 +173,8 @@
             <a href="#" class="block py-2 text-base font-semibold text-black">Explore</a>
             <a href="#" class="block py-2 text-base font-semibold text-black">Hire Talent</a>
             <a href="#" class="block py-2 text-base font-semibold text-black">Get Hired</a>
+            
+            {{-- Auth Section - Mobile --}}
             @auth
                 <a href="{{ route('user.profile', Auth::user()->username) }}" class="block py-2 text-base text-gray-600">Profile</a>
                 <form method="POST" action="{{ route('logout') }}">
@@ -186,25 +188,6 @@
                 </div>
             @endauth
         </div>
-
-        @endauth
-
-        @guest
-
-        <a
-            href="{{ route('login') }}"
-            class="bg-pink-500 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition-all">
-            Log in
-        </a>
-
-        <a
-            href="{{ route('register') }}"
-            class="text-sm font-bold text-gray-700 hover:text-black">
-            Sign up
-        </a>
-
-        @endguest
-
     </div>
 
 </nav>
