@@ -15,4 +15,26 @@ class Job extends Model
         'description',
         'apply_url',
     ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    // 🔗 RELATIONS
+    public function poster()
+    {
+        return $this->belongsTo(User::class, 'poster_id');
+    }
+
+    public function applications()
+    {
+        return $this->hasMany(Application::class, 'job_id');
+    }
+
+    // Helper: hitung jumlah pelamar
+    public function getApplicationsCountAttribute()
+    {
+        return $this->applications()->count();
+    }
 }

@@ -7,16 +7,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        /* Dribbble Pink Theme */
         :root {
             --dribbble-pink: #ea4c89;
             --dribbble-pink-hover: #c73e72;
@@ -24,7 +21,6 @@
             --dribbble-bg: #f8f7f4;
         }
         
-        /* Force light mode */
         html { color-scheme: light !important; }
         
         body {
@@ -32,14 +28,11 @@
             color: var(--dribbble-dark) !important;
         }
 
-        /* Utility classes untuk pink */
         .bg-dribbble-pink { background-color: #ea4c89 !important; }
         .hover\:bg-dribbble-pink:hover { background-color: #ea4c89 !important; }
         .text-dribbble-pink { color: #ea4c89 !important; }
         .border-dribbble-pink { border-color: #ea4c89 !important; }
-        .focus-within\:ring-dribbble-pink:focus-within { --tw-ring-color: #ea4c89 !important; }
 
-        /* Hide scrollbar */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -51,7 +44,17 @@
 
         @include('layouts.navigation')
 
-        <!-- Page Heading -->
+        @if(session('success'))
+            <div class="bg-green-50 border-l-4 border-green-500 text-green-800 p-4 mb-4 max-w-7xl mx-auto mt-4">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="bg-red-50 border-l-4 border-red-500 text-red-800 p-4 mb-4 max-w-7xl mx-auto mt-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
         @isset($header)
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -60,9 +63,8 @@
             </header>
         @endisset
 
-        <!-- Page Content -->
         <main>
-            {{ $slot }}
+            @yield('content')
         </main>
 
     </div>

@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Middleware\IsAdmin;
 use App\Imports\UsersImport;
 use App\Imports\ShotsImport;
@@ -22,10 +24,8 @@ use App\Imports\JobsImport;
 use App\Imports\ApplicationsImport;
 use Maatwebsite\Excel\Facades\Excel;
 
-// Home
 Route::get('/', [ShotController::class, 'home'])->name('home');
 
-// Login/Register
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login-proses', [AuthController::class, 'loginProses'])->name('login.proses');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -33,7 +33,6 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-// Category Pages
 Route::get('/discover', function () {
     return view('categories.discover');
 });
@@ -62,25 +61,22 @@ Route::get('/web-design', function () {
     return view('categories.web-design');
 });
 
-// Category Filter (menggunakan controller)
 Route::get('/category/{name}', [ShotController::class, 'category'])->name('category');
-
-// Search (menggunakan controller)
 Route::get('/search', [ShotController::class, 'search'])->name('search');
 
-// Shot Detail & Modal
 Route::get('/shots/{id}', [ShotController::class, 'show'])->name('shots.detail');
 Route::get('/shots/{id}/modal', [ShotController::class, 'modal'])->name('shots.modal');
+
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
+Route::get('/jobs/{job}', [JobController::class, 'show'])->name('jobs.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    // Like Shot
     Route::post('/shots/{shot}/like', [ShotController::class, 'like'])->name('shots.like');
     
-    // User Profile
     Route::get('/profile/{username}/{tab?}', function ($username, $tab = 'work') {
         $user = \App\Models\User::where('username', $username)->firstOrFail();
         $shots = \App\Models\Shot::where('user_id', $user->id)->get();
@@ -90,8 +86,26 @@ Route::middleware('auth')->group(function () {
             $collections = \App\Models\Collection::where('user_id', $user->id)->get();
         }
         
-        return view('profile', compact('user', 'shots', 'collections', 'tab'));
+        return view('profile', compact('user', 'shots', 'collections', $tab));
     })->name('user.profile');
+
+    Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+    Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
+    Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->name('jobs.edit');
+    Route::put('/jobs/{job}', [JobController::class, 'update'])->name('jobs.update');
+    Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
+    
+    Route::get('/jobs/{job}/applications', [ApplicationController::class, 'jobApplications'])
+        ->name('jobs.applications');
+    
+    Route::patch('/applications/{application}/status', [ApplicationController::class, 'updateStatus'])
+        ->name('applications.update-status');
+    
+    Route::post('/jobs/{job}/apply', [ApplicationController::class, 'store'])
+        ->name('jobs.apply');
+    
+    Route::get('/my-applications', [ApplicationController::class, 'myApplications'])
+        ->name('applications.my');
 });
 
 Route::middleware([IsAdmin::class])->group(function () {
