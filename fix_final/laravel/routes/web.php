@@ -246,6 +246,16 @@ Route::get('/shots/{id}', function ($id) {
     return view('shot_details', compact('shot'));
 
 })->name('shots.detail');
+
+// ✅ Route untuk modal popup (AJAX) - SUDAH FIX: hapus withCount comments
+Route::get('/shots/{id}/modal', function ($id) {
+    $shot = \App\Models\Shot::with(['user', 'likes', 'categories'])
+        ->withCount('likes')  // ← Hanya likes, karena model Shot belum punya relasi comments
+        ->findOrFail($id);
+    
+    return view('partials.shot_modal_content', compact('shot'));
+})->name('shots.modal');
+
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::resource('admin/users', AdminUserController::class)->names('admin.users');
 
