@@ -9,17 +9,14 @@ use Illuminate\Support\Str;
 
 class JobController extends Controller
 {
-    // ✅ LIST JOBS (Get Hired - Browse)
     public function index(Request $request)
     {
         $query = Job::with('poster:id,username');
         
-        // Filter job_type
         if ($request->filled('job_type')) {
             $query->where('job_type', $request->job_type);
         }
         
-        // Filter location (simple search)
         if ($request->filled('location')) {
             $query->where('location', 'like', "%{$request->location}%");
         }
@@ -33,7 +30,6 @@ class JobController extends Controller
     {
         $job->load('poster:id,username,email,avatar_url');
         
-        // Cek apakah user sudah apply
         $hasApplied = false;
         if (Auth::check()) {
             $hasApplied = $job->applications()
@@ -46,7 +42,6 @@ class JobController extends Controller
 
     public function create()
     {
-        // Hanya employer/admin yang bisa post job
         if (!in_array(Auth::user()->role, ['employer', 'admin'])) {
             abort(403, 'Only employers can post jobs.');
         }
@@ -77,7 +72,6 @@ class JobController extends Controller
 
     public function edit(Job $job)
     {
-        // Hanya owner atau admin yang bisa edit
         if (Auth::id() !== $job->poster_id && Auth::user()->role !== 'admin') {
             abort(403);
         }
