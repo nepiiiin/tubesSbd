@@ -121,7 +121,7 @@
             type="button"
             @click="filterCategory('discover')"
             class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize"
-            :class="activeCategory === 'discover' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white'"
+            class="{{ request('category') == 'discover' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white' }}"
         >
             Discover
         </button>
@@ -132,7 +132,7 @@
                 type="button"
                 @click="filterCategory('{{ $category->name }}')"
                 class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize"
-                :class="activeCategory === '{{ $category->name }}' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white'"
+                :class=" === '{{ $category->name }}' ? 'bg-[#ea4c89] text-white' : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white'"
             >
                 {{ str_replace('-', ' ', $category->name) }}
             </button>

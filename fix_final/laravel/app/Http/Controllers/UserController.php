@@ -7,34 +7,29 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    public function follow(User $user)
+    public function follow($id)
     {
-        $follower = auth()->user();
-        
-        if (!$follower) {
-            return response()->json(['success' => false, 'message' => 'Unauthorized'], 401);
-        }
-        
-        if ($follower->id === $user->id) {
-            return response()->json(['success' => false, 'message' => 'Cannot follow yourself'], 400);
-        }
+        $userToFollow = User::findOrFail($id);
+        $user = auth()->user();
 
-        $existing = DB::table('follows')
-            ->where('follower_id', $follower->id)
-            ->where('following_id', $user->id)
-            ->first();
-
-        if ($existing) {
-            DB::table('follows')->where('id', $existing->id)->delete();
-            return response()->json(['following' => false]);
+        if ($user->id ==    $userToFollow->id) {
+            return response()->json([
+                'error' => 'Tidak bisa  follow diri sendiri'
+            ], 400);
         }
 
-        DB::table('follows')->insert([
-            'follower_id' => $follower->id,
-            'following_id' => $user->id,
-            'created_at' => now()
+        $alreadyFollowed = $user->following()
+            ->where('following_id', $id)
+            ->exists();
+
+        if ($alreadyFollowed) {
+            $user->following()->detach($id);
+        } else {
+            $user->following()->attach($id);
+        }
+
+        return response()->json([
+            'following' => !$alreadyFollowed
         ]);
-        
-        return response()->json(['following' => true]);
     }
 }

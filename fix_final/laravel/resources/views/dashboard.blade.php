@@ -72,7 +72,6 @@
     <!-- ========== SHOTS GRID ========== -->
     <div class="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 pb-20">
 
-        <!-- ✅ CATEGORY FILTER BAR - FIXED: Pink Active + Dropdown + No Filters -->
         <div class="mb-8" x-data="{ sortOpen: false }">
             <div class="flex items-center justify-between flex-wrap gap-4">
                 

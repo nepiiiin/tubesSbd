@@ -76,9 +76,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::post('/shots/{shot}/like', [ShotController::class, 'like'])->name('shots.like');
-    Route::post('/shots/{shot}/save', [ShotController::class, 'save'])->name('shots.save');
-    Route::post('/users/{user}/follow', [UserController::class, 'follow'])->name('users.follow');
+    Route::post('/shots/{id}/save', [ShotController::class, 'save'])
+    ->middleware('auth');
+    Route::post('/users/{id}/follow', [UserController::class, 'follow'])
+    ->middleware('auth');
+    Route::post('/shots/{id}/like', [ShotController::class, 'like'])
+    ->middleware('auth');
     
     Route::get('/profile/{username}/{tab?}', function ($username, $tab = 'work') {
         $user = \App\Models\User::where('username', $username)->firstOrFail();

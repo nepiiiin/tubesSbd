@@ -3,42 +3,59 @@
     <div class="flex items-center justify-between px-8 py-6 border-b border-gray-100 sticky top-0 bg-white z-10">
         <div class="flex items-center gap-4">
             <div class="relative">
-                <img src="{{ $shot->user->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode($shot->user->username ?? 'U') }}"
-                     alt="{{ $shot->user->username ?? 'User' }}"
+                <img src="{{ $shot->user->avatar_url ?? 'https://ui-avatars.com/api/?name=User' }}"
+                    alt="{{ $shot->user->username ?? 'User' }}"
                      class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm">
-                @if($shot->user->available_for_work ?? false)
-                <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
-                @endif
             </div>
 
             <div>
                 <h3 class="font-bold text-gray-900 text-base leading-tight">
                     {{ $shot->user->username ?? 'Unknown User' }}
                 </h3>
-                @if($shot->user->available_for_work ?? false)
-                <p class="text-green-600 text-sm font-medium">Available for work</p>
-                @endif
             </div>
 
             @auth
-                @if(auth()->id() !== $shot->user_id)
-                <button class="ml-3 text-gray-500 hover:text-gray-900 font-medium text-sm transition">
-                    Follow
-                </button>
+                @if($shot->user && auth()->id() !== $shot->user_id)
+                <button
+                onclick="followUser({{ $shot->user_id }}, this)"
+                class="ml-3 text-gray-500 hover:text-gray-900 font-medium text-sm transition"
+            >
+                {{ $shot->isFollowedBy(auth()->user()) ? 'Following' : 'Follow' }}
+            </button>
                 @endif
             @endauth
         </div>
 
         <div class="flex items-center gap-3">
-            <button class="group w-11 h-11 rounded-full border border-gray-200 hover:border-pink-300 hover:bg-pink-50 flex items-center justify-center transition-all">
-                <svg class="w-5 h-5 text-gray-600 group-hover:text-pink-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            <button
+                onclick="likeShotModal({{ $shot->id }}, this)"
+                class="group w-11 h-11 rounded-full border border-gray-200 hover:border-pink-300 hover:bg-pink-50 flex items-center justify-center transition-all"
+            >
+                <svg class="w-5 h-5 text-gray-600 group-hover:text-pink-500 transition"
+                    fill="{{ $shot->isLikedBy(auth()->user()) ? 'currentColor' : 'none' }}"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
                 </svg>
             </button>
 
-            <button class="group w-11 h-11 rounded-full border border-gray-200 hover:border-gray-400 hover:bg-gray-50 flex items-center justify-center transition-all">
-                <svg class="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+            <button
+                onclick="saveShotModal({{ $shot->id }}, this)"
+                class="group w-11 h-11 rounded-full border border-gray-200 hover:border-gray-400 hover:bg-gray-50 flex items-center justify-center transition-all"
+            >
+                <svg class="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition"
+                    fill="{{ $shot->isSavedBy(auth()->user()) ? 'currentColor' : 'none' }}"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z">
+                    </path>
                 </svg>
             </button>
 

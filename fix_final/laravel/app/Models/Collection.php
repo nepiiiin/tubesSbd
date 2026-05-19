@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Collection extends Model
 {
-    protected $fillable = [
-        'user_id',
-        'name',
-        'description',
-        'created_at',
-        'updated_at',
-    ];
+    public function shots()
+{
+    return $this->belongsToMany(
+        Shot::class,
+        'collection_items'
+    )->withPivot('added_at');
+}
 }

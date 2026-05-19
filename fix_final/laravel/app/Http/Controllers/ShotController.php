@@ -119,37 +119,49 @@ class ShotController extends Controller
     /**
      * Like/Unlike shot
      */
-    public function like(Shot $shot)
+    public function like($id)
     {
+        $shot = Shot::findOrFail($id);
         $user = auth()->user();
 
-        if (!$user) {
-            return response()->json(['success' => false], 401);
+        $liked = $shot->likes()->where('user_id', $user->id)->exists();
+
+        if ($liked) {
+            $shot->likes()->detach($user->id);
+        } else {
+            $shot->likes()->attach($user->id);
         }
-
-        $existingLike = \App\Models\Like::where('user_id', $user->id)
-            ->where('shot_id', $shot->id)
-            ->first();
-
-        // Unlike
-        if ($existingLike) {
-            $existingLike->delete();
-
-            return response()->json([
-                'liked' => false,
-                'likes' => $shot->likes()->count()
-            ]);
-        }
-
-        // Like
-        \App\Models\Like::create([
-            'user_id' => $user->id,
-            'shot_id' => $shot->id
-        ]);
 
         return response()->json([
-            'liked' => true,
-            'likes' => $shot->likes()->count()
+            'liked' => !$liked,
+            'likes_count' => $shot->likes()->count()
         ]);
     }
+
+    public function save($id)
+{
+    $user = auth()->user();
+    $shot = Shot::findOrFail($id);
+
+    $collection = $user->collections()->firstOrCreate(
+        ['name' => 'Saved'],
+        ['description' => 'My saved shots']
+    );
+
+    $alreadySaved = $collection->shots()
+        ->where('shot_id', $shot->id)
+        ->exists();
+
+    if ($alreadySaved) {
+        $collection->shots()->detach($shot->id);
+    } else {
+        $collection->shots()->attach($shot->id, [
+            'added_at' => now()
+        ]);
+    }
+
+    return response()->json([
+        'saved' => !$alreadySaved
+    ]);
+}
 }
