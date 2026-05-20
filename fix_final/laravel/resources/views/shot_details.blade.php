@@ -153,6 +153,42 @@
                 @if($shot->description)
                 <p class="text-gray-600 text-lg mb-8 max-w-3xl whitespace-pre-line">{{ $shot->description }}</p>
                 @endif
+               @if($shot->comments->count())
+
+<div class="space-y-6 mb-10">
+
+    @foreach($shot->comments as $comment)
+
+        <div class="flex items-start gap-4">
+
+            <img
+                src="{{ $comment->user?->avatar_url ?? 'https://ui-avatars.com/api/?name=User' }}"
+                class="w-10 h-10 rounded-full object-cover"
+            >
+
+            <div>
+
+                <h4 class="font-semibold text-gray-900">
+
+                    {{ $comment->user?->full_name ?? 'User' }}
+
+                </h4>
+
+                <p class="text-gray-700">
+
+                    {{ $comment->body }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    @endforeach
+
+</div>
+
+@endif
                 <div class="flex items-center justify-between pt-6 border-t border-gray-100">
                     <div class="flex items-center gap-2 text-gray-500">
 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Models\Comment;
 
 class Shot extends Model
 {
@@ -118,4 +119,5 @@ class Shot extends Model
 
     return redirect('/profile/' . auth()->user()->username);
 }
+
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Shot;
+use App\Models\User;
 
 class Comment extends Model
 {
@@ -13,4 +15,14 @@ class Comment extends Model
         'created_at',
         'updated_at',
     ];
+    public function shot()
+{
+    return $this->belongsTo(Shot::class);
+}
+
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }

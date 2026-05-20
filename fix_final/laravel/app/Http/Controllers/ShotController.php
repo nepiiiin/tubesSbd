@@ -103,17 +103,18 @@ class ShotController extends Controller
     }
 
     public function show($id)
-    {
-        $shot = Shot::with([
-            'user',
-            'likes',
-            'categories'
-        ])
-        ->withCount('likes')
-        ->findOrFail($id);
+{
+    $shot = Shot::with([
+        'user',
+        'likes',
+        'categories',
+        'comments.user'
+    ])
+    ->withCount('likes')
+    ->findOrFail($id);
 
-        return view('shot_details', compact('shot'));
-    }
+    return view('shot_details', compact('shot'));
+}
 
     public function modal($id)
     {

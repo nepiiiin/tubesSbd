@@ -263,6 +263,8 @@ Route::get('/posts/create', [PostController::class, 'create'])
     [ShotController::class, 'destroy']
     
 )->name('shots.destroy');
+Route::get('/shots/{id}', [ShotController::class, 'show'])
+    ->name('shots.show');
 
 
 require __DIR__.'/auth.php';
