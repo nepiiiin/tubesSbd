@@ -176,12 +176,13 @@ class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap
             <!-- CARD -->
             <div 
                 class="relative group cursor-pointer"
-                @click="openShotModal({{ $shot->id }})"
             >
                 <div class="bg-white rounded-[26px] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
 
-                    <!-- IMAGE -->
-                    <div class="overflow-hidden rounded-[22px] bg-gray-100 relative">
+                    <div 
+                        class="overflow-hidden rounded-[22px] bg-gray-100 relative"
+                        @click="openShotModal({{ $shot->id }})"
+                    >
                         <img
                             src="{{ $shot->image_url }}"
                             alt="{{ $shot->title }}"
@@ -397,62 +398,49 @@ this.likedShots = {
             document.body.style.overflow = '';
         },
 
-                async likeShot(shotId) {
+        async likeShot(shotId) {
 
-            const likesEl = document.querySelector(
-                `#likes-count-${shotId}`
-            );
+    try {
 
-            const currentLikes =
-                parseInt(likesEl?.innerText) || 0;
+        const response = await fetch(
+            `/shots/${shotId}/like`,
+            {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN':
+                        document.querySelector(
+                            'meta[name="csrf-token"]'
+                        )?.content,
 
-            const isLiked =
-                this.likedShots[shotId] || false;
-
-            // toggle visual langsung
-            this.likedShots[shotId] = !isLiked;
-
-            if (likesEl) {
-
-                likesEl.innerText = isLiked
-                    ? currentLikes - 1
-                    : currentLikes + 1;
-            }
-
-            try {
-
-                const response = await fetch(
-                    `/shots/${shotId}/like`,
-                    {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN':
-                                document.querySelector(
-                                    'meta[name="csrf-token"]'
-                                )?.content,
-
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        }
-                    }
-                );
-
-                const data = await response.json();
-
-                // sinkron server
-                this.likedShots[shotId] = data.liked;
-
-                if (likesEl) {
-
-                    likesEl.innerText =
-                        data.likes_count ??
-                        data.likes ??
-                        currentLikes;
+                    'Accept': 'application/json'
                 }
+            }
+        );
 
-            } catch (e) {
+        const data = await response.json();
 
-                console.error('Like error:', e);
+        // update state alpine
+        this.likedShots[shotId] = data.liked;
+
+        // update angka like
+        const likesEl = document.querySelector(
+            `#likes-count-${shotId}`
+        );
+
+        if (likesEl) {
+
+            likesEl.innerText =
+                data.likes_count;
+        }
+
+    } catch (e) {
+
+        console.error(
+            'Like error:',
+            e
+        );
+    }
+}
 
                 // rollback
                 this.likedShots[shotId] = isLiked;

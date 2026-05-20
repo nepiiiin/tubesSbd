@@ -84,16 +84,53 @@ Route::middleware('auth')->group(function () {
     ->middleware('auth');
     
     Route::get('/profile/{username}/{tab?}', function ($username, $tab = 'work') {
-        $user = \App\Models\User::where('username', $username)->firstOrFail();
-        $shots = \App\Models\Shot::where('user_id', $user->id)->get();
-        $collections = [];
-        
-        if ($tab === 'collections') {
-            $collections = \App\Models\Collection::where('user_id', $user->id)->get();
-        }
-        
-        return view('profile', compact('user', 'shots', 'collections', 'tab'));
-    })->name('user.profile');
+
+    $user = \App\Models\User::where(
+        'username',
+        $username
+    )->firstOrFail();
+
+    if ($tab === 'liked') {
+
+        $shots = $user->likedShots()
+            ->with(['user', 'categories'])
+            ->withCount('likes')
+            ->latest()
+            ->get();
+
+    } else {
+
+        $shots = \App\Models\Shot::where(
+            'user_id',
+            $user->id
+        )
+        ->with(['user', 'categories'])
+        ->withCount('likes')
+        ->latest()
+        ->get();
+    }
+
+    $collections = [];
+
+    if ($tab === 'collections') {
+
+        $collections = \App\Models\Collection::where(
+            'user_id',
+            $user->id
+        )->get();
+    }
+
+    return view(
+        'profile',
+        compact(
+            'user',
+            'shots',
+            'collections',
+            'tab'
+        )
+    );
+
+})->name('user.profile');
 
     Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
     Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');

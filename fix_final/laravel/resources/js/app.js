@@ -28,55 +28,75 @@ window.likeShotModal = async function (shotId, button) {
 
     try {
 
-        const response = await fetch(`/shots/${shotId}/like`, {
-            method: 'POST',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRF-TOKEN': document
-                    .querySelector('meta[name="csrf-token"]')
-                    .content,
+        const response = await fetch(
+            `/shots/${shotId}/like`,
+            {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'X-CSRF-TOKEN':
+                        document.querySelector(
+                            'meta[name="csrf-token"]'
+                        ).content,
 
-                'Accept': 'application/json'
+                    'Accept': 'application/json'
+                }
             }
-        });
+        );
 
         const data = await response.json();
 
-        // SEMUA ICON LIKE
-        const allLikeIcons = document.querySelectorAll(`
-            [data-shot-id="${shotId}"] svg
-        `);
+        // UPDATE ICON MODAL
+        const svg = button.querySelector('svg');
 
-        allLikeIcons.forEach(svg => {
+        if (data.liked) {
 
-            if (data.liked) {
+            svg.setAttribute(
+                'fill',
+                'currentColor'
+            );
 
-                svg.setAttribute('fill', 'currentColor');
+            svg.classList.remove(
+                'text-gray-600'
+            );
 
-                svg.classList.remove('text-gray-600');
-                svg.classList.add('text-pink-500');
+            svg.classList.add(
+                'text-pink-500'
+            );
 
-            } else {
+        } else {
 
-                svg.setAttribute('fill', 'none');
+            svg.setAttribute(
+                'fill',
+                'none'
+            );
 
-                svg.classList.remove('text-pink-500');
-                svg.classList.add('text-gray-600');
-            }
-        });
+            svg.classList.remove(
+                'text-pink-500'
+            );
 
-        // UPDATE SEMUA JUMLAH LIKE
-        document.querySelectorAll(
-            `#like-count-${shotId}`
-        ).forEach(el => {
+            svg.classList.add(
+                'text-gray-600'
+            );
+        }
 
-            el.textContent = data.likes;
-        });
+        // UPDATE CARD LUAR
+        const outsideLikes = document.querySelector(
+            `#likes-count-${shotId}`
+        );
+
+        if (outsideLikes) {
+
+            outsideLikes.innerText =
+                data.likes_count;
+        }
 
     } catch (e) {
 
-        console.error('LIKE ERROR:', e);
-
+        console.error(
+            'LIKE ERROR:',
+            e
+        );
     }
 }
 

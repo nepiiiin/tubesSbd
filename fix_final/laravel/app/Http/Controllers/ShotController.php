@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ShotController extends Controller
 {
-    /**
-     * Tampilkan halaman home dengan shots terbaik
-     */
     public function home()
     {
         $bestShotIds = Shot::withCount('likes')
@@ -24,7 +21,8 @@ class ShotController extends Controller
 
         $shots = Shot::with(['user', 'categories'])
             ->withCount('likes')
-            ->whereIn('id', $bestShotIds)->inRandomOrder()
+            ->whereIn('id', $bestShotIds)
+            ->inRandomOrder()
             ->take(99)
             ->get()
             ->unique('image_url');
@@ -34,25 +32,23 @@ class ShotController extends Controller
         return view('welcome', compact('shots', 'categories'));
     }
 
-    /**
-     * Tampilkan shots berdasarkan kategori
-     */
     public function category($name)
     {
-        // Discover bebas diakses, kategori lain harus login
         if ($name !== 'discover' && !Auth::check()) {
             return redirect()->route('login');
         }
 
         $category = Category::where('name', $name)->first();
 
-        // Jika discover atau category tidak ditemukan, tampilkan semua
         if ($name === 'discover' || !$category) {
+
             $shots = Shot::with(['user', 'categories'])
                 ->withCount('likes')
                 ->inRandomOrder()
                 ->paginate(12);
+
         } else {
+
             $shots = Shot::with(['user', 'categories'])
                 ->withCount('likes')
                 ->whereHas('categories', function ($q) use ($category) {
@@ -64,71 +60,92 @@ class ShotController extends Controller
 
         $categories = Category::orderBy('id')->get();
 
-        // Tentukan view berdasarkan status login
-        $view = Auth::check() ? 'dashboard' : 'welcome';
+        $view = Auth::check()
+            ? 'dashboard'
+            : 'welcome';
 
         return view($view, compact('shots', 'categories'));
     }
 
-    /**
-     * Search shots by title or author username
-     */
     public function search(Request $request)
-{
-    $query = $request->input('q');
+    {
+        $query = $request->input('q');
 
-    $shots = Shot::with(['user', 'categories'])
-        ->withCount('likes')
-        ->where(function ($q) use ($query) {
-            $q->where('title', 'LIKE', "%{$query}%")
+        $shots = Shot::with(['user', 'categories'])
+            ->withCount('likes')
+            ->where(function ($q) use ($query) {
+
+                $q->where(
+                    'title',
+                    'LIKE',
+                    "%{$query}%"
+                )
+
                 ->orWhereHas('user', function ($q3) use ($query) {
-                    $q3->where('username', 'LIKE', "%{$query}%");
+
+                    $q3->where(
+                        'username',
+                        'LIKE',
+                        "%{$query}%"
+                    );
                 });
-        })
-        ->inRandomOrder()
-        ->paginate(12);
+            })
 
-    $categories = Category::orderBy('id')->get();
+            ->paginate(12);
 
-    return view('search', compact('shots', 'categories', 'query'));
-}
+        $categories = Category::orderBy('id')->get();
 
-    /**
-     * Tampilkan detail shot
-     */
+        return view(
+            'search',
+            compact('shots', 'categories', 'query')
+        );
+    }
+
     public function show($id)
     {
-        $shot = Shot::with(['user', 'likes', 'categories'])
-            ->findOrFail($id);
+        $shot = Shot::with([
+            'user',
+            'likes',
+            'categories'
+        ])
+        ->withCount('likes')
+        ->findOrFail($id);
 
         return view('shot_details', compact('shot'));
     }
 
-    /**
-     * Return modal content untuk shot
-     */
     public function modal($id)
     {
-        $shot = Shot::with(['user', 'likes', 'categories'])
-            ->withCount('likes')
-            ->findOrFail($id);
+        $shot = Shot::with([
+            'user',
+            'likes',
+            'categories'
+        ])
+        ->withCount('likes')
+        ->findOrFail($id);
 
-        return view('partials.shot_modal_content', compact('shot'));
+        return view(
+            'partials.shot_modal_content',
+            compact('shot')
+        );
     }
 
-    /**
-     * Like/Unlike shot
-     */
     public function like($id)
     {
         $shot = Shot::findOrFail($id);
+
         $user = auth()->user();
 
-        $liked = $shot->likes()->where('user_id', $user->id)->exists();
+        $liked = $shot->likes()
+            ->where('user_id', $user->id)
+            ->exists();
 
         if ($liked) {
+
             $shot->likes()->detach($user->id);
+
         } else {
+
             $shot->likes()->attach($user->id);
         }
 
@@ -139,29 +156,33 @@ class ShotController extends Controller
     }
 
     public function save($id)
-{
-    $user = auth()->user();
-    $shot = Shot::findOrFail($id);
+    {
+        $user = auth()->user();
 
-    $collection = $user->collections()->firstOrCreate(
-        ['name' => 'Saved'],
-        ['description' => 'My saved shots']
-    );
+        $shot = Shot::findOrFail($id);
 
-    $alreadySaved = $collection->shots()
-        ->where('shot_id', $shot->id)
-        ->exists();
+        $collection = $user->collections()->firstOrCreate(
+            ['name' => 'Saved'],
+            ['description' => 'My saved shots']
+        );
 
-    if ($alreadySaved) {
-        $collection->shots()->detach($shot->id);
-    } else {
-        $collection->shots()->attach($shot->id, [
-            'added_at' => now()
+        $alreadySaved = $collection->shots()
+            ->where('shot_id', $shot->id)
+            ->exists();
+
+        if ($alreadySaved) {
+
+            $collection->shots()->detach($shot->id);
+
+        } else {
+
+            $collection->shots()->attach($shot->id, [
+                'added_at' => now()
+            ]);
+        }
+
+        return response()->json([
+            'saved' => !$alreadySaved
         ]);
     }
-
-    return response()->json([
-        'saved' => !$alreadySaved
-    ]);
-}
 }
