@@ -6,6 +6,7 @@ use App\Models\Shot;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ShotController extends Controller
 {
@@ -185,4 +186,24 @@ class ShotController extends Controller
             'saved' => !$alreadySaved
         ]);
     }
+    public function destroy($id)
+{
+    $shot = Shot::findOrFail($id);
+
+    if($shot->user_id !== auth()->id()){
+        abort(403);
+    }
+
+    if($shot->image_url){
+
+        \Storage::disk('public')
+            ->delete($shot->image_url);
+    }
+
+    $shot->likes()->detach();
+
+    $shot->delete();
+
+    return redirect('/profile/' . auth()->user()->username);
+}
 }

@@ -44,6 +44,26 @@
                     @endif
                 </div>
                 <div class="flex items-center gap-3">
+                    @if(auth()->id() === $shot->user_id)
+
+<form
+    action="{{ route('shots.destroy', $shot->id) }}"
+    method="POST"
+    onsubmit="return confirm('Hapus postingan ini?')"
+>
+    @csrf
+    @method('DELETE')
+
+    <button
+        type="submit"
+        class="bg-red-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-red-600 transition"
+    >
+        Hapus
+    </button>
+
+</form>
+
+@endif
                     <button class="btn-interaction btn-like group w-11 h-11 rounded-full border border-gray-200 hover:border-pink-300 hover:bg-pink-50 flex items-center justify-center transition-all {{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'liked' : '' }}" data-shot-id="{{ $shot->id }}" onclick="toggleLike(event, this)">
                         <svg class="w-5 h-5 transition" fill="{{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'currentColor' : 'none' }}" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
