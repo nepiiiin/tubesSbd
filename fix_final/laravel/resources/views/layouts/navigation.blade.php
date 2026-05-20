@@ -102,7 +102,7 @@
                                 <span class="text-sm font-semibold text-gray-800">Following</span>
                             </a>
                             <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors group">
-                                <svg class="w-5 h-5 text-gray-600 group-hover:text-[#ea4c89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-gray-600 group-hover:text-[#d83372]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                                 </svg>
                                 <span class="text-sm font-semibold text-gray-800">Popular</span>
@@ -149,7 +149,20 @@
                     </div>
                 </div>
 
-                <a href="{{ route('jobs.index') }}" class="text-sm font-semibold text-[#0d0c22] hover:text-[#ea4c89] transition-colors">Get Hired</a>
+                <a href="{{ route('jobs.index') }}" class="text-sm font-semibold text-[#0d0c22] hover:text-[#ea4c89] transition-colors">
+                    Get Hired
+                </a>
+
+                <a href="{{ route('talent.index') }}"
+                    class="text-sm font-semibold text-[#0d0c22] hover:text-[#ea4c89] transition-colors">
+                        Post Job
+                </a>
+
+            @if(in_array(Auth::user()->role ?? '', ['employer', 'admin']))
+    <a href="{{ route('jobs.create') }}" class="text-sm font-semibold text-[#0d0c22] hover:text-[#ea4c89] transition-colors">
+        Hire
+    </a>
+@endif
                 
                 @if(in_array(Auth::user()->role ?? '', ['employer', 'admin']))
                     <a href="{{ route('jobs.create') }}" class="text-sm font-semibold text-[#0d0c22] hover:text-[#ea4c89] transition-colors">Hire</a>

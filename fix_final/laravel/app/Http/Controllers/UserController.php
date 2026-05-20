@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function talent()
+    {
+        $designers = User::where('role', 'designer')
+            ->withCount('shots')
+            ->latest()
+            ->paginate(12);
+
+        return view('talent.index', compact('designers'));
+    }
+    
     public function follow($id)
     {
         $userToFollow = User::findOrFail($id);

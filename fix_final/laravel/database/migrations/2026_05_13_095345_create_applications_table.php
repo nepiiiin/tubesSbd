@@ -19,6 +19,8 @@ return new class extends Migration
                 ->constrained('jobs')
                 ->onDelete('cascade');
 
+            $table->unique(['job_id', 'applicant_id']);
+
             $table->foreignId('applicant_id')
                 ->constrained('users')
                 ->onDelete('cascade');
@@ -30,6 +32,8 @@ return new class extends Migration
             $table->string('status');
 
             $table->timestamp('applied_at');
+
+            $table->timestamps();
         });
     }
 
