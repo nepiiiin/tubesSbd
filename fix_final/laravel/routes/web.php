@@ -71,6 +71,9 @@ Route::get('/shots/{id}/modal', [ShotController::class, 'modal'])->name('shots.m
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/{job}', [JobController::class, 'show'])->name('jobs.show');
 
+Route::get('/talent', [UserController::class, 'talent'])
+    ->name('talent.index');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
