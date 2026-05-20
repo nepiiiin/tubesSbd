@@ -15,4 +15,13 @@ class CollectionItem extends Model
         'shot_id',
         'added_at',
     ];
+    public function shots()
+{
+    return $this->belongsToMany(
+        Shot::class,
+        'collection_items',
+        'collection_id',
+        'shot_id'
+    );
+}
 }

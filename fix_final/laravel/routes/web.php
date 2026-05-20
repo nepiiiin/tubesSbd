@@ -92,13 +92,29 @@ Route::middleware('auth')->group(function () {
 
     if ($tab === 'liked') {
 
-        $shots = $user->likedShots()
-            ->with(['user', 'categories'])
-            ->withCount('likes')
-            ->latest()
-            ->get();
+    $likedIds = $user->likedShots()
+        ->pluck('shots.id');
 
-    } else {
+    $bestShotIds = \App\Models\Shot::withCount('likes')
+        ->whereIn('id', $likedIds)
+        ->orderByDesc('likes_count')
+        ->get()
+        ->groupBy('user_id')
+        ->map(function ($shots) {
+
+            return $shots->first()->id;
+        });
+
+    $shots = \App\Models\Shot::with([
+            'user',
+            'categories'
+        ])
+        ->withCount('likes')
+        ->whereIn('id', $bestShotIds)
+        ->inRandomOrder()
+        ->get();
+
+} else {
 
         $shots = \App\Models\Shot::where(
             'user_id',
@@ -245,5 +261,8 @@ Route::get('/posts/create', [PostController::class, 'create'])
     Route::delete(
     '/shots/{id}',
     [ShotController::class, 'destroy']
+    
 )->name('shots.destroy');
+
+
 require __DIR__.'/auth.php';
