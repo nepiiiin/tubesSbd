@@ -202,8 +202,7 @@ Route::get('/posts/create', [PostController::class, 'create'])
     Route::post('/shots', [PostController::class, 'store'])
     ->name('shots.store');
 
-    Route::get('/shots/{shot}', [PostController::class, 'show']);
-    
-    Route::get('/my-shots/{shot}', [PostController::class, 'show']);
+    Route::get('/shots/{shot}', [ShotController::class, 'show'])
+    ->name('shots.show');
    
 require __DIR__.'/auth.php';

@@ -69,7 +69,7 @@
             <div class="shot-detail-body p-8">
                 <h1 class="text-4xl font-bold text-gray-900 mb-3">{{ $shot->title }}</h1>
                 <div class="relative bg-[#c8d8b8] rounded-[24px] overflow-hidden mb-8">
-                    <img src="{{ $shot->image_url }}" alt="{{ $shot->title }}" class="w-full h-auto object-cover">
+                    <img src="{{ asset('storage/' . $shot->image_url) }}" alt="{{ $shot->title }}" class="w-full h-auto object-cover">
                 </div>
                 @if($shot->description)
                 <p class="text-gray-600 text-lg mb-8 max-w-3xl whitespace-pre-line">{{ $shot->description }}</p>
