@@ -12,7 +12,7 @@ class Shot extends Model
         'title',
         'description',
         'image_url',
-        'shot_header'
+        'title'
     ];
 
     /**
@@ -94,4 +94,28 @@ class Shot extends Model
             ->where('follower_id', $user->id)
             ->exists();
     }
+
+    public function store(Request $request)
+{
+    $request->validate([
+        'title' => 'required',
+        'image' => 'required|image',
+    ]);
+
+    $imagePath = $request->file('image')->store('shots', 'public');
+
+    Shot::create([
+        'user_id' => auth()->id(),
+
+        'title' => $request->title,
+
+        'description' => $request->description,
+
+        'image_url' => $imagePath,
+
+        'title' => $request->title,
+    ]);
+
+    return redirect('/profile/' . auth()->user()->username);
+}
 }

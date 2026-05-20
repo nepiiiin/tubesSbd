@@ -195,4 +195,15 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('shots', 'categories'));
 })->middleware(['auth'])->name('dashboard');
 
+use App\Http\Controllers\PostController;
+
+Route::get('/posts/create', [PostController::class, 'create'])
+    ->name('posts.create');
+    Route::post('/shots', [PostController::class, 'store'])
+    ->name('shots.store');
+
+    Route::get('/shots/{shot}', [PostController::class, 'show']);
+    
+    Route::get('/my-shots/{shot}', [PostController::class, 'show']);
+   
 require __DIR__.'/auth.php';
