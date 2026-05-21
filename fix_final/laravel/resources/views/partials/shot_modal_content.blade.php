@@ -53,7 +53,7 @@
                 class="group w-11 h-11 rounded-full border border-gray-200 hover:border-gray-400 hover:bg-gray-50 flex items-center justify-center transition-all"
             >
                 <svg class="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition"
-                    fill="{{ auth()->check() && auth()->check() && $shot->isSavedBy(auth()->user())? 'currentColor' : 'none' }}"
+                    fill="{{ auth()->check() && $shot->isSavedBy(auth()->user()) ? 'currentColor' : 'none' }}"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round"

@@ -78,9 +78,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/collections/{collection}', function (\App\Models\Collection $collection) {
+
+    $collection->load([
+        'shots.user',
+        'shots.categories'
+    ]);
+
+    return view('collections.show', compact('collection'));
+
+})->middleware('auth')->name('collections.show');
     
     Route::post('/shots/{id}/save', [ShotController::class, 'save'])
-    ->middleware('auth');
+    ->middleware('auth')
+    ->name('shots.save');
     Route::post('/users/{id}/follow', [UserController::class, 'follow'])
     ->middleware('auth');
     Route::post('/shots/{id}/like', [ShotController::class, 'like'])
@@ -95,38 +107,38 @@ Route::middleware('auth')->group(function () {
 
     if ($tab === 'liked') {
 
-    $likedIds = $user->likedShots()
-        ->pluck('shots.id');
+        $likedIds = $user->likedShots()
+            ->pluck('shots.id');
 
-    $bestShotIds = \App\Models\Shot::withCount('likes')
-        ->whereIn('id', $likedIds)
-        ->orderByDesc('likes_count')
-        ->get()
-        ->groupBy('user_id')
-        ->map(function ($shots) {
+        $bestShotIds = \App\Models\Shot::withCount('likes')
+            ->whereIn('id', $likedIds)
+            ->orderByDesc('likes_count')
+            ->get()
+            ->groupBy('user_id')
+            ->map(function ($shots) {
 
-            return $shots->first()->id;
-        });
+                return $shots->first()->id;
+            });
 
-    $shots = \App\Models\Shot::with([
-            'user',
-            'categories'
-        ])
-        ->withCount('likes')
-        ->whereIn('id', $bestShotIds)
-        ->inRandomOrder()
-        ->get();
+        $shots = \App\Models\Shot::with([
+                'user',
+                'categories'
+            ])
+            ->withCount('likes')
+            ->whereIn('id', $bestShotIds)
+            ->inRandomOrder()
+            ->get();
 
-} else {
+    } else {
 
         $shots = \App\Models\Shot::where(
-            'user_id',
-            $user->id
-        )
-        ->with(['user', 'categories'])
-        ->withCount('likes')
-        ->latest()
-        ->get();
+                'user_id',
+                $user->id
+            )
+            ->with(['user', 'categories'])
+            ->withCount('likes')
+            ->latest()
+            ->get();
     }
 
     $collections = [];
@@ -134,9 +146,11 @@ Route::middleware('auth')->group(function () {
     if ($tab === 'collections') {
 
         $collections = \App\Models\Collection::where(
-            'user_id',
-            $user->id
-        )->get();
+                'user_id',
+                $user->id
+            )
+            ->with('shots')
+            ->get();
     }
 
     return view(

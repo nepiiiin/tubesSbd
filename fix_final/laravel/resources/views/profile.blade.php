@@ -92,38 +92,50 @@
             </div>
 
             <div>
-                @if($tab === 'work')
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    @forelse($shots as $shot)
-<div 
-    class="group block cursor-pointer"
-    @click="openShotModal({{ $shot->id }})"
->
-    <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 aspect-[4/3] mb-3 relative">
-        <img src="{{ asset('storage/' . $shot->image_url) }}"
-            class="w-full h-full object-cover group-hover:opacity-90 transition">
+@if($tab === 'work')
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    @forelse($shots as $shot)
+
+    <div 
+        class="group block cursor-pointer"
+        @click="openShotModal({{ $shot->id }})"
+    >
+        <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 aspect-[4/3] mb-3 relative">
+            <img src="{{ asset('storage/' . $shot->image_url) }}"
+                class="w-full h-full object-cover group-hover:opacity-90 transition">
+        </div>
+
+        <div class="flex items-center justify-between">
+            <h3 class="font-bold text-gray-900 dark:text-white text-sm truncate">
+                {{ $shot->title }}
+            </h3>
+        </div>
     </div>
 
-    <div class="flex items-center justify-between">
-        <h3 class="font-bold text-gray-900 dark:text-white text-sm truncate">
-            {{ $shot->title }}
-        </h3>
+    @empty
+
+    <div class="col-span-3 text-center py-20 text-gray-400 dark:text-gray-500 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl">
+        <a
+            href="{{ route('posts.create') }}"
+            class="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 transition"
+        >
+            Upload your first shot
+        </a>
+
+        <p class="text-sm mt-1">
+            Show off your best work. Get feedback, likes and be a part of a community.
+        </p>
     </div>
+
+    @endforelse
+
 </div>
-@empty
-                    <div class="col-span-3 text-center py-20 text-gray-400 dark:text-gray-500 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl">
-                        <a
-    href="{{ route('posts.create') }}"
-    class="text-lg font-medium text-gray-900 dark:text-white hover:text-pink-500 transition"
->
-    Upload your first shot
-</a>
-                        <p class="text-sm mt-1">Show off your best work. Get feedback, likes and be a part of a community.</p>
-                    </div>
-                    @endforelse
-                </div>
 
-               <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+@elseif($tab === 'collections')
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
     @forelse($collections as $collection)
 
@@ -139,16 +151,14 @@
                 @forelse($collection->shots->take(4) as $shot)
 
                 <img
-                    src="{{ asset('storage/' . $shot->image_url) }}"
+                    src="{{ str_starts_with($shot->image_url, 'http') ? $shot->image_url : asset('storage/' . $shot->image_url) }}"
                     class="w-full h-full object-cover"
                 >
 
                 @empty
 
                 <div class="col-span-2 flex items-center justify-center text-gray-400">
-
                     Empty Collection
-
                 </div>
 
                 @endforelse
@@ -158,15 +168,11 @@
             <div class="p-4">
 
                 <h3 class="font-bold text-gray-900 dark:text-white">
-
                     {{ $collection->name }}
-
                 </h3>
 
                 <p class="text-sm text-gray-500 mt-1">
-
                     {{ $collection->shots->count() }} shots
-
                 </p>
 
             </div>
@@ -178,9 +184,7 @@
     @empty
 
     <div class="col-span-3 text-center py-20 text-gray-400">
-
         Belum ada collection
-
     </div>
 
     @endforelse
