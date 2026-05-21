@@ -2,8 +2,45 @@
 @section('content')
 
 <div
-    x-data="welcomeData()"
-    x-init="init()"
+    x-data="{
+        showModal: false,
+        modalLoading: false,
+        modalContent: '',
+
+        async openShotModal(shotId) {
+            this.showModal = true;
+            this.modalLoading = true;
+            this.modalContent = '';
+            document.body.style.overflow = 'hidden';
+
+            try {
+                const response = await fetch(`/shots/${shotId}/modal`, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'text/html'
+                    }
+                });
+
+                if (response.ok) {
+                    this.modalContent = await response.text();
+                } else {
+                    this.modalContent = '<div class=&quot;bg-white p-6 rounded-xl text-center text-red-500&quot;>Gagal memuat konten shot.</div>';
+                }
+            } catch (e) {
+                console.error('Fetch error:', e);
+                this.modalContent = '<div class=&quot;bg-white p-6 rounded-xl text-center text-red-500&quot;>Terjadi error saat membuka modal.</div>';
+            } finally {
+                this.modalLoading = false;
+            }
+        },
+
+        closeModal() {
+            this.showModal = false;
+            this.modalContent = '';
+            document.body.style.overflow = '';
+        }
+    }"
+    @keydown.escape.window="closeModal()"
     class="min-h-screen bg-[#f8f7f4]">
 
     <div class="px-8 lg:px-14 py-10">
@@ -152,22 +189,21 @@
         <!-- SHOTS GRID -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    @foreach($shots as $shot)
+@foreach($shots as $shot)
 
-    <!-- CARD -->
-    <a
-        href="{{ route('shots.show', $shot->id) }}"
-        class="block group">
+<div
+    class="block group cursor-pointer"
+    @click="openShotModal({{ $shot->id }})">
 
-        <div class="bg-white rounded-[26px] p-3 transition duration-300 hover:-translate-y-1">
+    <div class="bg-white rounded-[26px] p-3 transition duration-300 hover:-translate-y-1">
 
-            <div class="overflow-hidden rounded-[22px] bg-gray-100">
-                <img
-                    src="{{ $shot->image_url }}"
-                    alt="{{ $shot->title }}"
-                    onerror="this.src='https://placehold.co/600x400?text=No+Image'"
-                    class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-[1.02]">
-            </div>
+        <div class="overflow-hidden rounded-[22px] bg-gray-100">
+            <img
+                src="{{ $shot->image_url }}"
+                alt="{{ $shot->title }}"
+                onerror="this.src='https://placehold.co/600x400?text=No+Image'"
+                class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-[1.02]">
+        </div>
 
             <div class="flex items-center justify-between mt-4 px-1">
 
@@ -225,10 +261,44 @@
 
         </div>
 
-    </a>
+    </div>
 
     @endforeach
 
 </div>
-   
 
+<div 
+    x-show="showModal" 
+    x-transition.opacity
+    class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+    @click.self="closeModal()"
+    style="display: none;"
+>
+    <div 
+        x-show="showModal"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+        class="w-full max-w-5xl max-h-[90vh] overflow-y-auto"
+        @click.stop
+    >
+        <div x-show="modalLoading" class="bg-white rounded-[32px] p-12 text-center">
+            <div class="animate-spin w-8 h-8 border-4 border-gray-200 border-t-[#ea4c89] rounded-full mx-auto mb-4"></div>
+            <p class="text-gray-500">Loading shot...</p>
+        </div>
+
+        <div x-html="modalContent"></div>
+    </div>
+</div>
+
+<script>
+function welcomeData() {
+}
+</script>
+
+</div> 
+
+@endsection

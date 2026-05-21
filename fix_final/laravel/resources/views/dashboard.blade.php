@@ -398,57 +398,28 @@ this.likedShots = {
             document.body.style.overflow = '';
         },
 
-        async likeShot(shotId) {
+                async likeShot(shotId) {
+            try {
+                const response = await fetch(`/shots/${shotId}/like`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content,
+                        'Accept': 'application/json'
+                    }
+                });
 
-    try {
+                const data = await response.json();
 
-        const response = await fetch(
-            `/shots/${shotId}/like`,
-            {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN':
-                        document.querySelector(
-                            'meta[name="csrf-token"]'
-                        )?.content,
+                this.likedShots[shotId] = data.liked;
 
-                    'Accept': 'application/json'
-                }
-            }
-        );
-
-        const data = await response.json();
-
-        // update state alpine
-        this.likedShots[shotId] = data.liked;
-
-        // update angka like
-        const likesEl = document.querySelector(
-            `#likes-count-${shotId}`
-        );
-
-        if (likesEl) {
-
-            likesEl.innerText =
-                data.likes_count;
-        }
-
-    } catch (e) {
-
-        console.error(
-            'Like error:',
-            e
-        );
-    }
-}
-
-                // rollback
-                this.likedShots[shotId] = isLiked;
+                const likesEl = document.querySelector(`#likes-count-${shotId}`);
 
                 if (likesEl) {
-
-                    likesEl.innerText = currentLikes;
+                    likesEl.innerText = data.likes_count;
                 }
+
+            } catch (e) {
+                console.error('Like error:', e);
             }
         }
     }

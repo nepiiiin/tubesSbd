@@ -32,7 +32,7 @@
                 class="group w-11 h-11 rounded-full border border-gray-200 hover:border-pink-300 hover:bg-pink-50 flex items-center justify-center transition-all"
             >
                 <svg class="w-5 h-5 text-gray-600 group-hover:text-pink-500 transition"
-                    fill="{{ $shot->isLikedBy(auth()->user()) ? 'currentColor' : 'none' }}"
+                    fill="{{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'currentColor' : 'none' }}"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round"
@@ -48,7 +48,7 @@
                 class="group w-11 h-11 rounded-full border border-gray-200 hover:border-gray-400 hover:bg-gray-50 flex items-center justify-center transition-all"
             >
                 <svg class="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition"
-                    fill="{{ $shot->isSavedBy(auth()->user()) ? 'currentColor' : 'none' }}"
+                    fill="{{ auth()->check() && auth()->check() && $shot->isSavedBy(auth()->user())? 'currentColor' : 'none' }}"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round"
@@ -109,8 +109,8 @@
                 <div class="flex items-center gap-2 text-gray-500">
                     <svg 
     class="w-5 h-5 modal-like-icon"
-    data-liked="{{ auth()->check() && $shot->isLikedBy(auth()->user()) ? '1' : '0' }}"
-    fill="{{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'currentColor' : 'none' }}"
+    data-liked="{{ auth()->check() && auth()->check() && $shot->isLikedBy(auth()->user())? '1' : '0' }}"
+    fill="{{ auth()->check() && auth()->check() && $shot->isLikedBy(auth()->user())? 'currentColor' : 'none' }}"
     viewBox="0 0 24 24"
 >
     <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
