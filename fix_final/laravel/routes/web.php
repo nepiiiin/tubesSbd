@@ -25,6 +25,7 @@ use App\Imports\JobsImport;
 use App\Imports\ApplicationsImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\PostController;
+use App\Models\Job;
 
 Route::get('/', [ShotController::class, 'home'])->name('home');
 
@@ -90,6 +91,11 @@ Route::middleware('auth')->group(function () {
     return view('collections.show', compact('collection'));
 
 })->middleware('auth')->name('collections.show');
+
+Route::get('/jobs/{id}', function ($id) {
+    $job = Job::findOrFail($id); 
+    return view('jobs.show', compact('job'));
+})->name('jobs.show');
     
     Route::post('/shots/{id}/save', [ShotController::class, 'save'])
     ->middleware('auth')
@@ -267,6 +273,13 @@ Route::get('/import-applications', function () {
     return 'Applications Imported Successfully';
 });
 
+Route::get('/jobs/{id}', function ($id) {
+    $job = Job::with('poster')  
+              ->findOrFail($id);
+    
+    return view('jobs.show', compact('job'));
+})->name('jobs.show');
+
 Route::get('/dashboard/{filter?}', function ($filter = 'popular') {
 
     $categories = \App\Models\Category::orderBy('id')->get();
@@ -327,6 +340,7 @@ Route::get('/posts/create', [PostController::class, 'create'])
     [ShotController::class, 'destroy']
     
 )->name('shots.destroy');
+
 Route::get('/shots/{id}', [ShotController::class, 'show'])
     ->name('shots.show');
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use app\Models\jobs;
 
 class Job extends Model
 {
@@ -21,20 +22,25 @@ class Job extends Model
         'updated_at' => 'datetime',
     ];
 
-    // 🔗 RELATIONS
     public function poster()
-    {
-        return $this->belongsTo(User::class, 'poster_id');
-    }
+   {
+    return $this->belongsTo(User::class, 'poster_id');
+   }
 
     public function applications()
     {
         return $this->hasMany(Application::class, 'job_id');
     }
 
-    // Helper: hitung jumlah pelamar
     public function getApplicationsCountAttribute()
     {
         return $this->applications()->count();
     }
+
+    public function show(Job $job)
+{
+    $job->load('poster');
+
+    return view('jobs.show', compact('job'));
+}
 }

@@ -10,21 +10,68 @@ use Illuminate\Support\Str;
 class JobController extends Controller
 {
     public function index(Request $request)
-    {
-        $query = Job::with('poster:id,username');
-        
-        if ($request->filled('job_type')) {
-            $query->where('job_type', $request->job_type);
-        }
-        
-        if ($request->filled('location')) {
-            $query->where('location', 'like', "%{$request->location}%");
-        }
-        
-        $jobs = $query->latest()->paginate(12);
-        
-        return view('jobs.index', compact('jobs'));
+{
+    $query = Job::with('poster:id,username');
+
+    // SEARCH
+    if ($request->filled('search')) {
+
+        $query->where(function ($q) use ($request) {
+
+            $q->where(
+                'title',
+                'like',
+                '%' . $request->search . '%'
+            )
+
+            ->orWhere(
+                'company_name',
+                'like',
+                '%' . $request->search . '%'
+            );
+
+        });
     }
+
+    // JOB TYPE
+    if ($request->filled('job_type')) {
+
+        $query->whereIn(
+            'job_type',
+            $request->job_type
+        );
+    }
+
+    // LOCATION
+    if ($request->filled('location')) {
+
+        $query->where(
+            'location',
+            'like',
+            '%' . $request->location . '%'
+        );
+    }
+
+    // SPECIALTIES
+if ($request->filled('specialties')) {
+
+    foreach ($request->specialties as $specialty) {
+
+        $query->where(
+            'description',
+            'like',
+            '%' . $specialty . '%'
+        );
+    }
+
+}
+
+    $jobs = $query
+        ->latest()
+        ->paginate(12);
+
+    return view('jobs.index', compact('jobs'));
+}
 
     public function show(Job $job)
     {
