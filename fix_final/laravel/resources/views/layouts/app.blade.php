@@ -94,7 +94,74 @@
 
     </div>
 
-    <x-footer />
+        <x-footer />
+
+    <script>
+    async function likeShotModal(shotId, button) {
+        try {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
+
+        const response = await fetch(`/shots/${shotId}/like`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.status === 401 || response.redirected) {
+            window.location.href = '/login';
+            return;
+        }
+
+        const data = await response.json();
+
+        const svg = button.querySelector('.modal-like-svg');
+        const modalBottomIcon = document.querySelector(`#modal-bottom-like-icon-${shotId}`);
+
+        if (data.liked) {
+            button.classList.remove('text-gray-600');
+            button.classList.add('text-[#ea4c89]');
+
+            if (svg) {
+                svg.setAttribute('fill', 'currentColor');
+                svg.classList.remove('text-gray-600');
+                svg.classList.add('text-[#ea4c89]');
+            }
+
+            if (modalBottomIcon) {
+                modalBottomIcon.setAttribute('fill', 'currentColor');
+                modalBottomIcon.classList.remove('text-gray-500');
+                modalBottomIcon.classList.add('text-[#ea4c89]');
+            }
+        } else {
+            button.classList.remove('text-[#ea4c89]');
+            button.classList.add('text-gray-600');
+
+            if (svg) {
+                svg.setAttribute('fill', 'none');
+                svg.classList.remove('text-[#ea4c89]');
+                svg.classList.add('text-gray-600');
+            }
+
+            if (modalBottomIcon) {
+                modalBottomIcon.setAttribute('fill', 'none');
+                modalBottomIcon.classList.remove('text-[#ea4c89]');
+                modalBottomIcon.classList.add('text-gray-500');
+            }
+        }
+
+        document
+            .querySelectorAll(`.like-count[data-shot-id="${shotId}"]`)
+            .forEach((el) => {
+                el.textContent = data.likes_count;
+            });
+
+    } catch (error) {
+        console.error('Like modal error:', error);
+    }
+}
+    </script>
 
 </body>
 </html>

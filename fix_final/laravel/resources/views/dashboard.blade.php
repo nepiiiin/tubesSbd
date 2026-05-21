@@ -233,7 +233,8 @@ class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap
 
     <span 
         id="likes-count-{{ $shot->id }}"
-        class="text-[#3d3d4e] text-[13px] font-medium"
+        data-shot-id="{{ $shot->id }}"
+        class="like-count text-[#3d3d4e] text-[13px] font-medium"
     >
         {{ $shot->likes_count ?? 0 }}
     </span>
@@ -408,15 +409,20 @@ this.likedShots = {
                     }
                 });
 
+                if (response.status === 401 || response.redirected) {
+                    window.location.href = '/login';
+                    return;
+        }
+
                 const data = await response.json();
 
                 this.likedShots[shotId] = data.liked;
 
-                const likesEl = document.querySelector(`#likes-count-${shotId}`);
-
-                if (likesEl) {
-                    likesEl.innerText = data.likes_count;
-                }
+                document
+                    .querySelectorAll(`.like-count[data-shot-id="${shotId}"]`)
+                    .forEach((el) => {
+                        el.textContent = data.likes_count;
+                });
 
             } catch (e) {
                 console.error('Like error:', e);

@@ -136,25 +136,30 @@ class ShotController extends Controller
     {
         $shot = Shot::findOrFail($id);
 
-        $user = auth()->user();
+    $user = auth()->user();
 
-        $liked = $shot->likes()
-            ->where('user_id', $user->id)
-            ->exists();
-
-        if ($liked) {
-
-            $shot->likes()->detach($user->id);
-
-        } else {
-
-            $shot->likes()->attach($user->id);
-        }
-
+        if (!$user) {
         return response()->json([
-            'liked' => !$liked,
-            'likes_count' => $shot->likes()->count()
-        ]);
+            'message' => 'Unauthenticated'
+        ], 401);
+    }
+
+    $liked = $shot->likes()
+        ->where('user_id', $user->id)
+        ->exists();
+
+    if ($liked) {
+        $shot->likes()->detach($user->id);
+    } else {
+        $shot->likes()->attach($user->id);
+    }
+
+    $likesCount = $shot->likes()->count();
+
+    return response()->json([
+        'liked' => !$liked,
+        'likes_count' => $likesCount
+    ]);
     }
 
     public function save($id)
