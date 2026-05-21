@@ -93,12 +93,12 @@
             <div class="flex items-center justify-between flex-wrap gap-4">
 
                 <!-- Left: Dropdown Following/Popular/New -->
-                <div class="relative">
-                    <button
-                        @click="sortOpen = !sortOpen"
-                        @click.away="sortOpen = false"
+                <div class="relative" @click.away="sortOpen = false">
+    <button
+        type="button"
+        @click="sortOpen = !sortOpen"
                         class="px-4 py-2 rounded-full border border-gray-300 text-sm font-semibold text-gray-700 hover:border-[#ea4c89] hover:text-[#ea4c89] transition whitespace-nowrap flex items-center gap-2">
-                        <span x-text="sortOpen ? 'Sort by' : 'Following'"></span>
+                        <span>Popular</span>
                         <svg class="w-4 h-4 transition-transform" :class="sortOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
@@ -109,9 +109,29 @@
                         x-show="sortOpen"
                         x-transition
                         class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50">
-                        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]">Following</button>
-                        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]">Popular</button>
-                        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]">New & Noteworthy</button>
+                        <a 
+    href="{{ url('/dashboard/following') }}"
+    @click.stop
+    class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]"
+>
+    Following
+</a>
+
+<a 
+    href="{{ url('/dashboard/popular') }}"
+    @click.stop
+    class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]"
+>
+    Popular
+</a>
+
+<a 
+    href="{{ url('/dashboard/new') }}"
+    @click.stop
+    class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4] hover:text-[#ea4c89]"
+>
+    New & Noteworthy
+</a>
                     </div>
                 </div>
 

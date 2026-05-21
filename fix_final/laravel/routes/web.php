@@ -24,6 +24,7 @@ use App\Imports\CollectionItemsImport;
 use App\Imports\JobsImport;
 use App\Imports\ApplicationsImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\PostController;
 
 Route::get('/', [ShotController::class, 'home'])->name('home');
 
@@ -109,43 +110,59 @@ Route::middleware('auth')->group(function () {
         $username
     )->firstOrFail();
 
+    $collections = collect();
+    $members = collect();
+
     if ($tab === 'liked') {
 
-        $likedIds = $user->likedShots()
-            ->pluck('shots.id');
+    $likedIds = $user->likedShots()
+        ->pluck('shots.id');
 
-        $bestShotIds = \App\Models\Shot::withCount('likes')
-            ->whereIn('id', $likedIds)
-            ->orderByDesc('likes_count')
-            ->get()
-            ->groupBy('user_id')
-            ->map(function ($shots) {
+    $bestShotIds = \App\Models\Shot::withCount('likes')
+        ->whereIn('id', $likedIds)
+        ->orderByDesc('likes_count')
+        ->get()
+        ->groupBy('user_id')
+        ->map(function ($shots) {
+            return $shots->first()->id;
+        });
 
-                return $shots->first()->id;
-            });
+    $shots = \App\Models\Shot::with([
+            'user',
+            'categories'
+        ])
+        ->withCount('likes')
+        ->whereIn('id', $bestShotIds)
+        ->inRandomOrder()
+        ->get();
 
-        $shots = \App\Models\Shot::with([
-                'user',
-                'categories'
-            ])
-            ->withCount('likes')
-            ->whereIn('id', $bestShotIds)
-            ->inRandomOrder()
-            ->get();
+} elseif ($tab === 'following') {
 
-    } else {
+    $shots = collect();
 
-        $shots = \App\Models\Shot::where(
-                'user_id',
-                $user->id
-            )
-            ->with(['user', 'categories'])
-            ->withCount('likes')
-            ->latest()
-            ->get();
-    }
+    $members = $user->following()
+        ->withCount(['followers', 'following', 'shots'])
+        ->get();
 
-    $collections = [];
+} elseif ($tab === 'followers') {
+
+    $shots = collect();
+
+    $members = $user->followers()
+        ->withCount(['followers', 'following', 'shots'])
+        ->get();
+
+} else {
+
+    $shots = \App\Models\Shot::where(
+            'user_id',
+            $user->id
+        )
+        ->with(['user', 'categories'])
+        ->withCount('likes')
+        ->latest()
+        ->get();
+}
 
     if ($tab === 'collections') {
 
@@ -158,14 +175,15 @@ Route::middleware('auth')->group(function () {
     }
 
     return view(
-        'profile',
-        compact(
-            'user',
-            'shots',
-            'collections',
-            'tab'
-        )
-    );
+    'profile',
+    compact(
+        'user',
+        'shots',
+        'collections',
+        'members',
+        'tab'
+    )
+);
 
 })->name('user.profile');
 
@@ -249,27 +267,52 @@ Route::get('/import-applications', function () {
     return 'Applications Imported Successfully';
 });
 
-Route::get('/dashboard', function () {
-    $bestShotIds = \App\Models\Shot::withCount('likes')
-        ->orderByDesc('likes_count')
-        ->get()
-        ->groupBy('user_id')
-        ->map(function ($shots) {
-            return $shots->first()->id;
-        });
-
-    $shots = \App\Models\Shot::with(['user', 'categories'])
-    ->withCount('likes')
-    ->whereIn('id', $bestShotIds)
-    ->inRandomOrder()
-    ->paginate(12);
+Route::get('/dashboard/{filter?}', function ($filter = 'popular') {
 
     $categories = \App\Models\Category::orderBy('id')->get();
 
-    return view('dashboard', compact('shots', 'categories'));
-})->middleware(['auth'])->name('dashboard');
+    if ($filter === 'following') {
 
-use App\Http\Controllers\PostController;
+        $followingIds = auth()->user()
+            ->following()
+            ->pluck('users.id');
+
+        $shots = \App\Models\Shot::with(['user', 'categories'])
+            ->withCount('likes')
+            ->whereIn('user_id', $followingIds)
+            ->latest()
+            ->paginate(12);
+
+        $filterLabel = 'Following';
+
+    } elseif ($filter === 'new') {
+
+        $shots = \App\Models\Shot::with(['user', 'categories'])
+            ->withCount('likes')
+            ->latest()
+            ->paginate(12);
+
+        $filterLabel = 'New & Noteworthy';
+
+    } else {
+
+        $shots = \App\Models\Shot::with(['user', 'categories'])
+            ->withCount('likes')
+            ->orderByDesc('likes_count')
+            ->paginate(12);
+
+        $filter = 'popular';
+        $filterLabel = 'Popular';
+    }
+
+    return view('dashboard', compact(
+        'shots',
+        'categories',
+        'filter',
+        'filterLabel'
+    ));
+
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/posts/create', [PostController::class, 'create'])
     ->name('posts.create');

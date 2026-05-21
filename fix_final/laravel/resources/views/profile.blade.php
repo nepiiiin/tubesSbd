@@ -56,6 +56,28 @@
                     {{ $user->location ?? 'Indonesia' }} • @ {{ $user->username }}
                 </p>
 
+                <div class="flex items-center justify-center gap-6 mt-4 text-gray-500 dark:text-gray-400">
+    <a 
+        href="{{ route('user.profile', ['username' => $user->username, 'tab' => 'followers']) }}"
+        class="hover:text-white transition"
+    >
+        <strong class="text-gray-900 dark:text-white">
+            {{ $user->followers()->count() }}
+        </strong>
+        followers
+    </a>
+
+    <a 
+        href="{{ route('user.profile', ['username' => $user->username, 'tab' => 'following']) }}"
+        class="hover:text-white transition"
+    >
+        <strong class="text-gray-900 dark:text-white">
+            {{ $user->following()->count() }}
+        </strong>
+        following
+    </a>
+</div>
+
                 @if($user->bio)
                 <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-lg mx-auto">{{ $user->bio }}</p>
                 @endif
@@ -296,6 +318,85 @@
     @endforelse
 
 </div>
+
+@elseif($tab === 'following' || $tab === 'followers')
+
+<div class="max-w-4xl mx-auto">
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        {{ $tab === 'following' ? 'Following' : 'Followers' }}
+    </h2>
+
+    <div class="space-y-4">
+
+        @forelse($members as $member)
+
+        <div class="flex items-center justify-between bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5">
+
+            <div class="flex items-center gap-4 min-w-0">
+
+                <img
+                    src="{{ $member->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode($member->username ?? 'U') }}"
+                    class="w-14 h-14 rounded-full object-cover border border-gray-200 dark:border-gray-700"
+                >
+
+                <div class="min-w-0">
+
+                    <h3 class="font-bold text-gray-900 dark:text-white truncate">
+                        {{ $member->full_name ?? $member->username }}
+                    </h3>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 truncate">
+                        @ {{ $member->username }}
+                    </p>
+
+                    <div class="flex gap-4 mt-1 text-xs text-gray-400">
+                        <span>{{ $member->shots_count ?? 0 }} shots</span>
+                        <span>{{ $member->followers_count ?? 0 }} followers</span>
+                        <span>{{ $member->following_count ?? 0 }} following</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a
+                href="{{ route('user.profile', ['username' => $member->username]) }}"
+                class="px-5 py-2 rounded-full bg-[#0d0c22] text-white dark:bg-white dark:text-[#0d0c22] text-sm font-semibold hover:opacity-80 transition"
+            >
+                View Profile
+            </a>
+
+        </div>
+
+        @empty
+
+        <div class="text-center py-20 text-gray-400">
+
+            @if($tab === 'following')
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                    Belum mengikuti siapa pun
+                </h3>
+                <p>
+                    User yang kamu follow akan muncul di sini.
+                </p>
+            @else
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                    Belum ada followers
+                </h3>
+                <p>
+                    User yang mengikuti akun ini akan muncul di sini.
+                </p>
+            @endif
+
+        </div>
+
+        @endforelse
+
+    </div>
+
+</div>
+
                 @elseif($tab === 'about')
                 <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl text-gray-700 dark:text-gray-300">
                     <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Tentang {{ $user->full_name }}</h2>
