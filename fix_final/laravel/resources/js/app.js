@@ -148,6 +148,88 @@ window.saveShotModal = async function (shotId, button) {
     }
 }
 
+window.commentShotModal = async function (event, shotId, form) {
+    event.preventDefault();
+
+    try {
+        const textarea = form.querySelector('textarea[name="body"]');
+        const body = textarea.value.trim();
+
+        if (!body) {
+            return;
+        }
+
+        const response = await fetch(`/shots/${shotId}/comments`, {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'X-CSRF-TOKEN': document
+                    .querySelector('meta[name="csrf-token"]')
+                    .content,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                body: body
+            })
+        });
+
+        if (response.status === 401 || response.redirected) {
+            window.location.href = '/login';
+            return;
+        }
+
+        const data = await response.json();
+
+        if (!data.success) {
+            return;
+        }
+
+        const commentsList = document.querySelector(`#comments-list-${shotId}`);
+        const emptyComments = document.querySelector(`#empty-comments-${shotId}`);
+
+        if (emptyComments) {
+            emptyComments.remove();
+        }
+
+        const avatarUrl = data.comment.user.avatar_url 
+            ? data.comment.user.avatar_url 
+            : `https://ui-avatars.com/api/?name=${encodeURIComponent(data.comment.user.username ?? 'U')}`;
+
+        const commentHtml = `
+            <div class="flex gap-3">
+                <img
+                    src="${avatarUrl}"
+                    class="w-10 h-10 rounded-full object-cover"
+                >
+
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h4 class="font-semibold text-gray-900">
+                            ${data.comment.user.username}
+                        </h4>
+
+                        <span class="text-xs text-gray-400">
+                            ${data.comment.created_at}
+                        </span>
+                    </div>
+
+                    <p class="text-gray-600 text-sm mt-1">
+                        ${data.comment.body}
+                    </p>
+                </div>
+            </div>
+        `;
+
+        commentsList.insertAdjacentHTML('beforeend', commentHtml);
+
+        textarea.value = '';
+
+    } catch (e) {
+        console.error('COMMENT ERROR:', e);
+    }
+}
+
 window.followUser = async function (userId, button) {
 
     try {

@@ -109,32 +109,117 @@
         </div>
         @endif
 
-        <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+                <div class="flex items-center justify-between pt-6 border-t border-gray-100">
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2 text-gray-500">
                     <svg 
-    id="modal-bottom-like-icon-{{ $shot->id }}"
-    class="w-5 h-5 modal-like-icon {{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'text-[#ea4c89]' : 'text-gray-500' }}"
-    fill="{{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'currentColor' : 'none' }}"
-    viewBox="0 0 24 24"
->
-    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-</svg>
-        <span 
-            id="modal-like-count-{{ $shot->id }}"
-            data-shot-id="{{ $shot->id }}"
-            class="like-count font-medium"
-        >
-            {{ $shot->likes_count ?? 0 }}
-        </span>
+                        id="modal-bottom-like-icon-{{ $shot->id }}"
+                        class="w-5 h-5 modal-like-icon {{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'text-[#ea4c89]' : 'text-gray-500' }}"
+                        fill="{{ auth()->check() && $shot->isLikedBy(auth()->user()) ? 'currentColor' : 'none' }}"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+
+                    <span 
+                        id="modal-like-count-{{ $shot->id }}"
+                        data-shot-id="{{ $shot->id }}"
+                        class="like-count font-medium"
+                    >
+                        {{ $shot->likes_count ?? 0 }}
+                    </span>
                 </div>
             </div>
         </div>
+
+        <div id="comments-section-{{ $shot->id }}" class="mt-8 pt-8 border-t border-gray-100 bg-white">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                Comments
+            </h3>
+
+            <div id="comments-list-{{ $shot->id }}" class="space-y-5">
+                @forelse($shot->comments as $comment)
+
+                <div class="flex gap-3">
+                    <img
+                        src="{{ $comment->user->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode($comment->user->username ?? 'U') }}"
+                        class="w-10 h-10 rounded-full object-cover"
+                    >
+
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h4 class="font-semibold text-gray-900">
+                                {{ $comment->user->username }}
+                            </h4>
+
+                            <span class="text-xs text-gray-400">
+                                {{ $comment->created_at->diffForHumans() }}
+                            </span>
+                        </div>
+
+                        <p class="text-gray-600 text-sm mt-1">
+                            {{ $comment->body }}
+                        </p>
+                    </div>
+                </div>
+
+                @empty
+
+                <div id="empty-comments-{{ $shot->id }}" class="text-gray-400 text-sm">
+                    Belum ada komentar. Jadilah yang pertama komentar.
+                </div>
+
+                @endforelse
+            </div>
+
+            @auth
+            <form 
+                class="mt-6 flex gap-3"
+                onsubmit="commentShotModal(event, {{ $shot->id }}, this)"
+            >
+                <img
+                    src="{{ auth()->user()->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->username ?? 'U') }}"
+                    class="w-10 h-10 rounded-full object-cover"
+                >
+
+                <div class="flex-1">
+                    <textarea
+                        name="body"
+                        rows="3"
+                        placeholder="Tulis komentar..."
+                        class="w-full rounded-2xl border border-gray-200 focus:border-gray-400 focus:ring-0 text-sm resize-none text-gray-900 bg-white"
+                        required
+                    ></textarea>
+
+                    <div class="flex justify-end mt-2">
+                        <button
+                            type="submit"
+                            class="px-5 py-2 rounded-full bg-[#0d0c22] text-white text-sm font-semibold hover:bg-gray-800 transition"
+                        >
+                            Comment
+                        </button>
+                    </div>
+                </div>
+            </form>
+            @else
+            <div class="mt-6 text-sm text-gray-500">
+                <a href="{{ route('login') }}" class="font-semibold text-[#ea4c89]">
+                    Login
+                </a>
+                untuk menulis komentar.
+            </div>
+            @endauth
+        </div>
+
     </div>
 </div>
 
 <div class="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-[110]">
-    <button class="group relative w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 hover:border-gray-400 flex items-center justify-center transition-all">
+    <button 
+    type="button"
+    onclick="document.getElementById('comments-section-{{ $shot->id }}')?.scrollIntoView({ behavior: 'smooth', block: 'start' })"
+    class="group relative w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 hover:border-gray-400 flex items-center justify-center transition-all"
+>
         <svg class="w-5 h-5 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
         </svg>

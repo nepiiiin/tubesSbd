@@ -97,6 +97,10 @@ Route::middleware('auth')->group(function () {
     ->middleware('auth');
     Route::post('/shots/{id}/like', [ShotController::class, 'like'])
     ->middleware('auth');
+
+    Route::post('/shots/{id}/comments', [ShotController::class, 'comment'])
+    ->middleware('auth')
+    ->name('shots.comment');
     
     Route::get('/profile/{username}/{tab?}', function ($username, $tab = 'work') {
 

@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Comment;
 
 class ShotController extends Controller
 {
@@ -117,20 +118,21 @@ class ShotController extends Controller
 }
 
     public function modal($id)
-    {
-        $shot = Shot::with([
-            'user',
-            'likes',
-            'categories'
-        ])
-        ->withCount('likes')
-        ->findOrFail($id);
+{
+    $shot = Shot::with([
+        'user',
+        'likes',
+        'categories',
+        'comments.user'
+    ])
+    ->withCount('likes')
+    ->findOrFail($id);
 
-        return view(
-            'partials.shot_modal_content',
-            compact('shot')
-        );
-    }
+    return view(
+        'partials.shot_modal_content',
+        compact('shot')
+    );
+}
 
     public function like($id)
     {
@@ -211,5 +213,35 @@ class ShotController extends Controller
     $shot->delete();
 
     return redirect('/profile/' . auth()->user()->username);
+}
+
+public function comment(Request $request, $id)
+{
+    $request->validate([
+        'body' => ['required', 'string', 'max:1000'],
+    ]);
+
+    $shot = Shot::findOrFail($id);
+
+    $comment = Comment::create([
+        'shot_id' => $shot->id,
+        'user_id' => auth()->id(),
+        'body' => $request->body,
+    ]);
+
+    $comment->load('user');
+
+    return response()->json([
+        'success' => true,
+        'comment' => [
+            'id' => $comment->id,
+            'body' => $comment->body,
+            'user' => [
+                'username' => $comment->user->username,
+                'avatar_url' => $comment->user->avatar_url,
+            ],
+            'created_at' => $comment->created_at->diffForHumans(),
+        ],
+    ]);
 }
 }
