@@ -281,7 +281,7 @@ Route::get('/dashboard/{filter?}', function ($filter = 'popular') {
             ->withCount('likes')
             ->whereIn('user_id', $followingIds)
             ->latest()
-            ->paginate(12);
+            ->get();
 
         $filterLabel = 'Following';
 
@@ -290,7 +290,7 @@ Route::get('/dashboard/{filter?}', function ($filter = 'popular') {
         $shots = \App\Models\Shot::with(['user', 'categories'])
             ->withCount('likes')
             ->latest()
-            ->paginate(12);
+            ->get();
 
         $filterLabel = 'New & Noteworthy';
 
@@ -299,7 +299,7 @@ Route::get('/dashboard/{filter?}', function ($filter = 'popular') {
         $shots = \App\Models\Shot::with(['user', 'categories'])
             ->withCount('likes')
             ->orderByDesc('likes_count')
-            ->paginate(12);
+            ->get();
 
         $filter = 'popular';
         $filterLabel = 'Popular';

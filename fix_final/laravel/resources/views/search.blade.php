@@ -192,12 +192,6 @@
 
     </div>
 
-    @if(isset($shots) && $shots->hasPages())
-    <div class="mt-12 flex justify-center">
-        {{ $shots->links() }}
-    </div>
-    @endif
-
 </div>
 
 <div 

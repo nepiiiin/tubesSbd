@@ -292,13 +292,6 @@ class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap
 
         </div>
 
-        <!-- Pagination -->
-        @if(isset($shots) && $shots->hasPages())
-        <div class="mt-12 flex justify-center">
-            {{ $shots->links() }}
-        </div>
-        @endif
-
     </div>
 
     <!-- ========== MODAL POPUP ========== -->

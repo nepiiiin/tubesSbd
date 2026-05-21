@@ -47,7 +47,7 @@ class ShotController extends Controller
             $shots = Shot::with(['user', 'categories'])
                 ->withCount('likes')
                 ->inRandomOrder()
-                ->paginate(12);
+                ->get();
 
         } else {
 
@@ -57,7 +57,7 @@ class ShotController extends Controller
                     $q->where('id', $category->id);
                 })
                 ->inRandomOrder()
-                ->paginate(12);
+                ->get();
         }
 
         $categories = Category::orderBy('id')->get();
@@ -93,7 +93,7 @@ class ShotController extends Controller
                 });
             })
 
-            ->paginate(12);
+            ->get();
 
         $categories = Category::orderBy('id')->get();
 
