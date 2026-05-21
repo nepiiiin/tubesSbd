@@ -125,8 +125,12 @@
         @click="openShotModal({{ $shot->id }})"
     >
         <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 aspect-[4/3] mb-3 relative">
-            <img src="{{ asset('storage/' . $shot->image_url) }}"
-                class="w-full h-full object-cover group-hover:opacity-90 transition">
+            <img 
+                src="{{ str_starts_with($shot->image_url, 'http') 
+                    ? $shot->image_url 
+                    : asset('storage/' . $shot->image_url) }}"
+                class="w-full h-full object-cover group-hover:opacity-90 transition"
+            >
         </div>
 
         <div class="flex items-center justify-between">
