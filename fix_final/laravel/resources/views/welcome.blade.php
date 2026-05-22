@@ -219,7 +219,7 @@
 
         <div class="overflow-hidden rounded-[22px] bg-gray-100">
             <img
-                src="{{ $shot->image_url }}"
+                src="{{ \Illuminate\Support\Str::startsWith($shot->image_url, 'http') ? $shot->image_url : asset('storage/' . $shot->image_url) }}"
                 alt="{{ $shot->title }}"
                 onerror="this.src='https://placehold.co/600x400?text=No+Image'"
                 class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-[1.02]">

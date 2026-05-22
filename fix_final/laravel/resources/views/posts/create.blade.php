@@ -16,8 +16,19 @@
 
     @csrf
 
-    <div class="min-h-screen bg-white">
+    @if ($errors->any())
+        <div class="max-w-4xl mx-auto mt-6 rounded-2xl bg-red-50 border border-red-200 text-red-600 p-5">
+            <p class="font-bold mb-2">Upload gagal:</p>
 
+            <ul class="list-disc pl-5">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <div class="min-h-screen bg-white">
         {{-- Top Bar --}}
         <div class="flex items-center justify-between px-8 py-6 border-b border-gray-200">
 
@@ -96,7 +107,8 @@
     name="image"
     type="file"
     accept="image/*"
-    class="hidden">
+    class="hidden"
+    required>
 
 </div>
 
@@ -115,8 +127,9 @@
                     <input type="text"
                         name="title"
                         placeholder="Give your shot a short, descriptive title"
-                        class="w-full border border-gray-300 rounded-2xl px-5 py-4
-                   focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    required
+                    class="w-full border border-gray-300 rounded-2xl px-5 py-4
+                    focus:outline-none focus:ring-2 focus:ring-pink-400">
 
                 </div>
 

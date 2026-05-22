@@ -204,7 +204,7 @@ class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap
                         @click="openShotModal({{ $shot->id }})"
                     >
                         <img
-                            src="{{ $shot->image_url }}"
+                            src="{{ \Illuminate\Support\Str::startsWith($shot->image_url, 'http') ? $shot->image_url : asset('storage/' . $shot->image_url) }}"
                             alt="{{ $shot->title }}"
                             onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=No+Image'"
                             class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-[1.03]"

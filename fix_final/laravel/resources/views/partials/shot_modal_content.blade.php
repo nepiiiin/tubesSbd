@@ -92,7 +92,7 @@
         </h2>
 
         <div class="relative bg-[#c8d8b8] rounded-[24px] overflow-hidden mb-8">
-            <img src="{{ $shot->image_url }}" 
+            <img src="{{ \Illuminate\Support\Str::startsWith($shot->image_url, 'http') ? $shot->image_url : asset('storage/' . $shot->image_url) }}"
                  alt="{{ $shot->title }}" 
                  class="w-full h-auto object-cover">
         </div>

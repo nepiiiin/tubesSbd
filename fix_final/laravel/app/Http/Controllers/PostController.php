@@ -15,9 +15,10 @@ class PostController extends Controller
     public function store(Request $request)
 {
     $request->validate([
-        'title' => 'required',
-        'image' => 'required|image',
-    ]);
+    'title' => ['required', 'string', 'max:255'],
+    'description' => ['nullable', 'string'],
+    'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp,gif', 'max:10240'],
+]);
 
     $imagePath = $request->file('image')->store('shots', 'public');
 
@@ -29,8 +30,6 @@ class PostController extends Controller
         'description' => $request->description,
 
         'image_url' => $imagePath,
-
-        'title' => $request->title,
     ]);
 
     return redirect('/profile/' . auth()->user()->username);
