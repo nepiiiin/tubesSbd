@@ -196,7 +196,6 @@
                     @if(in_array(Auth::user()->role, ['employer', 'admin']))
                         <a href="{{ route('jobs.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4]">Post a Job</a>
                     @endif
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4]">Settings</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="w-full text-left px-4 py-2 text-sm text-[#ea4c89] hover:bg-[#ea4c89]/10">Log Out</button>
