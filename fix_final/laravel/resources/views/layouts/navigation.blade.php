@@ -95,19 +95,19 @@
                         class="absolute right-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-2xl shadow-xl py-3 z-50"
                     >
                         <div class="px-3 pb-3 border-b border-gray-100">
-                            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors group">
+                            <a href="{{ url('/dashboard/following') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors group">
                                 <svg class="w-5 h-5 text-gray-600 group-hover:text-[#ea4c89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                                 </svg>
                                 <span class="text-sm font-semibold text-gray-800">Following</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors group">
+                            <a href="{{ url('/dashboard/popular') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors group">
                                 <svg class="w-5 h-5 text-gray-600 group-hover:text-[#d83372]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                                 </svg>
                                 <span class="text-sm font-semibold text-gray-800">Popular</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors group">
+                            <a href="{{ url('/dashboard/new') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#f8f7f4] transition-colors group">
                                 <svg class="w-5 h-5 text-gray-600 group-hover:text-[#ea4c89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
                                 </svg>
@@ -118,29 +118,21 @@
                        <div class="flex-1 min-w-0 px-4">
     <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
         
-        <button 
-    type="button"
-    @click="activeCategory='discover'"
-    class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize"
-    :class="activeCategory === 'discover'
-        ? 'bg-[#ea4c89] text-white'
-        : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white'"
+<a
+    href="{{ route('category', ['name' => 'discover']) }}"
+    class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize bg-[#ea4c89] text-white"
 >
-            Discover
-        </button>
+    Discover
+</a>
 
         @foreach($categories as $category)
             @if(strtolower($category->name) !== 'discover') {{-- Agar data discover tidak double kalau ada di DB --}}
-            <button 
-    type="button"
-    @click="activeCategory='{{ $category->name }}'"
-    class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize"
-    :class="activeCategory === '{{ $category->name }}'
-        ? 'bg-[#ea4c89] text-white'
-        : 'bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white'"
+<a
+    href="{{ route('category', ['name' => $category->name]) }}"
+    class="px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap capitalize bg-gray-100 text-gray-700 hover:bg-[#ea4c89] hover:text-white"
 >
-                {{ str_replace('-', ' ', $category->name) }}
-            </button>
+    {{ str_replace('-', ' ', $category->name) }}
+</a>
             @endif
         @endforeach
 
