@@ -242,10 +242,10 @@
 
             </div>
 
-            <!-- SIDEBAR -->
+<!-- SIDEBAR -->
 <div class="lg:w-[360px]">
 
-    <div class="bg-white border border-gray-200 rounded-3xl p-8 sticky top-8">
+    <div class="bg-white border border-gray-200 rounded-3xl p-8">
 
             <!-- SPECIALTIES -->
             <div class="mb-8">
@@ -365,7 +365,7 @@
 
     </div>
 
-</div>w
+</div>
         </div>
 
     </div>
