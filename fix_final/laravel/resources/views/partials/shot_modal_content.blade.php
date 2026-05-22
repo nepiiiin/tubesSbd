@@ -65,7 +65,11 @@
             </button>
 
             @auth
-            <button class="bg-[#0d0c22] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-gray-800 transition shadow-lg">
+            <button 
+                type="button"
+                onclick="openGetInTouchModal({{ $shot->id }})"
+                class="bg-[#0d0c22] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-gray-800 transition shadow-lg"
+            >
                 Get in touch
             </button>
             @else
@@ -237,3 +241,132 @@
         </svg>
     </button>
 </div>
+
+@auth
+<div 
+    id="get-in-touch-modal-{{ $shot->id }}"
+    class="fixed inset-0 z-[300] hidden items-center justify-center bg-black/50 backdrop-blur-sm px-4"
+>
+    <div class="bg-white w-full max-w-md rounded-[28px] shadow-2xl p-7 relative">
+
+        <button
+            type="button"
+            onclick="closeGetInTouchModal({{ $shot->id }})"
+            class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 transition text-xl"
+        >
+            ×
+        </button>
+
+        <div class="flex items-center gap-4 mb-6">
+            <img
+                src="{{ $shot->user->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode($shot->user->username ?? 'U') }}"
+                class="w-14 h-14 rounded-full object-cover border border-gray-200"
+            >
+
+            <div>
+                <h3 class="text-xl font-bold text-[#0d0c22]">
+                    Connect with {{ $shot->user->username ?? 'Designer' }}
+                </h3>
+
+                <p class="text-xs text-gray-500 mt-1">
+                    Responds within a few days
+                </p>
+            </div>
+        </div>
+
+<div class="flex items-center gap-3 mb-6">
+    <button
+        type="button"
+        class="px-4 py-2 rounded-full bg-gray-100 text-[#0d0c22] text-sm font-semibold"
+    >
+        Message
+    </button>
+</div>
+        
+    <div id="message-content-{{ $shot->id }}">
+        <form 
+            onsubmit="sendGetInTouchMessage(event, {{ $shot->id }}, this)"
+            data-designer-email="{{ $shot->user->email }}"
+            data-designer-username="{{ $shot->user->username }}"
+            data-shot-title="{{ $shot->title }}"
+        >
+
+            <div class="mb-5">
+                <label class="flex items-center justify-between text-sm font-semibold text-[#0d0c22] mb-2">
+                    <span>Project Details <span class="text-pink-500">*</span></span>
+                    <span class="text-xs text-gray-400">Minimum 50 characters</span>
+                </label>
+
+                <textarea
+                    name="message"
+                    rows="6"
+                    minlength="50"
+                    required
+                    placeholder="Include any project details, requirements, or goals..."
+                    class="w-full rounded-2xl border border-gray-200 focus:border-pink-400 focus:ring-pink-400 text-sm resize-none text-gray-900"
+                ></textarea>
+            </div>
+
+            <div class="mb-5">
+                <label class="block text-sm font-semibold text-[#0d0c22] mb-2">
+                    Target Date <span class="text-pink-500">*</span>
+                </label>
+
+                <select
+                    name="target_date"
+                    required
+                    class="w-full rounded-2xl border border-gray-200 focus:border-pink-400 focus:ring-pink-400 text-sm text-gray-700"
+                >
+                    <option value="">Please select...</option>
+                    <option value="ASAP">As soon as possible</option>
+                    <option value="1-2 weeks">1–2 weeks</option>
+                    <option value="1 month">Within 1 month</option>
+                    <option value="flexible">Flexible</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-[#0d0c22] mb-2">
+                    Project Budget <span class="text-pink-500">*</span>
+                </label>
+
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                        Rp
+                    </span>
+
+                    <input
+                        type="number"
+                        name="budget"
+                        required
+                        min="0"
+                        placeholder="Enter amount"
+                        class="w-full rounded-2xl border border-gray-200 focus:border-pink-400 focus:ring-pink-400 text-sm pl-12 text-gray-900"
+                    >
+                </div>
+
+                <label class="flex items-center gap-2 mt-3 text-xs text-gray-600">
+                    <input
+                        type="checkbox"
+                        name="recommend_budget"
+                        class="rounded border-gray-300 text-pink-500 focus:ring-pink-500"
+                    >
+                    Let designer recommend a budget
+                </label>
+            </div>
+
+            <button
+                type="submit"
+                class="w-full h-12 rounded-full bg-[#ea4c89] hover:bg-[#c73e72] text-white font-bold transition"
+            >
+                Send Message
+            </button>
+
+        </form>
+    </div>
+</div>
+
+    
+    </div>
+</div>
+@endauth

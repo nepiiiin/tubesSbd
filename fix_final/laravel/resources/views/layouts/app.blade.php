@@ -163,5 +163,83 @@
 }
     </script>
 
+<script>
+    window.openGetInTouchModal = function (shotId) {
+        const modal = document.getElementById('get-in-touch-modal-' + shotId);
+
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        } else {
+            console.error('Get in touch modal not found:', shotId);
+        }
+    };
+
+    window.closeGetInTouchModal = function (shotId) {
+        const modal = document.getElementById('get-in-touch-modal-' + shotId);
+
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    };
+
+    window.sendGetInTouchMessage = function (event, shotId, form) {
+        event.preventDefault();
+
+        const designerEmail = form.dataset.designerEmail;
+        const designerUsername = form.dataset.designerUsername || 'Designer';
+        const shotTitle = form.dataset.shotTitle || 'Project';
+
+        const message = form.querySelector('[name="message"]').value.trim();
+        const targetDate = form.querySelector('[name="target_date"]').value;
+        const budget = form.querySelector('[name="budget"]').value;
+        const recommendBudget = form.querySelector('[name="recommend_budget"]').checked;
+
+        if (!designerEmail) {
+            alert('Email designer belum tersedia.');
+            return;
+        }
+
+        if (message.length < 50) {
+            alert('Project details minimal 50 karakter.');
+            return;
+        }
+
+        const subject = `Project inquiry for ${shotTitle}`;
+
+        const body = `
+Hi ${designerUsername},
+
+I'm interested in working with you.
+
+Project:
+${shotTitle}
+
+Project Details:
+${message}
+
+Target Date:
+${targetDate}
+
+Project Budget:
+${recommendBudget ? 'Please recommend a budget' : 'Rp ' + budget}
+
+Thank you.
+        `.trim();
+
+        const mailtoUrl =
+            `mailto:${designerEmail}` +
+            `?subject=${encodeURIComponent(subject)}` +
+            `&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoUrl;
+
+        form.reset();
+
+        window.closeGetInTouchModal(shotId);
+    };
+</script>
+
 </body>
 </html>

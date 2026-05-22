@@ -268,4 +268,34 @@ window.followUser = async function (userId, button) {
         console.error('FOLLOW ERROR:', e);
 
     }
+
+    window.openGetInTouchModal = function (shotId) {
+    const modal = document.getElementById(`get-in-touch-modal-${shotId}`);
+
+    if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    } else {
+        console.error('Get in touch modal not found:', shotId);
+    }
+};
+
+window.closeGetInTouchModal = function (shotId) {
+    const modal = document.getElementById(`get-in-touch-modal-${shotId}`);
+
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+};
+
+window.sendGetInTouchMessage = function (event, shotId, form) {
+    event.preventDefault();
+
+    alert('Message form sudah jalan. Nanti tinggal disambungkan ke database.');
+
+    form.reset();
+
+    window.closeGetInTouchModal(shotId);
+};
 }
